@@ -1,13 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:project_s/constants/waste_resource.dart';
 import 'package:project_s/pages/level_select_page_view.dart';
 import 'package:project_s/pages/main_page_controller.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
+import 'package:project_s/widgets/menu_item.dart';
 
 import '../widgets/knowledge_dialog.dart';
+import '../widgets/waste_card.dart';
 import 'chalenge_select_page_view.dart';
 
-class MainPageView extends StatelessWidget {
-  MainPageView({super.key});
+class MainPageView extends StatefulWidget {
+  const MainPageView({super.key});
+
+  @override
+  State<MainPageView> createState() => _MainPageViewState();
+}
+
+class _MainPageViewState extends State<MainPageView> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return const Placeholder();
+//   }
+// }
+
+// class MainPageView extends StatelessWidget {
+  // MainPageView({super.key});
+
+  bool showhint = true;
 
   final MainPageController controller = MainPageController();
 
@@ -20,35 +39,54 @@ class MainPageView extends StatelessWidget {
   }
 
   Widget layout(BuildContext context) {
-    return Column(
-      children: [
-        FilledButton(
-            onPressed: () {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        children: [
+          Switch(
+              value: showhint,
+              onChanged: (v) {
+                setState(() {
+                  showhint = v;
+                });
+              }),
+          WasteCard(
+            showHint: showhint,
+            value: WasteResource().all.first,
+          ),
+          MenuItem(
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
               );
             },
-            child: const Text('Levels')),
-        FilledButton(
-            onPressed: () {
+            text: 'Levels',
+          ),
+          const SizedBox(height: 16),
+          MenuItem(
+            onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
               );
             },
-            child: const Text('Chalenge')),
-        FilledButton(
-            onPressed: () {
+            text: 'Chalenge',
+          ),
+          const SizedBox(height: 16),
+          MenuItem(
+            onTap: () {
               showDialog(context: context, builder: (context) => const KnowledgeDialog());
             },
-            child: const Text('Knowledge')),
-        FilledButton(
-            onPressed: () {
-              // showDialog(context: context, builder: (context) => const KnowledgeDialog());
-            },
-            child: const Text('Tutorial')),
-      ],
+            text: 'Knowledge',
+          ),
+          const SizedBox(height: 16),
+          MenuItem(
+            onTap: () {},
+            text: 'Tutorial',
+          ),
+        ],
+      ),
     );
   }
 }

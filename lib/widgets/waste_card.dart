@@ -34,21 +34,96 @@ class WasteCard extends StatelessWidget {
   }
 
   _content() {
-    return Container(
-        width: 100,
-        height: 100,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-          color: Colors.blue,
-        ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(value.name),
-              if (showHint) Text(value.category.name),
-            ],
+    const height = 180.0;
+    const width = 132.0;
+    const outerCircular = 16.0;
+    const innerCircular = 8.0;
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          padding: const EdgeInsets.all(8),
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(outerCircular),
+            border: Border.all(
+              color: Colors.black,
+              width: 4,
+            ),
           ),
-        ));
+          child: Container(
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(innerCircular),
+            ),
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Container(
+                    color: Colors.blue,
+                    padding: const EdgeInsets.all(4.0),
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        value.name,
+                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(
+                      color: Colors.grey.shade100,
+                      child: Image.network(
+                        'https://picsum.photos/500',
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+        _hint(),
+      ],
+    );
+  }
+
+  _hint() {
+    return Positioned(
+      bottom: 8,
+      right: 8,
+      child: showHint
+          ? ClipOval(
+              child: Container(
+                width: 25,
+                height: 25,
+                color: Colors.red.shade400,
+              ),
+            )
+          //  FittedBox(
+          //   fit: BoxFit.scaleDown,
+          //   child: Container(
+          //     padding: const EdgeInsets.all(4),
+          //     alignment: Alignment.center,
+          //     width: width,
+          //     decoration: const BoxDecoration(
+          //       color: Colors.blue,
+          //       borderRadius: BorderRadius.vertical(
+          //           bottom: Radius.circular(innerCircular)),
+          //     ),
+          //     child: Text(
+          //       value.category.name,
+          //       style:
+          //           const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+          //     ),
+          //   ),
+          // ),
+          : const SizedBox(),
+    );
   }
 }

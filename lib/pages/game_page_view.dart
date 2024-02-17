@@ -73,7 +73,7 @@ class _GamePageViewState extends State<GamePageView> {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const BackButton(),
@@ -193,6 +193,12 @@ class _GamePageViewState extends State<GamePageView> {
       },
       onWrongPlace: (value) {
         controller.wrongEffect();
+      },
+      onMoveIn: () {
+        controller.onMoveIn(type);
+      },
+      onMoveOut: () {
+        controller.onMoveOut(type);
       },
       showHint: controller.showHint,
     );

@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
+import 'package:project_s/constants/waste_type.dart';
 import 'package:project_s/models/level_model.dart';
 import 'package:project_s/widgets/chalenge_end_dialog.dart';
 
@@ -19,6 +20,7 @@ class GamePageState {
   final bool showHint;
   final num score;
   final num timeRemainPercentage;
+  final Map<String, int> binIndexes;
 
   GamePageState({
     required this.queue,
@@ -26,16 +28,17 @@ class GamePageState {
     required this.showHint,
     required this.score,
     required this.timeRemainPercentage,
+    required this.binIndexes,
   });
 
   factory GamePageState.i() {
     return GamePageState(
-      queue: Queue(),
-      shakeOffset: Offset.zero,
-      showHint: false,
-      score: 0,
-      timeRemainPercentage: 1,
-    );
+        queue: Queue(),
+        shakeOffset: Offset.zero,
+        showHint: false,
+        score: 0,
+        timeRemainPercentage: 1,
+        binIndexes: {});
   }
 
   copyWith({
@@ -44,6 +47,7 @@ class GamePageState {
     bool? showHint,
     num? score,
     num? timeRemainPercentage,
+    Map<String, int>? binIndexes,
   }) {
     return GamePageState(
       queue: queue ?? this.queue,
@@ -51,6 +55,7 @@ class GamePageState {
       showHint: showHint ?? this.showHint,
       score: score ?? this.score,
       timeRemainPercentage: timeRemainPercentage ?? this.timeRemainPercentage,
+      binIndexes: binIndexes ?? this.binIndexes,
     );
   }
 }
@@ -87,6 +92,8 @@ class GamePageController extends Cubit<GamePageState> {
   Timer? timer;
 
   int lastIndex = -1;
+
+  Map<String, int> get binIndexes => state.binIndexes;
 
   init(context, GamePageViewArguments arguments) {
     level = arguments.level;
@@ -189,5 +196,13 @@ class GamePageController extends Cubit<GamePageState> {
 
   updateShowHint(bool value) {
     emit(state.copyWith(showHint: value));
+  }
+
+  onMoveIn(WasteType type) {
+    binIndexes[type.name] = 999;
+  }
+
+  onMoveOut(WasteType type) {
+    binIndexes[type.name] = 1;
   }
 }

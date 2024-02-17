@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s/pages/game_page_view.dart';
 
 import 'pages/main_page_view.dart';
 
@@ -18,7 +19,9 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent.shade400),
         useMaterial3: true,
       ),
-      home: MainPageView(),
+      home:
+          //const MainPageView(),
+          GamePageView(arguments: GamePageViewArguments(level: 4)),
     );
   }
 }

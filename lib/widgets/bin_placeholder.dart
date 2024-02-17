@@ -12,12 +12,16 @@ class BinPlaceHolder extends StatefulWidget {
     required this.targetValue,
     required this.onCorrectPlace,
     required this.onWrongPlace,
+    this.onMoveIn,
+    this.onMoveOut,
     required this.showHint,
   });
 
   final WasteType targetValue;
   final Function(WasteModel) onCorrectPlace;
   final Function(WasteModel) onWrongPlace;
+  final Function()? onMoveIn;
+  final Function()? onMoveOut;
   final bool showHint;
 
   @override
@@ -25,6 +29,9 @@ class BinPlaceHolder extends StatefulWidget {
 }
 
 class _BinPlaceHolderState extends State<BinPlaceHolder> {
+  Offset starOffset = const Offset(0, 1);
+  double starSize = 0;
+
   WasteModel? tempWaste;
 
   @override
@@ -36,6 +43,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
       onAccept: (value) {
         if (value.type == widget.targetValue) {
           widget.onCorrectPlace(value);
+          shake();
         } else {
           widget.onWrongPlace(value);
         }
@@ -65,22 +73,64 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
               color: Colors.blue.withOpacity(0.2),
             ),
             child: Stack(
+              alignment: Alignment.center,
+              clipBehavior: Clip.none,
               children: [
-                Center(
-                  child: Text(widget.targetValue.name),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.recycling_rounded),
+                    Text(widget.targetValue.name),
+                  ],
+                ),
+                AnimatedSlide(
+                  offset: starOffset,
+                  duration: const Duration(milliseconds: 500),
+                  curve: Curves.ease,
+                  child: AnimatedScale(
+                    scale: starSize,
+                    duration: const Duration(milliseconds: 500),
+                    curve: Curves.ease,
+                    child: const Icon(
+                      Icons.star_rounded,
+                      color: Colors.amber,
+                      size: 20,
+                    ),
+                  ),
                 ),
                 if (tempWaste != null)
-                  Transform.scale(
-                    scale: 1.2,
-                    child: Transform.rotate(
-                      angle: randomRotate,
-                      child: WasteCard(value: tempWaste!, showHint: widget.showHint),
+                  Positioned(
+                    top: -45,
+                    left: -20,
+                    child: Transform.scale(
+                      scale: 0.5,
+                      child: Transform.rotate(
+                        angle: randomRotate,
+                        child: SizedBox(
+                            height: 180,
+                            width: 132,
+                            child: WasteCard(value: tempWaste!, showHint: widget.showHint)),
+                      ),
                     ),
                   ),
               ],
             ));
       },
     );
+  }
+
+  void shake() async {
+    setState(() {
+      starOffset = const Offset(0, -1);
+      starSize = 2;
+    });
+
+    await Future.delayed(const Duration(milliseconds: 750));
+
+    setState(() {
+      starOffset = const Offset(0, 1);
+      starSize = 0;
+    });
   }
 
 // -0.15 & 0.15 & ~0.0
