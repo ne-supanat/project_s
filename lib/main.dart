@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:project_s/app/routes/app_pages.dart';
+
+import 'pages/main_page_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -12,14 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       title: 'Project S',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent.shade400),
         useMaterial3: true,
       ),
-      initialRoute: AppPages.INITIAL,
-      getPages: AppPages.routes,
+      home: MainPageView(),
     );
   }
 }

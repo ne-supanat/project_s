@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class ChalengeEndDialog extends StatelessWidget {
   const ChalengeEndDialog({super.key, required this.score});
@@ -25,7 +24,7 @@ class ChalengeEndDialog extends StatelessWidget {
           const SizedBox(height: 8),
           FilledButton(
             onPressed: () {
-              Get.back();
+              Navigator.pop(context);
             },
             child: const Text('close'),
           )
