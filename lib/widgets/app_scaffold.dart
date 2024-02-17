@@ -28,7 +28,6 @@ class AppScaffold<STATE> extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           constraints: const BoxConstraints(
-            maxHeight: 500,
             maxWidth: 500,
           ),
           child: body(context),

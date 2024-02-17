@@ -37,7 +37,7 @@ class _GamePageViewState extends State<GamePageView> {
   Widget build(BuildContext context) {
     return AppScaffold<GamePageState>(
       controller: controller,
-      body: layout,
+      body: layout2,
     );
   }
 
@@ -61,6 +61,36 @@ class _GamePageViewState extends State<GamePageView> {
           child: _general(),
         ),
       ],
+    );
+  }
+
+  Widget layout2(BuildContext context) {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          _gui(),
+          const SizedBox(),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 36),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  _danger(),
+                  _cardHeap(),
+                  _general(),
+                ],
+              ),
+              const SizedBox(height: 24),
+              _recycle(),
+            ],
+          ),
+          const SizedBox(),
+        ],
+      ),
     );
   }
 
@@ -121,18 +151,24 @@ class _GamePageViewState extends State<GamePageView> {
   }
 
   _cardHeap() {
-    return IndexedStack(
-      children: controller.queue
-          .map((e) => AnimatedSlide(
-                offset: controller.shakeOffset,
-                duration: const Duration(milliseconds: 50),
-                curve: Curves.ease,
-                child: WasteCard(
-                  value: e,
-                  showHint: controller.showHint,
-                ),
-              ))
-          .toList(),
+    return AnimatedScale(
+      scale: controller.cardScale,
+      duration: const Duration(milliseconds: 100),
+      curve: Curves.ease,
+      child: AnimatedSlide(
+        offset: controller.cardSlide,
+        duration: const Duration(milliseconds: 100),
+        curve: Curves.ease,
+        child: AnimatedSlide(
+          offset: controller.shakeOffset,
+          duration: const Duration(milliseconds: 50),
+          curve: Curves.ease,
+          child: WasteCard(
+            value: controller.queue.first,
+            showHint: controller.showHint,
+          ),
+        ),
+      ),
     );
   }
 
@@ -142,6 +178,7 @@ class _GamePageViewState extends State<GamePageView> {
       child: Column(
         children: [
           _binPlaceHolder(WasteType.biohazard),
+          const SizedBox(height: 16),
           _binPlaceHolder(WasteType.electronic),
         ],
       ),
@@ -152,10 +189,13 @@ class _GamePageViewState extends State<GamePageView> {
     return _categoryZone(
       category: WasteCategory.recycle,
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _binPlaceHolder(WasteType.paper),
+          const SizedBox(width: 16),
           _binPlaceHolder(WasteType.plastic),
+          const SizedBox(width: 16),
           _binPlaceHolder(WasteType.aluminium),
         ],
       ),
@@ -168,6 +208,7 @@ class _GamePageViewState extends State<GamePageView> {
       child: Column(
         children: [
           _binPlaceHolder(WasteType.food),
+          const SizedBox(height: 16),
           _binPlaceHolder(WasteType.general),
         ],
       ),
@@ -180,7 +221,14 @@ class _GamePageViewState extends State<GamePageView> {
       absorbing: !enable,
       child: Opacity(
         opacity: enable ? 1 : 0.1,
-        child: child,
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: category.color.withOpacity(0.5),
+          ),
+          child: child,
+        ),
       ),
     );
   }
@@ -193,12 +241,6 @@ class _GamePageViewState extends State<GamePageView> {
       },
       onWrongPlace: (value) {
         controller.wrongEffect();
-      },
-      onMoveIn: () {
-        controller.onMoveIn(type);
-      },
-      onMoveOut: () {
-        controller.onMoveOut(type);
       },
       showHint: controller.showHint,
     );

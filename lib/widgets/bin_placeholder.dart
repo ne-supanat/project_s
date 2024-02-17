@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:project_s/constants/waste_type.dart';
 import 'package:project_s/widgets/waste_card.dart';
@@ -12,16 +13,12 @@ class BinPlaceHolder extends StatefulWidget {
     required this.targetValue,
     required this.onCorrectPlace,
     required this.onWrongPlace,
-    this.onMoveIn,
-    this.onMoveOut,
     required this.showHint,
   });
 
   final WasteType targetValue;
   final Function(WasteModel) onCorrectPlace;
   final Function(WasteModel) onWrongPlace;
-  final Function()? onMoveIn;
-  final Function()? onMoveOut;
   final bool showHint;
 
   @override
@@ -64,57 +61,63 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
         });
       },
       builder: (context, candidates, rejects) {
-        return Container(
-            width: 100,
-            height: 100,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(16),
-              border: Border.all(style: BorderStyle.solid, width: 2, color: Colors.blue),
-              color: Colors.blue.withOpacity(0.2),
-            ),
-            child: Stack(
-              alignment: Alignment.center,
-              clipBehavior: Clip.none,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.recycling_rounded),
-                    Text(widget.targetValue.name),
-                  ],
-                ),
-                AnimatedSlide(
-                  offset: starOffset,
-                  duration: const Duration(milliseconds: 500),
-                  curve: Curves.ease,
-                  child: AnimatedScale(
-                    scale: starSize,
+        return DottedBorder(
+          color: Colors.white.withOpacity(0.5),
+          strokeWidth: 4,
+          strokeCap: StrokeCap.round,
+          dashPattern: const [10],
+          radius: const Radius.circular(16),
+          borderType: BorderType.RRect,
+          child: Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Stack(
+                alignment: Alignment.center,
+                clipBehavior: Clip.none,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.recycling_rounded),
+                      Text(widget.targetValue.name),
+                    ],
+                  ),
+                  AnimatedSlide(
+                    offset: starOffset,
                     duration: const Duration(milliseconds: 500),
                     curve: Curves.ease,
-                    child: const Icon(
-                      Icons.star_rounded,
-                      color: Colors.amber,
-                      size: 20,
-                    ),
-                  ),
-                ),
-                if (tempWaste != null)
-                  Positioned(
-                    top: -45,
-                    left: -20,
-                    child: Transform.scale(
-                      scale: 0.5,
-                      child: Transform.rotate(
-                        angle: randomRotate,
-                        child: SizedBox(
-                            height: 180,
-                            width: 132,
-                            child: WasteCard(value: tempWaste!, showHint: widget.showHint)),
+                    child: AnimatedScale(
+                      scale: starSize,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.ease,
+                      child: const Icon(
+                        Icons.star_rounded,
+                        color: Colors.amber,
+                        size: 20,
                       ),
                     ),
                   ),
-              ],
-            ));
+                  if (tempWaste != null)
+                    Positioned(
+                      top: -40,
+                      left: -18,
+                      child: Transform.scale(
+                        scale: 0.5,
+                        child: Transform.rotate(
+                          angle: randomRotate,
+                          child: SizedBox(
+                              height: 180,
+                              width: 132,
+                              child: WasteCard(value: tempWaste!, showHint: widget.showHint)),
+                        ),
+                      ),
+                    ),
+                ],
+              )),
+        );
       },
     );
   }

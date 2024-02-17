@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s/constants/waste_type.dart';
 
 import '../models/waste_model.dart';
 
@@ -70,7 +71,8 @@ class WasteCard extends StatelessWidget {
                       fit: BoxFit.scaleDown,
                       child: Text(
                         value.name,
-                        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
                       ),
                     ),
                   ),
@@ -98,31 +100,15 @@ class WasteCard extends StatelessWidget {
       bottom: 8,
       right: 8,
       child: showHint
-          ? ClipOval(
-              child: Container(
-                width: 25,
-                height: 25,
-                color: Colors.red.shade400,
+          ? Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(width: 3, color: Colors.white),
+                color: value.category.color,
               ),
+              width: 25,
+              height: 25,
             )
-          //  FittedBox(
-          //   fit: BoxFit.scaleDown,
-          //   child: Container(
-          //     padding: const EdgeInsets.all(4),
-          //     alignment: Alignment.center,
-          //     width: width,
-          //     decoration: const BoxDecoration(
-          //       color: Colors.blue,
-          //       borderRadius: BorderRadius.vertical(
-          //           bottom: Radius.circular(innerCircular)),
-          //     ),
-          //     child: Text(
-          //       value.category.name,
-          //       style:
-          //           const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-          //     ),
-          //   ),
-          // ),
           : const SizedBox(),
     );
   }

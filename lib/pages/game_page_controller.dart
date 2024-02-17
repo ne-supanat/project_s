@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
-import 'package:project_s/constants/waste_type.dart';
 import 'package:project_s/models/level_model.dart';
 import 'package:project_s/widgets/chalenge_end_dialog.dart';
 
@@ -21,6 +20,8 @@ class GamePageState {
   final num score;
   final num timeRemainPercentage;
   final Map<String, int> binIndexes;
+  final double cardScale;
+  final Offset cardSlide;
 
   GamePageState({
     required this.queue,
@@ -29,16 +30,21 @@ class GamePageState {
     required this.score,
     required this.timeRemainPercentage,
     required this.binIndexes,
+    required this.cardScale,
+    required this.cardSlide,
   });
 
   factory GamePageState.i() {
     return GamePageState(
-        queue: Queue(),
-        shakeOffset: Offset.zero,
-        showHint: false,
-        score: 0,
-        timeRemainPercentage: 1,
-        binIndexes: {});
+      queue: Queue(),
+      shakeOffset: Offset.zero,
+      showHint: false,
+      score: 0,
+      timeRemainPercentage: 1,
+      binIndexes: {},
+      cardScale: 1,
+      cardSlide: Offset.zero,
+    );
   }
 
   copyWith({
@@ -48,6 +54,8 @@ class GamePageState {
     num? score,
     num? timeRemainPercentage,
     Map<String, int>? binIndexes,
+    double? cardScale,
+    Offset? cardSlide,
   }) {
     return GamePageState(
       queue: queue ?? this.queue,
@@ -56,6 +64,8 @@ class GamePageState {
       score: score ?? this.score,
       timeRemainPercentage: timeRemainPercentage ?? this.timeRemainPercentage,
       binIndexes: binIndexes ?? this.binIndexes,
+      cardScale: cardScale ?? this.cardScale,
+      cardSlide: cardSlide ?? this.cardSlide,
     );
   }
 }
@@ -80,6 +90,8 @@ class GamePageController extends Cubit<GamePageState> {
   ];
 
   Offset get shakeOffset => state.shakeOffset;
+  double get cardScale => state.cardScale;
+  Offset get cardSlide => state.cardSlide;
 
   bool get showHint => state.showHint;
 
@@ -188,6 +200,15 @@ class GamePageController extends Cubit<GamePageState> {
     } while (newIndex == lastIndex);
     lastIndex = newIndex;
     emit(state.copyWith(queue: queue..add(wastes[lastIndex])));
+    spawnCardEffect();
+  }
+
+  spawnCardEffect() async {
+    emit(state.copyWith(cardScale: 1.01));
+    emit(state.copyWith(cardSlide: const Offset(0.0, -0.02)));
+    await Future.delayed(const Duration(milliseconds: 100));
+    emit(state.copyWith(cardScale: 1));
+    emit(state.copyWith(cardSlide: Offset.zero));
   }
 
   clearQueue() {
@@ -196,13 +217,5 @@ class GamePageController extends Cubit<GamePageState> {
 
   updateShowHint(bool value) {
     emit(state.copyWith(showHint: value));
-  }
-
-  onMoveIn(WasteType type) {
-    binIndexes[type.name] = 999;
-  }
-
-  onMoveOut(WasteType type) {
-    binIndexes[type.name] = 1;
   }
 }
