@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
 class ChalengeEndDialog extends StatelessWidget {
-  const ChalengeEndDialog({super.key, required this.score});
+  const ChalengeEndDialog({
+    super.key,
+    required this.score,
+    required this.onPlayAgain,
+    required this.onBack,
+  });
 
   final num score;
+  final Function() onPlayAgain;
+  final Function() onBack;
 
   @override
   Widget build(BuildContext context) {
@@ -23,10 +30,13 @@ class ChalengeEndDialog extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           FilledButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('close'),
+            onPressed: onPlayAgain,
+            child: const Text('play again'),
+          ),
+          const SizedBox(height: 8),
+          FilledButton(
+            onPressed: onBack,
+            child: const Text('back'),
           )
         ],
       ),

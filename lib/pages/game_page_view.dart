@@ -76,6 +76,8 @@ class _GamePageViewState extends State<GamePageView> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const BackButton(),
+            const SizedBox(width: 16),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -103,11 +105,6 @@ class _GamePageViewState extends State<GamePageView> {
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FilledButton(
-                      onPressed: () {
-                        controller.updateScore();
-                      },
-                      child: Text('+1')),
                   Text('score: ${controller.score}'),
                   LinearProgressIndicator(
                     value: controller.timeRemainPercentage.toDouble(),
@@ -178,7 +175,7 @@ class _GamePageViewState extends State<GamePageView> {
   }
 
   _categoryZone({required WasteCategory category, required Widget child}) {
-    final enable = controller.levelModel?.availableCategories.contains(category) ?? false;
+    final enable = controller.levelModel?.availableCategories.contains(category) ?? true;
     return AbsorbPointer(
       absorbing: !enable,
       child: Opacity(

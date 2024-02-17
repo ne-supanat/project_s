@@ -97,12 +97,8 @@ class GamePageController extends Cubit<GamePageState> {
     }
 
     if (chalengeLevel != null) {
-      // _startChalenge();
+      _startChalenge(context);
     }
-  }
-
-  updateScore() {
-    emit(state.copyWith(score: score + 1));
   }
 
   _loadLevel(context) {
@@ -116,6 +112,47 @@ class GamePageController extends Cubit<GamePageState> {
 
     wastes = WasteResource().getWasteFromNames(levelModel?.wasteNames ?? []);
     addCardToQueue();
+  }
+
+  _startChalenge(BuildContext context) {
+    wastes = WasteResource().all;
+    clearQueue();
+    addCardToQueue();
+
+    timeMax = chalengeLevel?.time ?? double.infinity;
+    timeRemain = timeMax;
+    emit(state.copyWith(timeRemainPercentage: 1));
+    emit(state.copyWith(score: 0));
+
+    runTimer(context);
+  }
+
+  runTimer(BuildContext context) {
+    timer?.cancel();
+
+    timer = Timer(const Duration(seconds: 1), () async {
+      timeRemain--;
+
+      emit(state.copyWith(timeRemainPercentage: timeRemain / timeMax));
+
+      if (timeRemain > 0) {
+        runTimer(context);
+      } else {
+        await showDialog(
+          context: context,
+          builder: (c) => ChalengeEndDialog(
+              score: score,
+              onPlayAgain: () {
+                Navigator.pop(c);
+                _startChalenge(context);
+              },
+              onBack: () {
+                Navigator.pop(context);
+                Navigator.pop(context);
+              }),
+        );
+      }
+    });
   }
 
   onCorrectPlace() {
@@ -146,332 +183,11 @@ class GamePageController extends Cubit<GamePageState> {
     emit(state.copyWith(queue: queue..add(wastes[lastIndex])));
   }
 
+  clearQueue() {
+    emit(state.copyWith(queue: Queue()));
+  }
+
   updateShowHint(bool value) {
     emit(state.copyWith(showHint: value));
   }
-
-  _startChalenge(BuildContext context) {
-    timeMax = chalengeLevel?.time ?? double.infinity;
-    timeRemain = timeMax;
-    emit(state.copyWith(timeRemainPercentage: 1));
-
-    runTimer(context);
-  }
-
-  resetChalenge() {
-    timeMax = double.infinity;
-    timeRemain = double.infinity;
-    emit(state.copyWith(timeRemainPercentage: 1));
-    emit(state.copyWith(score: 0));
-  }
-
-  runTimer(BuildContext context) {
-    timer?.cancel();
-
-    timer = Timer(const Duration(seconds: 1), () {
-      timeRemain--;
-
-      emit(state.copyWith(timeRemainPercentage: timeRemain / timeMax));
-
-      if (timeRemain > 0) {
-        runTimer(context);
-      } else {
-        showDialog(
-          context: context,
-          builder: (context) => ChalengeEndDialog(score: score),
-        );
-
-        resetChalenge();
-      }
-    });
-  }
 }
-
-// class GamePageControllerBloc extends Cubit<GamePageController> {
-//   GamePageControllerBloc() : super(GamePageController());
-
-//   late GamePageViewArguments arguments;
-//   late int? level;
-//   late ChalengeLevel? chalengeLevel;
-
-//   LevelModel? levelModel;
-
-//   final Queue<WasteModel> queue = Queue();
-//   List<WasteModel> wastes = WasteResource().all;
-
-//   final shakeOffsets = const [
-//     Offset(0.05, 0.0),
-//     Offset(-0.05, 0.0),
-//     Offset(0.05, 0.0),
-//     Offset(-0.05, 0.0)
-//   ];
-
-//   // Rx<Offset> shakeOffset = Rx(Offset.zero);
-//   Offset shakeOffset = Offset.zero;
-
-//   // RxBool showHint = RxBool(false);
-//   bool showHint = false;
-
-//   num score = 0;
-//   num timeMax = double.infinity;
-//   num timeRemain = double.infinity;
-
-//   // RxNum timeRemainPercentage = RxNum(1);
-//   num timeRemainPercentage = 1;
-
-//   Timer? timer;
-
-//   int lastIndex = -1;
-
-//   init(context, GamePageViewArguments arguments) {
-//     level = arguments.level;
-//     chalengeLevel = arguments.chalengeLevel;
-
-//     if (level != null) {
-//       _loadLevel(context);
-//     }
-
-//     if (chalengeLevel != null) {
-//       // _startChalenge();
-//     }
-//   }
-
-//   updateScore() {
-//     score++;
-//     setScore(score);
-//   }
-
-//   _loadLevel(context) {
-//     levelModel = LevelResource().levels[level];
-
-//     if (levelModel == null) {
-//       ScaffoldMessenger.of(context)
-//           .showSnackBar(const SnackBar(content: Text('Fail to load data')));
-//       Navigator.pop(context);
-//     }
-
-//     wastes = WasteResource().getWasteFromNames(levelModel?.wasteNames ?? []);
-//     addCardToQueue();
-//   }
-
-//   onCorrectPlace() {
-//     scoreBloc.set(scoreBloc.state + 1);
-//     timeRemain = timeMax;
-//     timeRemainPercentage(timeRemain / timeMax);
-
-//     queueBloc.remove();
-//     addCardToQueue();
-//   }
-
-//   wrongEffect() async {
-//     for (final offset in shakeOffsets) {
-//       shakeOffset(offset);
-//       await Future.delayed(const Duration(milliseconds: 50));
-//     }
-
-//     shakeOffset(Offset.zero);
-//   }
-
-//   addCardToQueue() {
-//     int newIndex = lastIndex;
-//     do {
-//       newIndex = Random().nextInt(wastes.length);
-//     } while (newIndex == lastIndex);
-//     lastIndex = newIndex;
-//     queueBloc.add(wastes[lastIndex]);
-//   }
-
-//   // updateShowHint(bool value) {
-//   //   showHint(value);
-//   // }
-
-//   // _startChalenge() {
-//   //   timeMax = chalengeLevel?.time ?? double.infinity;
-//   //   timeRemain = timeMax;
-//   //   timeRemainPercentage(1);
-
-//   //   runTimer();
-//   // }
-
-//   // resetChalenge() {
-//   //   timeMax = double.infinity;
-//   //   timeRemain = double.infinity;
-//   //   timeRemainPercentage(1);
-//   //   score(0);
-//   // }
-
-//   // runTimer() {
-//   //   timer?.cancel();
-
-//   //   timer = Timer(const Duration(seconds: 1), () {
-//   //     timeRemain--;
-
-//   //     timeRemainPercentage(timeRemain / timeMax);
-
-//   //     if (timeRemain > 0) {
-//   //       runTimer();
-//   //     } else {
-//   //       Get.dialog(ChalengeEndDialog(score: score.value));
-//   //       resetChalenge();
-//   //     }
-//   //   });
-//   // }
-// }
-
-// // class GamePageScoreBloc extends Cubit<num> {
-// //   GamePageScoreBloc() : super(0);
-
-// //   void set(value) => emit(value);
-// // }
-
-// // class GamePageQueueBloc extends Cubit<Queue<WasteModel>> {
-// //   GamePageQueueBloc() : super(Queue());
-
-// //   void set(value) => emit(value);
-// //   void add(WasteModel value) => emit(state..add(value));
-// //   void remove() => emit(state..removeFirst());
-// // }
-
-// // class GamePageShakeOffsetBloc extends Cubit<Offset> {
-// //   GamePageShakeOffsetBloc() : super(Offset.zero);
-
-// //   void set(value) => emit(value);
-// // }
-
-// // class GamePageTimeRemainPercentageBloc extends Cubit<num> {
-// //   GamePageQueueBloc() : super(Queue());
-
-// //   void set(value) => emit(value);
-// // }
-
-// class GamePageController {
-//   final scoreBloc = GetIt.I.get<GamePageScoreBloc>();
-//   final queueBloc = GetIt.I.get<GamePageQueueBloc>();
-
-//   late GamePageViewArguments arguments;
-//   late int? level;
-//   late ChalengeLevel? chalengeLevel;
-
-//   LevelModel? levelModel;
-
-//   final Queue<WasteModel> queue = Queue();
-//   List<WasteModel> wastes = WasteResource().all;
-
-//   final shakeOffsets = const [
-//     Offset(0.05, 0.0),
-//     Offset(-0.05, 0.0),
-//     Offset(0.05, 0.0),
-//     Offset(-0.05, 0.0)
-//   ];
-
-//   // Rx<Offset> shakeOffset = Rx(Offset.zero);
-//   Offset shakeOffset = Offset.zero;
-
-//   // RxBool showHint = RxBool(false);
-//   bool showHint = false;
-
-//   num score = 0;
-//   num timeMax = double.infinity;
-//   num timeRemain = double.infinity;
-
-//   // RxNum timeRemainPercentage = RxNum(1);
-//   num timeRemainPercentage = 1;
-
-//   Timer? timer;
-
-//   int lastIndex = -1;
-
-//   init(context, GamePageViewArguments arguments) {
-//     level = arguments.level;
-//     chalengeLevel = arguments.chalengeLevel;
-
-//     if (level != null) {
-//       _loadLevel(context);
-//     }
-
-//     if (chalengeLevel != null) {
-//       // _startChalenge();
-//     }
-//   }
-
-//   updateScore() {
-//     score++;
-//     scoreBloc.set(score);
-//   }
-
-//   _loadLevel(context) {
-//     levelModel = LevelResource().levels[level];
-
-//     if (levelModel == null) {
-//       ScaffoldMessenger.of(context)
-//           .showSnackBar(const SnackBar(content: Text('Fail to load data')));
-//       Navigator.pop(context);
-//     }
-
-//     wastes = WasteResource().getWasteFromNames(levelModel?.wasteNames ?? []);
-//     addCardToQueue();
-//   }
-
-//   onCorrectPlace() {
-//     scoreBloc.set(scoreBloc.state + 1);
-//     timeRemain = timeMax;
-//     timeRemainPercentage(timeRemain / timeMax);
-
-//     queueBloc.remove();
-//     addCardToQueue();
-//   }
-
-//   wrongEffect() async {
-//     for (final offset in shakeOffsets) {
-//       shakeOffset(offset);
-//       await Future.delayed(const Duration(milliseconds: 50));
-//     }
-
-//     shakeOffset(Offset.zero);
-//   }
-
-//   addCardToQueue() {
-//     int newIndex = lastIndex;
-//     do {
-//       newIndex = Random().nextInt(wastes.length);
-//     } while (newIndex == lastIndex);
-//     lastIndex = newIndex;
-//     queueBloc.add(wastes[lastIndex]);
-//   }
-
-//   // updateShowHint(bool value) {
-//   //   showHint(value);
-//   // }
-
-//   // _startChalenge() {
-//   //   timeMax = chalengeLevel?.time ?? double.infinity;
-//   //   timeRemain = timeMax;
-//   //   timeRemainPercentage(1);
-
-//   //   runTimer();
-//   // }
-
-//   // resetChalenge() {
-//   //   timeMax = double.infinity;
-//   //   timeRemain = double.infinity;
-//   //   timeRemainPercentage(1);
-//   //   score(0);
-//   // }
-
-//   // runTimer() {
-//   //   timer?.cancel();
-
-//   //   timer = Timer(const Duration(seconds: 1), () {
-//   //     timeRemain--;
-
-//   //     timeRemainPercentage(timeRemain / timeMax);
-
-//   //     if (timeRemain > 0) {
-//   //       runTimer();
-//   //     } else {
-//   //       Get.dialog(ChalengeEndDialog(score: score.value));
-//   //       resetChalenge();
-//   //     }
-//   //   });
-//   // }
-// }

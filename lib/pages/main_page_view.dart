@@ -4,6 +4,7 @@ import 'package:project_s/pages/main_page_controller.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 
 import '../widgets/knowledge_dialog.dart';
+import 'chalenge_select_page_view.dart';
 
 class MainPageView extends StatelessWidget {
   MainPageView({super.key});
@@ -23,18 +24,6 @@ class MainPageView extends StatelessWidget {
       children: [
         FilledButton(
             onPressed: () {
-              controller.addScore1();
-            },
-            child: const Text('1+')),
-        FilledButton(
-            onPressed: () {
-              controller.addScore2();
-            },
-            child: const Text('2+')),
-        Text(controller.state.counter1.toString()),
-        Text(controller.state.counter2.toString()),
-        FilledButton(
-            onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
@@ -45,7 +34,7 @@ class MainPageView extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
+                MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
               );
             },
             child: const Text('Chalenge')),
@@ -56,7 +45,7 @@ class MainPageView extends StatelessWidget {
             child: const Text('Knowledge')),
         FilledButton(
             onPressed: () {
-              showDialog(context: context, builder: (context) => const KnowledgeDialog());
+              // showDialog(context: context, builder: (context) => const KnowledgeDialog());
             },
             child: const Text('Tutorial')),
       ],
