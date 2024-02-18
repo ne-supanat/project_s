@@ -32,7 +32,7 @@ class ChalengeSelectPageView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('Difficulty', style: AppTextStyle.base.size24.bold),
+              Text('- Difficulty -', style: AppTextStyle.base.size28.bold),
               const SizedBox(height: 24),
               chalengeItem(context, ChalengeLevel.beginner),
               const SizedBox(height: 16),

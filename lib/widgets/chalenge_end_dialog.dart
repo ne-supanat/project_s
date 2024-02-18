@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import '../constants/app_text_style.dart';
+import 'menu_item.dart';
 
 class ChalengeEndDialog extends StatelessWidget {
   const ChalengeEndDialog({
     super.key,
     required this.score,
+    required this.highScore,
     required this.onPlayAgain,
     required this.onBack,
   });
 
   final num score;
+  final num highScore;
   final Function() onPlayAgain;
   final Function() onBack;
 
@@ -19,25 +23,30 @@ class ChalengeEndDialog extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text(
-            'Good Job',
-            style: TextStyle(fontSize: 24),
+          Text(
+            'Score',
+            style: AppTextStyle.base.size24.semibold,
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 4),
           Text(
             score.toString(),
-            style: const TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+            style: AppTextStyle.base.bold.copyWith(fontSize: 48),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            score > highScore ? 'New High Score' : 'Your High Score is $highScore',
+            style: AppTextStyle.base,
+          ),
+          const SizedBox(height: 16),
+          MenuItem(
+            onTap: onPlayAgain,
+            text: 'Play Again',
           ),
           const SizedBox(height: 8),
-          FilledButton(
-            onPressed: onPlayAgain,
-            child: const Text('play again'),
+          MenuItem(
+            onTap: onBack,
+            text: 'Back',
           ),
-          const SizedBox(height: 8),
-          FilledButton(
-            onPressed: onBack,
-            child: const Text('back'),
-          )
         ],
       ),
     );

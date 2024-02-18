@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 
 import '../constants/app_text_style.dart';
-import '../constants/color_name.dart';
 
 class ChalengeItem extends StatefulWidget {
   const ChalengeItem({super.key, required this.level, required this.onTap});
@@ -22,12 +21,11 @@ class _ChalengeItemState extends State<ChalengeItem> {
     return TextButton(
       onPressed: widget.onTap,
       style: TextButton.styleFrom(
-        surfaceTintColor: Colors.white,
         minimumSize: const Size(double.infinity, 50),
       ),
       child: Text(
         widget.level.name,
-        style: AppTextStyle.base.size24,
+        style: AppTextStyle.base.size24.bold,
       ),
     );
   }

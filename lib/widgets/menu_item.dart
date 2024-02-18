@@ -19,7 +19,6 @@ class _MenuItemState extends State<MenuItem> {
     return TextButton(
       onPressed: widget.onTap,
       style: TextButton.styleFrom(
-        surfaceTintColor: Colors.white,
         minimumSize: const Size(double.infinity, 50),
       ),
       child: Text(

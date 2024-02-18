@@ -4,9 +4,11 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
+import 'package:project_s/helpers/sharedpref.dart';
 import 'package:project_s/models/level_model.dart';
 import 'package:project_s/widgets/chalenge_end_dialog.dart';
 
@@ -72,6 +74,8 @@ class GamePageState {
 
 class GamePageController extends Cubit<GamePageState> {
   GamePageController() : super(GamePageState.i());
+
+  final SharedPref _sharedPref = GetIt.I.get<SharedPref>();
 
   late GamePageViewArguments arguments;
   late int? level;
@@ -149,29 +153,41 @@ class GamePageController extends Cubit<GamePageState> {
   runTimer(BuildContext context) {
     timer?.cancel();
 
-    timer = Timer(const Duration(seconds: 1), () async {
-      timeRemain--;
+    timer = Timer(const Duration(milliseconds: 10), () async {
+      timeRemain -= 0.01;
 
       emit(state.copyWith(timeRemainPercentage: timeRemain / timeMax));
 
       if (timeRemain > 0) {
         runTimer(context);
       } else {
-        await showDialog(
-          context: context,
-          builder: (c) => ChalengeEndDialog(
-              score: score,
-              onPlayAgain: () {
-                Navigator.pop(c);
-                _startChalenge(context);
-              },
-              onBack: () {
-                Navigator.pop(context);
-                Navigator.pop(context);
-              }),
-        );
+        await _onEndChalenge(context);
       }
     });
+  }
+
+  _onEndChalenge(context) async {
+    final oldHighScore = _sharedPref.getHighScore();
+
+    if (score > oldHighScore) {
+      await _sharedPref.writeHighScore(score.toInt());
+    }
+
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (c) => ChalengeEndDialog(
+          score: score,
+          highScore: oldHighScore,
+          onPlayAgain: () {
+            Navigator.pop(c);
+            _startChalenge(context);
+          },
+          onBack: () {
+            Navigator.pop(context);
+            Navigator.pop(context);
+          }),
+    );
   }
 
   onCorrectPlace() {

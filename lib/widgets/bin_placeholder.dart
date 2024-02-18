@@ -31,6 +31,14 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
 
   WasteModel? tempWaste;
 
+  late double rotate;
+
+  @override
+  void initState() {
+    super.initState();
+    rotate = randomRotate;
+  }
+
   @override
   Widget build(BuildContext context) {
     return DragTarget<WasteModel>(
@@ -107,7 +115,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
                       child: Transform.scale(
                         scale: 0.5,
                         child: Transform.rotate(
-                          angle: randomRotate,
+                          angle: rotate,
                           child: SizedBox(
                               height: 180,
                               width: 132,
@@ -131,12 +139,17 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
     await Future.delayed(const Duration(milliseconds: 750));
 
     setState(() {
-      starOffset = const Offset(0, 1);
+      starOffset = const Offset(0, -0.2);
       starSize = 0;
+    });
+
+    await Future.delayed(const Duration(milliseconds: 500));
+    setState(() {
+      starOffset = const Offset(0, 1);
     });
   }
 
 // -0.15 & 0.15 & ~0.0
-  get randomRotate =>
+  double get randomRotate =>
       pi * (((Random().nextDouble() * 0.14) + 0.01) * (Random().nextBool() ? 1 : -1));
 }

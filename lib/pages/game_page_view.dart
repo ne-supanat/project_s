@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s/constants/app_text_style.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 
 import '../constants/chalenge_level.dart';
@@ -47,7 +48,10 @@ class _GamePageViewState extends State<GamePageView> {
     return Stack(
       alignment: AlignmentDirectional.center,
       children: [
-        Positioned(top: 0, child: _gui()),
+        Positioned(
+          top: 0,
+          child: _gui(),
+        ),
         _cardHeap(),
         Positioned(
           left: padding,
@@ -72,7 +76,7 @@ class _GamePageViewState extends State<GamePageView> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           _gui(),
-          const SizedBox(),
+          const SizedBox(height: 24),
           Container(
             decoration: BoxDecoration(
               color: Colors.white.withOpacity(0.5),
@@ -86,7 +90,14 @@ class _GamePageViewState extends State<GamePageView> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 36),
+                if (controller.chalengeLevel != null)
+                  LinearProgressIndicator(
+                    value: controller.timeRemainPercentage.toDouble(),
+                    minHeight: 12,
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.red.shade400,
+                  ),
+                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -107,55 +118,85 @@ class _GamePageViewState extends State<GamePageView> {
   }
 
   _gui() {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      constraints: const BoxConstraints(
-        maxWidth: 500,
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+    return Column(
+      children: [
+        Container(
+          width: MediaQuery.of(context).size.width,
+          constraints: const BoxConstraints(
+            maxWidth: 500,
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                FilledButton(
-                  onPressed: () {
-                    showDialog(context: context, builder: (c) => const KnowledgeDialog());
-                  },
-                  child: const Text('Knowledge'),
-                ),
-                Row(
-                  children: [
-                    const Text('Hint'),
-                    Switch(
-                        value: controller.showHint,
-                        onChanged: (value) {
-                          controller.updateShowHint(value);
-                        })
-                  ],
-                ),
+                _helper(),
+                const Spacer(),
+                if (controller.chalengeLevel != null)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8.0),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          color: ColorNames.cream,
+                        ),
+                        child: Text(
+                          'Score: ${controller.score}',
+                          style: AppTextStyle.base.semibold,
+                        ),
+                      ),
+                    ],
+                  )
               ],
             ),
-            const SizedBox(width: 16),
-            if (controller.chalengeLevel != null)
-              Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('score: ${controller.score}'),
-                  LinearProgressIndicator(
-                    value: controller.timeRemainPercentage.toDouble(),
-                    minHeight: 8,
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.red,
-                  ),
-                ],
-              ))
-          ],
+          ),
         ),
+      ],
+    );
+  }
+
+  _helper() {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        _knowledge(),
+        const SizedBox(width: 8),
+        _hint(),
+      ],
+    );
+  }
+
+  _knowledge() {
+    return _helperButton(
+      onPressed: () {
+        showDialog(context: context, builder: (c) => const KnowledgeDialog());
+      },
+      icon: Icons.menu_book_rounded,
+    );
+  }
+
+  _hint() {
+    return _helperButton(
+      onPressed: () {
+        controller.updateShowHint(!controller.showHint);
+      },
+      icon: controller.showHint ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+    );
+  }
+
+  _helperButton({required Function() onPressed, required IconData icon}) {
+    return Container(
+      decoration: const BoxDecoration(
+        shape: BoxShape.circle,
+        color: ColorNames.cream,
+      ),
+      child: IconButton(
+        onPressed: onPressed,
+        color: ColorNames.black333335,
+        icon: Icon(icon),
       ),
     );
   }
