@@ -23,10 +23,8 @@ class _MenuItemState extends State<MenuItem> {
       ),
       child: Text(
         widget.text,
-        style: AppTextStyle.base.copyWith(
-          color: ColorNames.black,
+        style: AppTextStyle.base.semibold.copyWith(
           fontSize: 20,
-          fontWeight: FontWeight.w600,
         ),
       ),
     );

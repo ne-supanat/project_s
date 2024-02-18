@@ -40,22 +40,9 @@ class AppScaffold<STATE> extends StatelessWidget {
               maxWidth: 500,
             ),
             child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                child: Column(
-                  children: [
-                    if (Navigator.canPop(context))
-                      const Row(children: [
-                        Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: BackButton(),
-                        )
-                      ]),
-                    const SizedBox(height: 16),
-                    Expanded(
-                      child: body(context),
-                    ),
-                  ],
-                )),
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: body(context),
+            ),
           ),
         ),
       ),

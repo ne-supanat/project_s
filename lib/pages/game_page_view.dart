@@ -5,6 +5,7 @@ import 'package:project_s/widgets/app_scaffold.dart';
 import '../constants/chalenge_level.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
+import '../widgets/app_back_icon_button.dart';
 import '../widgets/bin_placeholder.dart';
 import '../widgets/knowledge_dialog.dart';
 import '../widgets/waste_card.dart';
@@ -33,6 +34,12 @@ class _GamePageViewState extends State<GamePageView> {
   void initState() {
     super.initState();
     controller.init(context, widget.arguments);
+  }
+
+  @override
+  void dispose() {
+    controller.dipose();
+    super.dispose();
   }
 
   @override
@@ -162,6 +169,8 @@ class _GamePageViewState extends State<GamePageView> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        const AppBackIconButton(),
+        const SizedBox(width: 8),
         _knowledge(),
         const SizedBox(width: 8),
         _hint(),

@@ -124,6 +124,10 @@ class GamePageController extends Cubit<GamePageState> {
     }
   }
 
+  dipose() {
+    timer?.cancel();
+  }
+
   _loadLevel(context) {
     levelModel = LevelResource().levels[level];
 
