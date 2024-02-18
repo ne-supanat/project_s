@@ -17,7 +17,7 @@ class _MenuItemState extends State<MenuItem> {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: widget.onTap,
       style: TextButton.styleFrom(
         surfaceTintColor: Colors.white,
         minimumSize: const Size(double.infinity, 50),
