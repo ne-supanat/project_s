@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_s/pages/chalenge_select_page_view.dart';
 import 'package:project_s/pages/game_page_view.dart';
 import 'package:project_s/pages/level_select_page_view.dart';
 
@@ -24,7 +25,9 @@ class MyApp extends StatelessWidget {
         // GoogleFonts.comicNeueTextTheme(),
         // GoogleFonts.concertOneTextTheme(),
       ),
-      home: const MainPageView(),
+      home:
+          // const MainPageView(),
+          const ChalengeSelectPageView(),
       // const LevelSelectPageView(),
       // GamePageView(arguments: GamePageViewArguments(level: 4)),
     );

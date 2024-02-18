@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 
+import '../constants/app_text_style.dart';
+import '../constants/color_name.dart';
+
 class ChalengeItem extends StatefulWidget {
   const ChalengeItem({super.key, required this.level, required this.onTap});
 
@@ -16,24 +19,15 @@ class _ChalengeItemState extends State<ChalengeItem> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: widget.onTap,
-      onHover: (value) {
-        setState(() {
-          isHover = value;
-        });
-      },
-      child: Container(
-        alignment: Alignment.center,
-        height: 50,
-        decoration: BoxDecoration(
-          color: isHover ? Colors.blue.shade600 : Colors.blue,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: Text(
-          widget.level.name,
-          style: const TextStyle(color: Colors.white),
-        ),
+    return TextButton(
+      onPressed: widget.onTap,
+      style: TextButton.styleFrom(
+        surfaceTintColor: Colors.white,
+        minimumSize: const Size(double.infinity, 50),
+      ),
+      child: Text(
+        widget.level.name,
+        style: AppTextStyle.base.size24,
       ),
     );
   }
