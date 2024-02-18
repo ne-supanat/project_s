@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/constants/waste_resource.dart';
 import 'package:project_s/pages/level_select_page_view.dart';
 import 'package:project_s/pages/main_page_controller.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 import 'package:project_s/widgets/menu_item.dart';
 
+import '../constants/app_text_style.dart';
+import '../constants/color_name.dart';
 import '../widgets/knowledge_dialog.dart';
-import '../widgets/waste_card.dart';
 import 'chalenge_select_page_view.dart';
 
 class MainPageView extends StatefulWidget {
@@ -17,17 +17,6 @@ class MainPageView extends StatefulWidget {
 }
 
 class _MainPageViewState extends State<MainPageView> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
-
-// class MainPageView extends StatelessWidget {
-  // MainPageView({super.key});
-
-  bool showhint = true;
-
   final MainPageController controller = MainPageController();
 
   @override
@@ -39,21 +28,25 @@ class _MainPageViewState extends State<MainPageView> {
   }
 
   Widget layout(BuildContext context) {
-    return Padding(
+    return Container(
+      decoration: BoxDecoration(
+        color: ColorNames.cream,
+        border: Border.all(width: 4, color: ColorNames.black),
+        borderRadius: BorderRadius.circular(16),
+      ),
       padding: const EdgeInsets.all(16.0),
+      margin: const EdgeInsets.all(16.0),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Switch(
-              value: showhint,
-              onChanged: (v) {
-                setState(() {
-                  showhint = v;
-                });
-              }),
-          WasteCard(
-            showHint: showhint,
-            value: WasteResource().all.first,
+          Text(
+            'Project S',
+            style: AppTextStyle.base.copyWith(
+              fontSize: 56,
+              fontWeight: FontWeight.bold,
+            ),
           ),
+          const SizedBox(height: 24),
           MenuItem(
             onTap: () {
               Navigator.push(
@@ -85,6 +78,7 @@ class _MainPageViewState extends State<MainPageView> {
             onTap: () {},
             text: 'Tutorial',
           ),
+          const SizedBox(height: 24),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_s/constants/waste_type.dart';
 
+import '../constants/color_name.dart';
 import '../models/waste_model.dart';
 
 class WasteCard extends StatelessWidget {
@@ -47,10 +48,10 @@ class WasteCard extends StatelessWidget {
           width: width,
           height: height,
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: ColorNames.cream,
             borderRadius: BorderRadius.circular(outerCircular),
             border: Border.all(
-              color: Colors.black,
+              color: ColorNames.black,
               width: 4,
             ),
           ),
@@ -65,14 +66,14 @@ class WasteCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
-                    color: Colors.blue,
+                    color: ColorNames.black333335,
                     padding: const EdgeInsets.all(4.0),
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
                         value.name,
                         style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
+                            fontSize: 18, fontWeight: FontWeight.bold, color: ColorNames.white),
                       ),
                     ),
                   ),

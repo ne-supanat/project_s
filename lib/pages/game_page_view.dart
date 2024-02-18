@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 
 import '../constants/chalenge_level.dart';
+import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
 import '../widgets/bin_placeholder.dart';
 import '../widgets/knowledge_dialog.dart';
@@ -72,21 +73,32 @@ class _GamePageViewState extends State<GamePageView> {
         children: [
           _gui(),
           const SizedBox(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const SizedBox(height: 36),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _danger(),
-                  _cardHeap(),
-                  _general(),
-                ],
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white.withOpacity(0.5),
+              border: Border.all(
+                width: 4,
+                color: ColorNames.black.withOpacity(0.4),
               ),
-              const SizedBox(height: 24),
-              _recycle(),
-            ],
+              borderRadius: BorderRadius.circular(16),
+            ),
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SizedBox(height: 36),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _danger(),
+                    _cardHeap(),
+                    _general(),
+                  ],
+                ),
+                const SizedBox(height: 24),
+                _recycle(),
+              ],
+            ),
           ),
           const SizedBox(),
         ],
@@ -225,7 +237,7 @@ class _GamePageViewState extends State<GamePageView> {
           padding: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: category.color.withOpacity(0.5),
+            color: category.color.withOpacity(0.6),
           ),
           child: child,
         ),

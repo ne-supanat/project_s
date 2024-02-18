@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_s/resources/resources.dart';
 
 class AppScaffold<STATE> extends StatelessWidget {
   const AppScaffold({super.key, this.controller, required this.body});
@@ -23,14 +26,24 @@ class AppScaffold<STATE> extends StatelessWidget {
 
   _layout(context) {
     return Scaffold(
-      body: Center(
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          constraints: const BoxConstraints(
-            maxWidth: 500,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(Images.bgGif),
+            fit: BoxFit.fill,
           ),
-          child: body(context),
+        ),
+        child: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            constraints: const BoxConstraints(
+              maxWidth: 500,
+            ),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+              child: body(context),
+            ),
+          ),
         ),
       ),
     );

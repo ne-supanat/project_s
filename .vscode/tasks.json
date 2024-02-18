@@ -1,0 +1,39 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Spider: spider build",
+      "group": "build",
+      "type": "shell",
+      "command": "spider",
+      "args": ["build"]
+    },
+    {
+      "label": "Flutter: flutter clean",
+      "group": "build",
+      "type": "flutter",
+      "command": "flutter",
+      "args": ["clean"]
+    },
+    {
+      "label": "Flutter: flutter pub get",
+      "group": "build",
+      "type": "flutter",
+      "command": "flutter",
+      "args": ["pub", "get"]
+    },
+    {
+      "label": "Flutter: flutter pub run build_runner",
+      "group": "build",
+      "type": "flutter",
+      "command": "flutter",
+      "args": [
+        "pub",
+        "run",
+        "build_runner",
+        "watch",
+        "--delete-conflicting-outputs"
+      ]
+    }
+  ]
+}
