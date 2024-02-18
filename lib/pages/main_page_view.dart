@@ -28,59 +28,64 @@ class _MainPageViewState extends State<MainPageView> {
   }
 
   Widget layout(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: ColorNames.cream,
-        border: Border.all(width: 4, color: ColorNames.black),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      padding: const EdgeInsets.all(16.0),
-      margin: const EdgeInsets.all(16.0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Project S',
-            style: AppTextStyle.base.copyWith(
-              fontSize: 56,
-              fontWeight: FontWeight.bold,
-            ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: ColorNames.cream,
+            border: Border.all(width: 4, color: ColorNames.black),
+            borderRadius: BorderRadius.circular(16),
           ),
-          const SizedBox(height: 24),
-          MenuItem(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
-              );
-            },
-            text: 'Levels',
+          padding: const EdgeInsets.all(16.0),
+          margin: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                'Project S',
+                style: AppTextStyle.base.copyWith(
+                  fontSize: 56,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 24),
+              MenuItem(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
+                  );
+                },
+                text: 'Levels',
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
+                  );
+                },
+                text: 'Chalenge',
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {
+                  showDialog(context: context, builder: (context) => const KnowledgeDialog());
+                },
+                text: 'Knowledge',
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {},
+                text: 'Tutorial',
+              ),
+              const SizedBox(height: 24),
+            ],
           ),
-          const SizedBox(height: 16),
-          MenuItem(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
-              );
-            },
-            text: 'Chalenge',
-          ),
-          const SizedBox(height: 16),
-          MenuItem(
-            onTap: () {
-              showDialog(context: context, builder: (context) => const KnowledgeDialog());
-            },
-            text: 'Knowledge',
-          ),
-          const SizedBox(height: 16),
-          MenuItem(
-            onTap: () {},
-            text: 'Tutorial',
-          ),
-          const SizedBox(height: 24),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

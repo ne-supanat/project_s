@@ -17,16 +17,19 @@ class LevelSelectPageView extends StatelessWidget {
 
   Widget layout(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const BackButton(),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: LevelResource().levels.keys.map((e) => levelItem(context, e)).toList(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 8,
+                children: LevelResource().levels.keys.map((e) => levelItem(context, e)).toList(),
+              ),
+            ),
           ),
         ],
       ),
@@ -34,17 +37,20 @@ class LevelSelectPageView extends StatelessWidget {
   }
 
   Widget levelItem(context, int level) {
-    return LevelItem(
-        level: level,
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => GamePageView(
-                arguments: GamePageViewArguments(level: level),
+    return Container(
+      margin: const EdgeInsets.only(bottom: 8),
+      child: LevelItem(
+          level: level,
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => GamePageView(
+                  arguments: GamePageViewArguments(level: level),
+                ),
               ),
-            ),
-          );
-        });
+            );
+          }),
+    );
   }
 }

@@ -21,8 +21,6 @@ class ChalengeSelectPageView extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const BackButton(),
-          const SizedBox(height: 24),
           chalengeItem(context, ChalengeLevel.beginner),
           const SizedBox(height: 16),
           chalengeItem(context, ChalengeLevel.normal),
