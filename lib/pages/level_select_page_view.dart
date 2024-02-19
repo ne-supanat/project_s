@@ -14,8 +14,6 @@ class LevelSelectPageView extends StatefulWidget {
 }
 
 class _LevelSelectPageViewState extends State<LevelSelectPageView> {
-  final ScrollController _scrollController = ScrollController();
-
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
@@ -30,17 +28,12 @@ class _LevelSelectPageViewState extends State<LevelSelectPageView> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: Scrollbar(
-              controller: _scrollController,
-              radius: const Radius.circular(8),
-              thumbVisibility: true,
-              trackVisibility: true,
-              child: SingleChildScrollView(
-                controller: _scrollController,
-                padding: const EdgeInsets.all(16.0),
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(16.0),
+              child: Center(
                 child: Wrap(
-                  alignment: WrapAlignment.center,
-                  crossAxisAlignment: WrapCrossAlignment.center,
+                  runAlignment: WrapAlignment.center,
+                  alignment: WrapAlignment.start,
                   spacing: 8,
                   children: LevelResource().levels.keys.map((e) => levelItem(context, e)).toList(),
                 ),

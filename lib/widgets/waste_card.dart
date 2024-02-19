@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_s/constants/waste_type.dart';
 
+import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../models/waste_model.dart';
 
@@ -72,8 +73,7 @@ class WasteCard extends StatelessWidget {
                       fit: BoxFit.scaleDown,
                       child: Text(
                         value.name,
-                        style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold, color: ColorNames.white),
+                        style: AppTextStyle.base.size18.bold.white,
                       ),
                     ),
                   ),
@@ -81,7 +81,7 @@ class WasteCard extends StatelessWidget {
                     child: Container(
                       color: Colors.grey.shade100,
                       child: Image.network(
-                        'https://picsum.photos/500',
+                        value.imagePath,
                         fit: BoxFit.cover,
                       ),
                     ),

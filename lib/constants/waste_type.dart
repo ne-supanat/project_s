@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-enum WasteType { biohazard, electronic, paper, plastic, aluminium, food, general }
+enum WasteType { general, food, paper, plastic, aluminium, biohazard, electronic }
 
-enum WasteCategory { danger, recycle, common }
+enum WasteCategory { common, recycle, danger }
 
 extension WasteTypeExtension on WasteType {
   WasteCategory get category {

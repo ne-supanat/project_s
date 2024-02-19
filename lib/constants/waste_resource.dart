@@ -28,37 +28,37 @@ class WasteResource {
 
   final wastes = {
     WasteNames.wasteBiohazard: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/100',
       name: 'biohazard',
       type: WasteType.biohazard,
     ),
     WasteNames.wasteElectronic: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/200',
       name: 'electronic',
       type: WasteType.electronic,
     ),
     WasteNames.wastePaper: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/300',
       name: 'paper',
       type: WasteType.paper,
     ),
     WasteNames.wastePlastic: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/400',
       name: 'plactic',
       type: WasteType.plastic,
     ),
     WasteNames.wasteAluminium: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/500',
       name: 'aluminium',
       type: WasteType.aluminium,
     ),
     WasteNames.wasteFood: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/600',
       name: 'food',
       type: WasteType.food,
     ),
     WasteNames.wasteGeneral: WasteModel(
-      imagePath: '',
+      imagePath: 'https://picsum.photos/700',
       name: 'general',
       type: WasteType.general,
     ),
