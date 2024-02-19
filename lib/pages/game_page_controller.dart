@@ -9,6 +9,7 @@ import 'package:project_s/constants/chalenge_level.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
 import 'package:project_s/helpers/sharedpref.dart';
+import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/models/level_model.dart';
 import 'package:project_s/widgets/chalenge_end_dialog.dart';
 
@@ -134,6 +135,7 @@ class GamePageController extends Cubit<GamePageState> {
       Navigator.pop(context);
     }
 
+    mistake = 0;
     wastes = WasteResource().getWasteFromNames(levelModel?.wasteNames ?? []);
     wastes.shuffle();
     addCardToQueue();
@@ -167,6 +169,7 @@ class GamePageController extends Cubit<GamePageState> {
           score: starScore,
           onPlayAgain: () {
             Navigator.pop(c);
+            _startLearningMode(context);
           },
           onBack: () {
             Navigator.pop(context);
