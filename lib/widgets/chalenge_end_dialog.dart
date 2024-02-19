@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import '../constants/app_text_style.dart';
+import '../helpers/translations.dart';
 import 'menu_item.dart';
 
 class ChalengeEndDialog extends StatelessWidget {
@@ -24,7 +26,7 @@ class ChalengeEndDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
-            'Score',
+            TranslationKeys.chalenge_end_dialog_score,
             style: AppTextStyle.base.size24.semibold,
           ),
           const SizedBox(height: 4),
@@ -34,18 +36,20 @@ class ChalengeEndDialog extends StatelessWidget {
           ),
           const SizedBox(height: 4),
           Text(
-            score > highScore ? 'New High Score' : 'Your High Score is $highScore',
+            score > highScore
+                ? TranslationKeys.chalenge_end_dialog_new_high_score
+                : '${TranslationKeys.chalenge_end_dialog_high_score_is}$highScore',
             style: AppTextStyle.base,
           ),
           const SizedBox(height: 16),
           MenuItem(
             onTap: onPlayAgain,
-            text: 'Play Again',
+            text: TranslationKeys.chalenge_end_dialog_play_again,
           ),
           const SizedBox(height: 8),
           MenuItem(
             onTap: onBack,
-            text: 'Back',
+            text: TranslationKeys.chalenge_end_dialog_back,
           ),
         ],
       ),

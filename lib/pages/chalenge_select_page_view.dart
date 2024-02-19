@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/app_text_style.dart';
 import '../constants/chalenge_level.dart';
 import '../constants/color_name.dart';
+import '../helpers/translations.dart';
 import '../widgets/app_back_button.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/chalenge_item.dart';
@@ -33,7 +34,10 @@ class ChalengeSelectPageView extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text('- Difficulty -', style: AppTextStyle.base.size28.bold),
+              Text(
+                TranslationKeys.chalenge_level_select_page_title,
+                style: AppTextStyle.base.size28.bold,
+              ),
               const SizedBox(height: 24),
               chalengeItem(context, ChalengeLevel.beginner),
               const SizedBox(height: 16),

@@ -131,7 +131,7 @@ class GamePageController extends Cubit<GamePageState> {
 
     if (levelModel == null) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text('Fail to load data')));
+          .showSnackBar(SnackBar(content: Text(TranslationKeys.game_page_level_not_found)));
       Navigator.pop(context);
     }
 

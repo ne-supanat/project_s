@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/constants/chalenge_level.dart';
 
 import '../constants/app_text_style.dart';
+import '../constants/chalenge_level.dart';
 
 class ChalengeItem extends StatefulWidget {
   const ChalengeItem({super.key, required this.level, required this.onTap});
@@ -24,7 +24,7 @@ class _ChalengeItemState extends State<ChalengeItem> {
         minimumSize: const Size(double.infinity, 50),
       ),
       child: Text(
-        widget.level.name,
+        widget.level.string,
         style: AppTextStyle.base.size24.bold,
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_s/constants/app_text_style.dart';
+import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 
 import '../constants/chalenge_level.dart';
@@ -151,7 +152,7 @@ class _GamePageViewState extends State<GamePageView> {
                           color: ColorNames.cream,
                         ),
                         child: Text(
-                          'Score: ${controller.score}',
+                          '${TranslationKeys.game_page_score}${controller.score}',
                           style: AppTextStyle.base.semibold,
                         ),
                       ),

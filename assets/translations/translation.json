@@ -1,0 +1,81 @@
+{
+    "common": {
+        "title": "Project S",
+        "back": "Back"
+    },
+    "chalenge_level": {
+        "beginner": "Beginner",
+        "normal": "Normal",
+        "expert": "Expert"
+    },
+    "waste_category": {
+        "common": "Common",
+        "recyclable": "Recyclable",
+        "hazardous": "Hazardous"
+    },
+    "waste_type": {
+        "general": {
+            "name": "General",
+            "description": "General waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
+        "food": {
+            "name": "Food",
+            "description": "Food waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
+        "paper": {
+            "name": "Paper",
+            "description": "Paper waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
+        "plastic": {
+            "name": "Plastic",
+            "description": "Plastic waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
+        "aluminium": {
+            "name": "Aluminium",
+            "description": "Aluminium waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
+        "biohazard": {
+            "name": "Biohazardous",
+            "description": "Biohazardous waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
+        "electronic": {
+            "name": "Electronic",
+            "description": "Electronic waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        }
+    },
+    "main_page": {
+        "learning": "Learning",
+        "chalenge": "Chalenge",
+        "knowledge": "Knowledge",
+        "tutorial": "Tutorial"
+    },
+    "chalenge_level_select_page": {
+        "title": "- Difficulty -"
+    },
+    "knowledge_dialog": {
+        "category": "Category: "
+    },
+    "game_page": {
+        "level_not_found": "Level not found",
+        "score": "Score: "
+    },
+    "chalenge_end_dialog": {
+        "score": "Score",
+        "new_high_score": "New High Score",
+        "high_score_is": "Your High Score is ",
+        "play_again": "Play Again",
+        "back": "Back"
+    },
+    "learning_end_dialog": {
+        "star3": "Ace!",
+        "star3_sub": "you did it, perfectly",
+        "star2": "Bravo!",
+        "star2_sub": "only a few mistakes",
+        "star1": "Hmm...",
+        "star1_sub": "there's still room to grow",
+        "star0": "Oops!",
+        "star0_sub": "Let's learn and try again",
+        "play_again": "Play Again",
+        "back": "Back"
+    }
+}

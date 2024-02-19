@@ -2,10 +2,10 @@ import 'dart:math';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:project_s/constants/waste_type.dart';
-import 'package:project_s/widgets/waste_card.dart';
 
+import '../constants/waste_type.dart';
 import '../models/waste_model.dart';
+import 'waste_card.dart';
 
 class BinPlaceHolder extends StatefulWidget {
   const BinPlaceHolder({
@@ -90,7 +90,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(Icons.recycling_rounded),
-                      Text(widget.targetValue.name),
+                      Text(widget.targetValue.string),
                     ],
                   ),
                   AnimatedSlide(

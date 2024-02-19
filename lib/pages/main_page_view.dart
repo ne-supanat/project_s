@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/pages/level_select_page_view.dart';
 import 'package:project_s/pages/main_page_controller.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
@@ -18,6 +19,12 @@ class MainPageView extends StatefulWidget {
 
 class _MainPageViewState extends State<MainPageView> {
   final MainPageController controller = MainPageController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +50,7 @@ class _MainPageViewState extends State<MainPageView> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                'Project S',
+                TranslationKeys.common_title,
                 style: AppTextStyle.base.copyWith(
                   fontSize: 56,
                   fontWeight: FontWeight.bold,
@@ -57,7 +64,7 @@ class _MainPageViewState extends State<MainPageView> {
                     MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
                   );
                 },
-                text: 'Levels',
+                text: TranslationKeys.main_page_learning,
               ),
               const SizedBox(height: 16),
               MenuItem(
@@ -67,19 +74,19 @@ class _MainPageViewState extends State<MainPageView> {
                     MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
                   );
                 },
-                text: 'Chalenge',
+                text: TranslationKeys.main_page_chalenge,
               ),
               const SizedBox(height: 16),
               MenuItem(
                 onTap: () {
                   showDialog(context: context, builder: (context) => const KnowledgeDialog());
                 },
-                text: 'Knowledge',
+                text: TranslationKeys.main_page_knowledge,
               ),
               const SizedBox(height: 16),
               MenuItem(
                 onTap: () {},
-                text: 'Tutorial',
+                text: TranslationKeys.main_page_tutorial,
               ),
               const SizedBox(height: 24),
             ],

@@ -8,12 +8,15 @@ import 'package:project_s/pages/level_select_page_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'constants/chalenge_level.dart';
+import 'helpers/translations.dart';
 import 'pages/main_page_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await initDI();
+
+  await TranslationKeys.init();
 
   runApp(const MyApp());
 }

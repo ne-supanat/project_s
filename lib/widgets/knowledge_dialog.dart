@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/constants/app_text_style.dart';
-import 'package:project_s/constants/color_name.dart';
-import 'package:project_s/constants/waste_type.dart';
 
+import '../constants/app_text_style.dart';
+import '../constants/color_name.dart';
 import '../constants/waste_resource.dart';
+import '../constants/waste_type.dart';
+import '../helpers/translations.dart';
 import '../models/waste_model.dart';
 
 class KnowledgeDialog extends StatefulWidget {
@@ -64,7 +65,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                       maintainState: true,
                       backgroundColor:
                           isHover ? ColorNames.white.withOpacity(0.5) : Colors.transparent,
-                      title: Text(e.name, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
+                      title: Text(e.string, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
                       children: [
                         _contentByType(e),
                       ],
@@ -91,10 +92,10 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
         children: [
           Text.rich(
             TextSpan(
-              text: 'Category: ',
+              text: TranslationKeys.knowledge_dialog_category,
               children: [
                 TextSpan(
-                  text: type.category.name,
+                  text: type.category.string,
                   style: AppTextStyle.base.bold.copyWith(color: type.category.color),
                 ),
               ],
@@ -103,7 +104,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
           ),
           const SizedBox(height: 8),
           Text(
-            '${type.name} Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+            type.description,
             style: AppTextStyle.base,
           ),
           const SizedBox(height: 16),
