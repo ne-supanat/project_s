@@ -4,6 +4,7 @@ import 'package:project_s/widgets/app_scaffold.dart';
 
 import '../constants/chalenge_level.dart';
 import '../constants/color_name.dart';
+import '../constants/game_mode.dart';
 import '../constants/waste_type.dart';
 import '../widgets/app_back_icon_button.dart';
 import '../widgets/bin_placeholder.dart';
@@ -12,10 +13,11 @@ import '../widgets/waste_card.dart';
 import 'game_page_controller.dart';
 
 class GamePageViewArguments {
+  final GameMode gameMode;
   final int? level;
   final ChalengeLevel? chalengeLevel;
 
-  GamePageViewArguments({this.level, this.chalengeLevel});
+  GamePageViewArguments({required this.gameMode, this.level, this.chalengeLevel});
 }
 
 class GamePageView extends StatefulWidget {
@@ -223,10 +225,12 @@ class _GamePageViewState extends State<GamePageView> {
           offset: controller.shakeOffset,
           duration: const Duration(milliseconds: 50),
           curve: Curves.ease,
-          child: WasteCard(
-            value: controller.queue.first,
-            showHint: controller.showHint,
-          ),
+          child: controller.queue.isNotEmpty
+              ? WasteCard(
+                  value: controller.queue.first,
+                  showHint: controller.showHint,
+                )
+              : const SizedBox(),
         ),
       ),
     );
@@ -297,10 +301,10 @@ class _GamePageViewState extends State<GamePageView> {
     return BinPlaceHolder(
       targetValue: type,
       onCorrectPlace: (value) {
-        controller.onCorrectPlace();
+        controller.onCorrectPlace(context);
       },
       onWrongPlace: (value) {
-        controller.wrongEffect();
+        controller.onWrongPlace();
       },
       showHint: controller.showHint,
     );

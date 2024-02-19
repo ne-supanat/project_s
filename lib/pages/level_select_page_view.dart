@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:project_s/pages/game_page_view.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 
-import '../constants/level_resource.dart';
+import '../constants/game_mode.dart';
 import '../widgets/app_back_button.dart';
 import '../widgets/level_item.dart';
+import 'level_select_page_controller.dart';
 
 class LevelSelectPageView extends StatefulWidget {
   const LevelSelectPageView({super.key});
@@ -14,9 +15,18 @@ class LevelSelectPageView extends StatefulWidget {
 }
 
 class _LevelSelectPageViewState extends State<LevelSelectPageView> {
+  final LevelSelectPageController controller = LevelSelectPageController();
+
+  @override
+  void initState() {
+    super.initState();
+    controller.load();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
+      controller: controller,
       body: layout,
     );
   }
@@ -30,14 +40,18 @@ class _LevelSelectPageViewState extends State<LevelSelectPageView> {
           Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(16.0),
-              child: Center(
-                child: Wrap(
-                  runAlignment: WrapAlignment.center,
-                  alignment: WrapAlignment.start,
-                  spacing: 8,
-                  children: LevelResource().levels.keys.map((e) => levelItem(context, e)).toList(),
-                ),
-              ),
+              child: Builder(builder: (context) {
+                return Center(
+                  child: Wrap(
+                    runAlignment: WrapAlignment.center,
+                    alignment: WrapAlignment.start,
+                    spacing: 8,
+                    children: controller.levels.keys
+                        .map((e) => levelItem(context, e, controller.levels[e] ?? 0))
+                        .toList(),
+                  ),
+                );
+              }),
             ),
           ),
           const SizedBox(height: 16),
@@ -48,20 +62,22 @@ class _LevelSelectPageViewState extends State<LevelSelectPageView> {
     );
   }
 
-  Widget levelItem(context, int level) {
+  Widget levelItem(context, int level, int score) {
     return Container(
       margin: const EdgeInsets.only(bottom: 8),
       child: LevelItem(
           level: level,
-          onTap: () {
-            Navigator.push(
+          score: score,
+          onTap: () async {
+            await Navigator.push(
               context,
               MaterialPageRoute(
                 builder: (context) => GamePageView(
-                  arguments: GamePageViewArguments(level: level),
+                  arguments: GamePageViewArguments(gameMode: GameMode.learning, level: level),
                 ),
               ),
             );
+            controller.load();
           }),
     );
   }

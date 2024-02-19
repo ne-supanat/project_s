@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:project_s/constants/chalenge_level.dart';
+import 'package:project_s/constants/game_mode.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
 import 'package:project_s/helpers/sharedpref.dart';
@@ -13,6 +14,7 @@ import 'package:project_s/models/level_model.dart';
 import 'package:project_s/widgets/chalenge_end_dialog.dart';
 
 import '../../../../models/waste_model.dart';
+import '../widgets/learning_end_dialog.dart';
 import 'game_page_view.dart';
 
 class GamePageState {
@@ -21,7 +23,6 @@ class GamePageState {
   final bool showHint;
   final num score;
   final num timeRemainPercentage;
-  final Map<String, int> binIndexes;
   final double cardScale;
   final Offset cardSlide;
 
@@ -31,7 +32,6 @@ class GamePageState {
     required this.showHint,
     required this.score,
     required this.timeRemainPercentage,
-    required this.binIndexes,
     required this.cardScale,
     required this.cardSlide,
   });
@@ -43,7 +43,6 @@ class GamePageState {
       showHint: false,
       score: 0,
       timeRemainPercentage: 1,
-      binIndexes: {},
       cardScale: 1,
       cardSlide: Offset.zero,
     );
@@ -55,7 +54,6 @@ class GamePageState {
     bool? showHint,
     num? score,
     num? timeRemainPercentage,
-    Map<String, int>? binIndexes,
     double? cardScale,
     Offset? cardSlide,
   }) {
@@ -65,7 +63,6 @@ class GamePageState {
       showHint: showHint ?? this.showHint,
       score: score ?? this.score,
       timeRemainPercentage: timeRemainPercentage ?? this.timeRemainPercentage,
-      binIndexes: binIndexes ?? this.binIndexes,
       cardScale: cardScale ?? this.cardScale,
       cardSlide: cardSlide ?? this.cardSlide,
     );
@@ -78,10 +75,9 @@ class GamePageController extends Cubit<GamePageState> {
   final SharedPref _sharedPref = GetIt.I.get<SharedPref>();
 
   late GamePageViewArguments arguments;
+  late GameMode gameMode;
   late int? level;
   late ChalengeLevel? chalengeLevel;
-
-  LevelModel? levelModel;
 
   Queue<WasteModel> get queue => state.queue;
   List<WasteModel> wastes = WasteResource().all;
@@ -99,7 +95,14 @@ class GamePageController extends Cubit<GamePageState> {
 
   bool get showHint => state.showHint;
 
+  //LEARNING
+  LevelModel? levelModel;
+  num mistake = 0;
+
+  //CHALENGE
   num get score => state.score;
+  num oldHighScore = 0;
+
   num timeMax = double.infinity;
   num timeRemain = double.infinity;
 
@@ -109,18 +112,19 @@ class GamePageController extends Cubit<GamePageState> {
 
   int lastIndex = -1;
 
-  Map<String, int> get binIndexes => state.binIndexes;
-
   init(context, GamePageViewArguments arguments) {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
+    gameMode = arguments.gameMode;
 
-    if (level != null) {
-      _loadLevel(context);
+    if (gameMode == GameMode.learning) {
+      _startLearningMode(context);
+      return;
     }
 
-    if (chalengeLevel != null) {
-      _startChalenge(context);
+    if (gameMode == GameMode.chalenge) {
+      _startChalengeMode(context);
+      return;
     }
   }
 
@@ -128,7 +132,7 @@ class GamePageController extends Cubit<GamePageState> {
     timer?.cancel();
   }
 
-  _loadLevel(context) {
+  _startLearningMode(context) {
     levelModel = LevelResource().levels[level];
 
     if (levelModel == null) {
@@ -138,10 +142,49 @@ class GamePageController extends Cubit<GamePageState> {
     }
 
     wastes = WasteResource().getWasteFromNames(levelModel?.wasteNames ?? []);
+    wastes.shuffle();
     addCardToQueue();
   }
 
-  _startChalenge(BuildContext context) {
+  _onEndLearningMode(context) async {
+    final num mistakeP = mistake / levelModel!.wasteNames.length;
+    final num score = 1 - (mistakeP > 1 ? 1 : mistakeP);
+
+    num starScore = 0;
+
+    if (mistake == 0) {
+      starScore = 3;
+    } else if (score > 0.8) {
+      starScore = 2;
+    } else if (score > 0.5) {
+      starScore = 1;
+    } else {
+      starScore = 0;
+    }
+
+    final oldScore = _sharedPref.getLearningLevelScore(level!);
+    if (starScore > oldScore) {
+      await _sharedPref.writeLearningLevelScore(level!, starScore.toInt());
+    }
+
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (c) => LearningEndDialog(
+          score: starScore,
+          onPlayAgain: () {
+            Navigator.pop(c);
+          },
+          onBack: () {
+            Navigator.pop(context);
+            Navigator.pop(context);
+          }),
+    );
+  }
+
+  _startChalengeMode(BuildContext context) {
+    oldHighScore = _sharedPref.getChalengeHighScore(chalengeLevel!);
+
     wastes = WasteResource().all;
     clearQueue();
     addCardToQueue();
@@ -165,18 +208,12 @@ class GamePageController extends Cubit<GamePageState> {
       if (timeRemain > 0) {
         runTimer(context);
       } else {
-        await _onEndChalenge(context);
+        await _onEndChalengeMode(context);
       }
     });
   }
 
-  _onEndChalenge(context) async {
-    final oldHighScore = _sharedPref.getHighScore();
-
-    if (score > oldHighScore) {
-      await _sharedPref.writeHighScore(score.toInt());
-    }
-
+  _onEndChalengeMode(context) async {
     await showDialog(
       context: context,
       barrierDismissible: false,
@@ -185,7 +222,7 @@ class GamePageController extends Cubit<GamePageState> {
           highScore: oldHighScore,
           onPlayAgain: () {
             Navigator.pop(c);
-            _startChalenge(context);
+            _startChalengeMode(context);
           },
           onBack: () {
             Navigator.pop(context);
@@ -194,14 +231,29 @@ class GamePageController extends Cubit<GamePageState> {
     );
   }
 
-  onCorrectPlace() {
+  onCorrectPlace(context) async {
     emit(state.copyWith(score: score + 1));
     timeRemain = timeMax;
 
     emit(state.copyWith(timeRemainPercentage: timeRemain / timeMax));
     emit(state.copyWith(queue: queue..removeFirst()));
 
-    addCardToQueue();
+    if (wastes.isEmpty) {
+      _onEndLearningMode(context);
+    } else {
+      addCardToQueue();
+    }
+
+    if (chalengeLevel != null) {
+      if (score > oldHighScore) {
+        await _sharedPref.writeChalengeHighScore(chalengeLevel!, score.toInt());
+      }
+    }
+  }
+
+  onWrongPlace() {
+    mistake++;
+    wrongEffect();
   }
 
   wrongEffect() async {
@@ -214,12 +266,18 @@ class GamePageController extends Cubit<GamePageState> {
   }
 
   addCardToQueue() {
-    int newIndex = lastIndex;
-    do {
-      newIndex = Random().nextInt(wastes.length);
-    } while (newIndex == lastIndex);
-    lastIndex = newIndex;
-    emit(state.copyWith(queue: queue..add(wastes[lastIndex])));
+    if (level != null) {
+      emit(state.copyWith(queue: queue..add(wastes[0])));
+      wastes.removeAt(0);
+    } else {
+      int newIndex = lastIndex;
+      do {
+        newIndex = Random().nextInt(wastes.length);
+      } while (newIndex == lastIndex);
+      lastIndex = newIndex;
+      emit(state.copyWith(queue: queue..add(wastes[newIndex])));
+    }
+
     spawnCardEffect();
   }
 

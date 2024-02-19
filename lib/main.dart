@@ -24,8 +24,6 @@ initDI() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   getIt.registerSingleton<SharedPref>(SharedPref(prefs));
-
-  await getIt.get<SharedPref>().init();
 }
 
 class MyApp extends StatelessWidget {
