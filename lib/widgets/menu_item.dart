@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/constants/app_text_style.dart';
 
-import '../constants/color_name.dart';
+import '../constants/app_text_style.dart';
 
 class MenuItem extends StatefulWidget {
   const MenuItem({super.key, required this.text, required this.onTap});

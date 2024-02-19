@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/pages/game_page_view.dart';
-import 'package:project_s/widgets/app_scaffold.dart';
 
-import '../constants/game_mode.dart';
 import '../widgets/app_back_button.dart';
+import '../widgets/app_scaffold.dart';
 import '../widgets/level_item.dart';
+import 'game_page_view.dart';
 import 'level_select_page_controller.dart';
 
 class LevelSelectPageView extends StatefulWidget {
@@ -73,7 +72,7 @@ class _LevelSelectPageViewState extends State<LevelSelectPageView> {
               context,
               MaterialPageRoute(
                 builder: (context) => GamePageView(
-                  arguments: GamePageViewArguments(gameMode: GameMode.learning, level: level),
+                  arguments: GamePageViewArguments(level: level),
                 ),
               ),
             );

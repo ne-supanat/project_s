@@ -4,7 +4,6 @@ import 'package:project_s/widgets/app_scaffold.dart';
 
 import '../constants/chalenge_level.dart';
 import '../constants/color_name.dart';
-import '../constants/game_mode.dart';
 import '../constants/waste_type.dart';
 import '../widgets/app_back_icon_button.dart';
 import '../widgets/bin_placeholder.dart';
@@ -13,11 +12,10 @@ import '../widgets/waste_card.dart';
 import 'game_page_controller.dart';
 
 class GamePageViewArguments {
-  final GameMode gameMode;
   final int? level;
   final ChalengeLevel? chalengeLevel;
 
-  GamePageViewArguments({required this.gameMode, this.level, this.chalengeLevel});
+  GamePageViewArguments({this.level, this.chalengeLevel});
 }
 
 class GamePageView extends StatefulWidget {

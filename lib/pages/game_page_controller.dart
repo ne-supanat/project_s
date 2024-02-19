@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:project_s/constants/chalenge_level.dart';
-import 'package:project_s/constants/game_mode.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
 import 'package:project_s/helpers/sharedpref.dart';
@@ -75,7 +74,6 @@ class GamePageController extends Cubit<GamePageState> {
   final SharedPref _sharedPref = GetIt.I.get<SharedPref>();
 
   late GamePageViewArguments arguments;
-  late GameMode gameMode;
   late int? level;
   late ChalengeLevel? chalengeLevel;
 
@@ -115,16 +113,11 @@ class GamePageController extends Cubit<GamePageState> {
   init(context, GamePageViewArguments arguments) {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
-    gameMode = arguments.gameMode;
 
-    if (gameMode == GameMode.learning) {
+    if (level != null) {
       _startLearningMode(context);
-      return;
-    }
-
-    if (gameMode == GameMode.chalenge) {
+    } else {
       _startChalengeMode(context);
-      return;
     }
   }
 
