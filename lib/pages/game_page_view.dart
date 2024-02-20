@@ -223,7 +223,7 @@ class _GamePageViewState extends State<GamePageView> {
       category: WasteCategory.danger,
       child: Column(
         children: [
-          _binPlaceHolder(WasteType.biohazard),
+          _binPlaceHolder(WasteType.hazardous),
           const SizedBox(height: 16),
           _binPlaceHolder(WasteType.electronic),
         ],
@@ -259,7 +259,7 @@ class _GamePageViewState extends State<GamePageView> {
       const SizedBox(height: 8, width: 8),
       _categoryZone(
         category: WasteCategory.organic,
-        child: _binPlaceHolder(WasteType.food),
+        child: _binPlaceHolder(WasteType.organic),
       ),
     ]);
   }

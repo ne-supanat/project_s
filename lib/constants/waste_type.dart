@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import '../helpers/translations.dart';
 
-enum WasteType { general, food, paper, plastic, aluminium, glass, biohazard, electronic }
+enum WasteType { general, organic, paper, plastic, aluminium, glass, hazardous, electronic }
 
 enum WasteCategory { general, organic, recycle, danger }
 
 extension WasteTypeExtension on WasteType {
   WasteCategory get category {
     switch (this) {
-      case WasteType.biohazard:
+      case WasteType.hazardous:
       case WasteType.electronic:
         return WasteCategory.danger;
       case WasteType.paper:
@@ -17,7 +17,7 @@ extension WasteTypeExtension on WasteType {
       case WasteType.aluminium:
       case WasteType.glass:
         return WasteCategory.recycle;
-      case WasteType.food:
+      case WasteType.organic:
         return WasteCategory.organic;
       case WasteType.general:
         return WasteCategory.general;
@@ -26,7 +26,7 @@ extension WasteTypeExtension on WasteType {
 
   String get icon {
     switch (this) {
-      case WasteType.biohazard:
+      case WasteType.hazardous:
         return TranslationKeys.waste_type_biohazard_name;
       case WasteType.electronic:
         return TranslationKeys.waste_type_electronic_name;
@@ -38,7 +38,7 @@ extension WasteTypeExtension on WasteType {
         return TranslationKeys.waste_type_aluminium_name;
       case WasteType.glass:
         return TranslationKeys.waste_type_glass_name;
-      case WasteType.food:
+      case WasteType.organic:
         return TranslationKeys.waste_type_food_name;
       case WasteType.general:
         return TranslationKeys.waste_type_general_name;
@@ -47,7 +47,7 @@ extension WasteTypeExtension on WasteType {
 
   String get string {
     switch (this) {
-      case WasteType.biohazard:
+      case WasteType.hazardous:
         return TranslationKeys.waste_type_biohazard_name;
       case WasteType.electronic:
         return TranslationKeys.waste_type_electronic_name;
@@ -59,7 +59,7 @@ extension WasteTypeExtension on WasteType {
         return TranslationKeys.waste_type_aluminium_name;
       case WasteType.glass:
         return TranslationKeys.waste_type_glass_name;
-      case WasteType.food:
+      case WasteType.organic:
         return TranslationKeys.waste_type_food_name;
       case WasteType.general:
         return TranslationKeys.waste_type_general_name;
@@ -68,7 +68,7 @@ extension WasteTypeExtension on WasteType {
 
   String get description {
     switch (this) {
-      case WasteType.biohazard:
+      case WasteType.hazardous:
         return TranslationKeys.waste_type_biohazard_description;
       case WasteType.electronic:
         return TranslationKeys.waste_type_electronic_description;
@@ -80,7 +80,7 @@ extension WasteTypeExtension on WasteType {
         return TranslationKeys.waste_type_aluminium_description;
       case WasteType.glass:
         return TranslationKeys.waste_type_glass_description;
-      case WasteType.food:
+      case WasteType.organic:
         return TranslationKeys.waste_type_food_description;
       case WasteType.general:
         return TranslationKeys.waste_type_general_description;
