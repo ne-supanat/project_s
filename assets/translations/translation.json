@@ -17,35 +17,35 @@
     "waste_type": {
         "general": {
             "name": "General",
-            "description": "General waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag."
         },
         "food": {
             "name": "Organic",
-            "description": "Organic waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings."
         },
         "paper": {
             "name": "Paper",
-            "description": "Paper waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper."
         },
         "plastic": {
             "name": "Plastic",
-            "description": "Plastic waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride)."
         },
         "aluminium": {
             "name": "Aluminium",
-            "description": "Aluminium waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Aluminum objects like cans, foil, and other aluminum packaging."
         },
         "glass": {
             "name": "Glass",
-            "description": "Glass waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Glass containers and bottles that can be recycled, including clear, green, and brown glass."
         },
         "biohazard": {
             "name": "Hazardous",
-            "description": "Hazardous waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals."
         },
         "electronic": {
             "name": "Electronic",
-            "description": "Electronic waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "description": "Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly."
         }
     },
     "main_page": {

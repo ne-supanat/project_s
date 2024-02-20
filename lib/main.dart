@@ -45,10 +45,10 @@ class MyApp extends StatelessWidget {
       ),
       home:
           //
-          // const MainPageView(),
-          // const ChalengeSelectPageView(),
-          // const LevelSelectPageView(),
-          GamePageView(arguments: GamePageViewArguments(level: 4)),
+          const MainPageView(),
+      // const ChalengeSelectPageView(),
+      // const LevelSelectPageView(),
+      // GamePageView(arguments: GamePageViewArguments(level: 4)),
       // GamePageView(
       //     arguments: GamePageViewArguments(chalengeLevel: ChalengeLevel.expert)),
     );

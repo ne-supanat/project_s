@@ -7,6 +7,7 @@ class WasteNames {
   static const wastePaper = 'paper';
   static const wastePlastic = 'plactic';
   static const wasteAluminium = 'aluminium';
+  static const wasteGlass = 'glass';
   static const wasteFood = 'food';
   static const wasteGeneral = 'general';
 }
@@ -51,6 +52,11 @@ class WasteResource {
       imagePath: 'https://picsum.photos/500',
       name: 'aluminium',
       type: WasteType.aluminium,
+    ),
+    WasteNames.wasteGlass: WasteModel(
+      imagePath: 'https://picsum.photos/550',
+      name: 'aluminium',
+      type: WasteType.glass,
     ),
     WasteNames.wasteFood: WasteModel(
       imagePath: 'https://picsum.photos/600',
