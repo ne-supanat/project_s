@@ -20,37 +20,39 @@ class ChalengeSelectPageView extends StatelessWidget {
   }
 
   Widget layout(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: ColorNames.cream,
-            border: Border.all(width: 4, color: ColorNames.black),
-            borderRadius: BorderRadius.circular(16),
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: ColorNames.cream,
+              border: Border.all(width: 4, color: ColorNames.black),
+              borderRadius: BorderRadius.circular(16),
+            ),
+            padding: const EdgeInsets.all(16.0),
+            margin: const EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  TranslationKeys.chalenge_level_select_page_title,
+                  style: AppTextStyle.base.size28.bold,
+                ),
+                const SizedBox(height: 24),
+                chalengeItem(context, ChalengeLevel.beginner),
+                const SizedBox(height: 16),
+                chalengeItem(context, ChalengeLevel.normal),
+                const SizedBox(height: 16),
+                chalengeItem(context, ChalengeLevel.expert),
+                const SizedBox(height: 24),
+              ],
+            ),
           ),
-          padding: const EdgeInsets.all(16.0),
-          margin: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                TranslationKeys.chalenge_level_select_page_title,
-                style: AppTextStyle.base.size28.bold,
-              ),
-              const SizedBox(height: 24),
-              chalengeItem(context, ChalengeLevel.beginner),
-              const SizedBox(height: 16),
-              chalengeItem(context, ChalengeLevel.normal),
-              const SizedBox(height: 16),
-              chalengeItem(context, ChalengeLevel.expert),
-              const SizedBox(height: 24),
-            ],
-          ),
-        ),
-        const SizedBox(height: 16),
-        const AppBackButton()
-      ],
+          const SizedBox(height: 16),
+          const AppBackButton()
+        ],
+      ),
     );
   }
 
