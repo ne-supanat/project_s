@@ -58,6 +58,7 @@
         "title": "- Difficulty -"
     },
     "knowledge_dialog": {
+        "warning": "- sorting methods might be different between countries -",
         "category": "Category: "
     },
     "game_page": {

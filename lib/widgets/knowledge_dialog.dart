@@ -55,8 +55,23 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
     return Expanded(
       child: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(vertical: 16),
-        child: Column(
-          children: WasteType.values
+        child: Column(children: [
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Expanded(
+                child: FittedBox(
+                  fit: BoxFit.scaleDown,
+                  child: Text(
+                    TranslationKeys.knowledge_dialog_warning,
+                    style: AppTextStyle.base.copyWith(fontSize: 14),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          ...WasteType.values
               .map((e) => Theme(
                     data: ThemeData().copyWith(
                       dividerColor: Colors.transparent,
@@ -65,6 +80,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                       maintainState: true,
                       backgroundColor:
                           isHover ? ColorNames.white.withOpacity(0.5) : Colors.transparent,
+                      tilePadding: const EdgeInsets.only(left: 16, right: 8),
                       title: Text(e.string, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
                       children: [
                         _contentByType(e),
@@ -72,7 +88,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                     ),
                   ))
               .toList(),
-        ),
+        ]),
       ),
     );
   }

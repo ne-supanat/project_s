@@ -59,6 +59,7 @@ class TranslationKeys {
   static String get chalenge_level_select_page_title =>
       translations['chalenge_level_select_page']['title'];
 
+  static String get knowledge_dialog_warning => translations['knowledge_dialog']['warning'];
   static String get knowledge_dialog_category => translations['knowledge_dialog']['category'];
 
   static String get game_page_level_not_found => translations['game_page']['level_not_found'];
