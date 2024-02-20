@@ -13,10 +13,14 @@ class WasteCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final scale = (MediaQuery.of(context).size.width / 500) * 0.7;
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: Draggable<WasteModel>(
         data: value,
+        dragAnchorStrategy: (object, context, offset) {
+          return const Offset(66, 90);
+        },
         childWhenDragging: Opacity(
           opacity: 1,
           child: _content(),
@@ -26,7 +30,7 @@ class WasteCard extends StatelessWidget {
           child: Material(
             color: Colors.transparent,
             child: Transform.scale(
-              scale: 0.9,
+              scale: scale < 1 ? scale : 0.9,
               child: _content(),
             ),
           ),

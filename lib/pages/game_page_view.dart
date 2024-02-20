@@ -47,37 +47,11 @@ class _GamePageViewState extends State<GamePageView> {
   Widget build(BuildContext context) {
     return AppScaffold<GamePageState>(
       controller: controller,
-      body: layout2,
+      body: layout,
     );
   }
 
   Widget layout(BuildContext context) {
-    const padding = 16.0;
-    return Stack(
-      alignment: AlignmentDirectional.center,
-      children: [
-        Positioned(
-          top: 0,
-          child: _gui(),
-        ),
-        _cardHeap(),
-        Positioned(
-          left: padding,
-          child: _danger(),
-        ),
-        Positioned(
-          bottom: padding,
-          child: _recycle(),
-        ),
-        Positioned(
-          right: padding,
-          child: _general(),
-        ),
-      ],
-    );
-  }
-
-  Widget layout2(BuildContext context) {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Column(
@@ -85,38 +59,18 @@ class _GamePageViewState extends State<GamePageView> {
         children: [
           _gui(),
           const SizedBox(height: 24),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.5),
-              border: Border.all(
-                width: 4,
-                color: ColorNames.black.withOpacity(0.4),
-              ),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                if (controller.chalengeLevel != null)
-                  LinearProgressIndicator(
-                    value: controller.timeRemainPercentage.toDouble(),
-                    minHeight: 12,
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.red.shade400,
-                  ),
-                const SizedBox(height: 16),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _danger(),
-                    _cardHeap(),
-                    _general(),
-                  ],
+          FittedBox(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.5),
+                border: Border.all(
+                  width: 4,
+                  color: ColorNames.black.withOpacity(0.4),
                 ),
-                const SizedBox(height: 24),
-                _recycle(),
-              ],
+                borderRadius: BorderRadius.circular(16),
+              ),
+              padding: const EdgeInsets.all(16),
+              child: _content(),
             ),
           ),
           const SizedBox(),
@@ -211,6 +165,35 @@ class _GamePageViewState extends State<GamePageView> {
     );
   }
 
+  _content() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        if (controller.chalengeLevel != null)
+          LinearProgressIndicator(
+            value: controller.timeRemainPercentage.toDouble(),
+            minHeight: 12,
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.red.shade400,
+          ),
+        const SizedBox(height: 16),
+        SizedBox(
+          width: 500,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _danger(),
+              _cardHeap(),
+              _general(),
+            ],
+          ),
+        ),
+        const SizedBox(height: 24),
+        _recycle(),
+      ],
+    );
+  }
+
   _cardHeap() {
     return AnimatedScale(
       scale: controller.cardScale,
@@ -260,22 +243,25 @@ class _GamePageViewState extends State<GamePageView> {
           _binPlaceHolder(WasteType.plastic),
           const SizedBox(width: 16),
           _binPlaceHolder(WasteType.aluminium),
+          const SizedBox(width: 16),
+          _binPlaceHolder(WasteType.aluminium),
         ],
       ),
     );
   }
 
   _general() {
-    return _categoryZone(
-      category: WasteCategory.common,
-      child: Column(
-        children: [
-          _binPlaceHolder(WasteType.food),
-          const SizedBox(height: 16),
-          _binPlaceHolder(WasteType.general),
-        ],
+    return Column(children: [
+      _categoryZone(
+        category: WasteCategory.common,
+        child: _binPlaceHolder(WasteType.general),
       ),
-    );
+      const SizedBox(height: 8, width: 8),
+      _categoryZone(
+        category: WasteCategory.common,
+        child: _binPlaceHolder(WasteType.food),
+      ),
+    ]);
   }
 
   _categoryZone({required WasteCategory category, required Widget child}) {

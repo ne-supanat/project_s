@@ -43,11 +43,14 @@ class MyApp extends StatelessWidget {
         // GoogleFonts.comicNeueTextTheme(),
         // GoogleFonts.concertOneTextTheme(),
       ),
-      home: const MainPageView(),
-      // const ChalengeSelectPageView(),
-      // const LevelSelectPageView(),
+      home:
+          //
+          // const MainPageView(),
+          // const ChalengeSelectPageView(),
+          // const LevelSelectPageView(),
+          GamePageView(arguments: GamePageViewArguments(level: 4)),
       // GamePageView(
-      //     arguments: GamePageViewArguments(level: 4, chalengeLevel: ChalengeLevel.expert)),
+      //     arguments: GamePageViewArguments(chalengeLevel: ChalengeLevel.expert)),
     );
   }
 }
