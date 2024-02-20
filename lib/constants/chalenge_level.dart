@@ -6,11 +6,11 @@ extension ChalengeLevelExtension on ChalengeLevel {
   num get time {
     switch (this) {
       case ChalengeLevel.beginner:
-        return 15;
+        return 10;
       case ChalengeLevel.normal:
-        return 7;
+        return 5;
       case ChalengeLevel.expert:
-        return 3;
+        return 2;
     }
   }
 
