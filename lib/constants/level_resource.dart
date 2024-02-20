@@ -6,7 +6,7 @@ class LevelResource {
   final levels = {
     1: LevelModel(
       id: 1,
-      availableCategories: [WasteCategory.common],
+      availableCategories: [WasteCategory.general, WasteCategory.organic],
       wasteNames: [
         WasteNames.wasteGeneral,
         WasteNames.wasteFood,
@@ -31,7 +31,7 @@ class LevelResource {
     ),
     4: LevelModel(
       id: 4,
-      availableCategories: [WasteCategory.common, WasteCategory.recycle, WasteCategory.danger],
+      availableCategories: WasteCategory.values,
       wasteNames: [
         WasteNames.wasteGeneral,
         WasteNames.wasteFood,

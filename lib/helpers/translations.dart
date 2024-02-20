@@ -22,6 +22,7 @@ class TranslationKeys {
   static String get chalenge_level_expert => translations['chalenge_level']['expert'];
 
   static String get waste_category_common => translations['waste_category']['common'];
+  static String get waste_category_organic => translations['waste_category']['organic'];
   static String get waste_category_recyclable => translations['waste_category']['recyclable'];
   static String get waste_category_hazardous => translations['waste_category']['hazardous'];
 
@@ -40,6 +41,9 @@ class TranslationKeys {
   static String get waste_type_aluminium_name => translations['waste_type']['aluminium']['name'];
   static String get waste_type_aluminium_description =>
       translations['waste_type']['aluminium']['description'];
+  static String get waste_type_glass_name => translations['waste_type']['glass']['name'];
+  static String get waste_type_glass_description =>
+      translations['waste_type']['glass']['description'];
   static String get waste_type_biohazard_name => translations['waste_type']['biohazard']['name'];
   static String get waste_type_biohazard_description =>
       translations['waste_type']['biohazard']['description'];

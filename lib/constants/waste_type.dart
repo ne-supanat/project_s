@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../helpers/translations.dart';
 
-enum WasteType { general, food, paper, plastic, aluminium, biohazard, electronic }
+enum WasteType { general, food, paper, plastic, aluminium, glass, biohazard, electronic }
 
-enum WasteCategory { common, recycle, danger }
+enum WasteCategory { general, organic, recycle, danger }
 
 extension WasteTypeExtension on WasteType {
   WasteCategory get category {
@@ -15,10 +15,12 @@ extension WasteTypeExtension on WasteType {
       case WasteType.paper:
       case WasteType.plastic:
       case WasteType.aluminium:
+      case WasteType.glass:
         return WasteCategory.recycle;
       case WasteType.food:
+        return WasteCategory.organic;
       case WasteType.general:
-        return WasteCategory.common;
+        return WasteCategory.general;
     }
   }
 
@@ -34,6 +36,8 @@ extension WasteTypeExtension on WasteType {
         return TranslationKeys.waste_type_plastic_name;
       case WasteType.aluminium:
         return TranslationKeys.waste_type_aluminium_name;
+      case WasteType.glass:
+        return TranslationKeys.waste_type_glass_name;
       case WasteType.food:
         return TranslationKeys.waste_type_food_name;
       case WasteType.general:
@@ -53,6 +57,8 @@ extension WasteTypeExtension on WasteType {
         return TranslationKeys.waste_type_plastic_name;
       case WasteType.aluminium:
         return TranslationKeys.waste_type_aluminium_name;
+      case WasteType.glass:
+        return TranslationKeys.waste_type_glass_name;
       case WasteType.food:
         return TranslationKeys.waste_type_food_name;
       case WasteType.general:
@@ -72,6 +78,8 @@ extension WasteTypeExtension on WasteType {
         return TranslationKeys.waste_type_plastic_description;
       case WasteType.aluminium:
         return TranslationKeys.waste_type_aluminium_description;
+      case WasteType.glass:
+        return TranslationKeys.waste_type_glass_description;
       case WasteType.food:
         return TranslationKeys.waste_type_food_description;
       case WasteType.general:
@@ -87,7 +95,9 @@ extension WasteCategoryExtension on WasteCategory {
         return Colors.red;
       case WasteCategory.recycle:
         return Colors.blue;
-      case WasteCategory.common:
+      case WasteCategory.general:
+        return Colors.blueGrey;
+      case WasteCategory.organic:
         return Colors.green;
     }
   }
@@ -98,8 +108,10 @@ extension WasteCategoryExtension on WasteCategory {
         return TranslationKeys.waste_category_hazardous;
       case WasteCategory.recycle:
         return TranslationKeys.waste_category_recyclable;
-      case WasteCategory.common:
+      case WasteCategory.general:
         return TranslationKeys.waste_category_common;
+      case WasteCategory.organic:
+        return TranslationKeys.waste_category_organic;
     }
   }
 }

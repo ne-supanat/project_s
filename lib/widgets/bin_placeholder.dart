@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
+import 'package:project_s/constants/app_text_style.dart';
 
+import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
 import '../models/waste_model.dart';
 import 'waste_card.dart';
@@ -89,8 +91,12 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Icon(Icons.recycling_rounded),
-                      Text(widget.targetValue.string),
+                      const Icon(Icons.recycling_rounded, color: ColorNames.white),
+                      Text(
+                        widget.targetValue.string,
+                        style: AppTextStyle.base.bold
+                            .copyWith(color: ColorNames.white.withOpacity(0.8)),
+                      ),
                     ],
                   ),
                   AnimatedSlide(

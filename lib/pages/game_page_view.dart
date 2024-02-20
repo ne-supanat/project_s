@@ -244,7 +244,7 @@ class _GamePageViewState extends State<GamePageView> {
           const SizedBox(width: 16),
           _binPlaceHolder(WasteType.aluminium),
           const SizedBox(width: 16),
-          _binPlaceHolder(WasteType.aluminium),
+          _binPlaceHolder(WasteType.glass),
         ],
       ),
     );
@@ -253,12 +253,12 @@ class _GamePageViewState extends State<GamePageView> {
   _general() {
     return Column(children: [
       _categoryZone(
-        category: WasteCategory.common,
+        category: WasteCategory.general,
         child: _binPlaceHolder(WasteType.general),
       ),
       const SizedBox(height: 8, width: 8),
       _categoryZone(
-        category: WasteCategory.common,
+        category: WasteCategory.organic,
         child: _binPlaceHolder(WasteType.food),
       ),
     ]);

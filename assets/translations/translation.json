@@ -9,7 +9,8 @@
         "expert": "Expert"
     },
     "waste_category": {
-        "common": "Common",
+        "common": "General",
+        "organic": "Organic",
         "recyclable": "Recyclable",
         "hazardous": "Hazardous"
     },
@@ -19,8 +20,8 @@
             "description": "General waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
         },
         "food": {
-            "name": "Food",
-            "description": "Food waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "name": "Organic",
+            "description": "Organic waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
         },
         "paper": {
             "name": "Paper",
@@ -34,9 +35,13 @@
             "name": "Aluminium",
             "description": "Aluminium waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
         },
+        "glass": {
+            "name": "Glass",
+            "description": "Glass waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+        },
         "biohazard": {
-            "name": "Biohazardous",
-            "description": "Biohazardous waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
+            "name": "Hazardous",
+            "description": "Hazardous waste is Lorem please help me I ran out of an idea of what I should add here may be a recipe of how to making a hot chucolate"
         },
         "electronic": {
             "name": "Electronic",
