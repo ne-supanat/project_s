@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_s/helpers/asset_path_helper.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
@@ -82,6 +83,10 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                           isHover ? ColorNames.white.withOpacity(0.5) : Colors.transparent,
                       tilePadding: const EdgeInsets.only(left: 16, right: 8),
                       title: Text(e.string, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
+                      leading: ImageIcon(
+                        AssetImage(e.icon.platformAsset),
+                        color: e.category.color,
+                      ),
                       children: [
                         _contentByType(e),
                       ],

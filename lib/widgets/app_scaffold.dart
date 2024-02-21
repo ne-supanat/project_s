@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_s/helpers/asset_path_helper.dart';
 import 'package:project_s/resources/resources.dart';
 
 class AppScaffold<STATE> extends StatelessWidget {
@@ -27,9 +28,9 @@ class AppScaffold<STATE> extends StatelessWidget {
   _layout(context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(Images.bgGif),
+            image: AssetImage(Images.bgGif.platformAsset),
             fit: BoxFit.fill,
           ),
         ),

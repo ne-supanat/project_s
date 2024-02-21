@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../helpers/translations.dart';
+import '../resources/resources.dart';
 
 enum WasteType { general, organic, paper, plastic, aluminium, glass, hazardous, electronic }
 
@@ -27,21 +28,21 @@ extension WasteTypeExtension on WasteType {
   String get icon {
     switch (this) {
       case WasteType.hazardous:
-        return TranslationKeys.waste_type_biohazard_name;
+        return Images.icHazardous;
       case WasteType.electronic:
-        return TranslationKeys.waste_type_electronic_name;
+        return Images.icElectronic;
       case WasteType.paper:
-        return TranslationKeys.waste_type_paper_name;
+        return Images.icPaper;
       case WasteType.plastic:
-        return TranslationKeys.waste_type_plastic_name;
+        return Images.icPlastic;
       case WasteType.aluminium:
-        return TranslationKeys.waste_type_aluminium_name;
+        return Images.icAluminum;
       case WasteType.glass:
-        return TranslationKeys.waste_type_glass_name;
+        return Images.icGlass;
       case WasteType.organic:
-        return TranslationKeys.waste_type_food_name;
+        return Images.icOrganic;
       case WasteType.general:
-        return TranslationKeys.waste_type_general_name;
+        return Images.icGeneral;
     }
   }
 
