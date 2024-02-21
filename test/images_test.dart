@@ -6,6 +6,7 @@ import 'package:project_s/resources/resources.dart';
 void main() {
   test('images assets test', () {
     expect(File(Images.bg).existsSync(), isTrue);
+    expect(File(Images.bgAnimation).existsSync(), isTrue);
     expect(File(Images.bgGif).existsSync(), isTrue);
     expect(File(Images.icAluminum).existsSync(), isTrue);
     expect(File(Images.icElectronic).existsSync(), isTrue);

@@ -4,6 +4,7 @@ class Images {
   Images._();
 
   static const String bg = 'assets/images/bg.jpg';
+  static const String bgAnimation = 'assets/images/bg_animation.gif';
   static const String bgGif = 'assets/images/bg_gif.gif';
   static const String icAluminum = 'assets/images/ic_aluminum.png';
   static const String icElectronic = 'assets/images/ic_electronic.png';

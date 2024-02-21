@@ -30,8 +30,8 @@ class AppScaffold<STATE> extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(Images.bgGif.platformAsset),
-            fit: BoxFit.fill,
+            image: AssetImage(Images.bgAnimation.platformAsset),
+            fit: BoxFit.cover,
           ),
         ),
         child: Center(
