@@ -6,5 +6,5 @@ class ColorNames {
   static const Color cream2 = Color(0xFFECE8D4);
   static const Color black = Color(0xFF181818);
   static const Color black333335 = Color(0xFF333335);
-  static const Color greenPale = Color(0xFFebf4ec);
+  static const Color pastelgreen = Color(0xFF84b27f);
 }

@@ -51,6 +51,7 @@ class TranslationKeys {
   static String get waste_type_electronic_description =>
       translations['waste_type']['electronic']['description'];
 
+  static String get main_page_start => translations['main_page']['start'];
   static String get main_page_learning => translations['main_page']['learning'];
   static String get main_page_chalenge => translations['main_page']['chalenge'];
   static String get main_page_knowledge => translations['main_page']['knowledge'];

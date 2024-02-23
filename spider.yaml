@@ -33,3 +33,6 @@ groups:
   - path: assets/images
     class_name: Images
     types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp, .gif ]
+  - path: assets/audios
+    class_name: Audios
+    types: [ .wav ]

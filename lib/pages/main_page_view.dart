@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/pages/level_select_page_view.dart';
 import 'package:project_s/pages/main_page_controller.dart';
@@ -23,78 +24,174 @@ class _MainPageViewState extends State<MainPageView> {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {});
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
+      controller.onReady(context);
+    });
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold<MainPageState>(
-      controller: controller,
-      body: layout,
+    return GestureDetector(
+      onTap: controller.start,
+      child: AppScaffold<MainPageState>(
+        controller: controller,
+        body: layout,
+      ),
     );
   }
 
   Widget layout(BuildContext context) {
-    return SingleChildScrollView(
+    return ListenableBuilder(
+        listenable: controller.focusNode,
+        builder: (BuildContext context, Widget? child) {
+          return SingleChildScrollView(child: controller.started ? _menuLayout() : _startLayout());
+        });
+  }
+
+  _startLayout() {
+    return Focus(
+      focusNode: controller.focusNode,
+      onKeyEvent: controller.handleKeyEvent,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            decoration: BoxDecoration(
-              color: ColorNames.cream,
-              border: Border.all(width: 4, color: ColorNames.black),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            padding: const EdgeInsets.all(16.0),
-            margin: const EdgeInsets.all(16.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  TranslationKeys.common_title,
-                  style: AppTextStyle.base.copyWith(
-                    fontSize: 56,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-                const SizedBox(height: 24),
-                MenuItem(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
-                    );
-                  },
-                  text: TranslationKeys.main_page_learning,
-                ),
-                const SizedBox(height: 16),
-                MenuItem(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
-                    );
-                  },
-                  text: TranslationKeys.main_page_chalenge,
-                ),
-                const SizedBox(height: 16),
-                MenuItem(
-                  onTap: () {
-                    showDialog(context: context, builder: (context) => const KnowledgeDialog());
-                  },
-                  text: TranslationKeys.main_page_knowledge,
-                ),
-                const SizedBox(height: 16),
-                MenuItem(
-                  onTap: () {},
-                  text: TranslationKeys.main_page_tutorial,
-                ),
-                const SizedBox(height: 24),
-              ],
+          Text(
+            TranslationKeys.main_page_start,
+            style: AppTextStyle.base.semibold.white.copyWith(
+              fontSize: 28,
+              shadows: const [Shadow(color: ColorNames.black, blurRadius: 10)],
             ),
           ),
         ],
       ),
+    );
+  }
+
+  _menuLayout() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: ColorNames.cream,
+            border: Border.all(width: 4, color: ColorNames.black),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          margin: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                TranslationKeys.common_title,
+                style: AppTextStyle.base.bold.copyWith(
+                  fontSize: 56,
+                ),
+              ),
+              const SizedBox(height: 24),
+              MenuItem(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
+                  );
+                },
+                text: TranslationKeys.main_page_learning,
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
+                  );
+                },
+                text: TranslationKeys.main_page_chalenge,
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {
+                  showDialog(context: context, builder: (context) => const KnowledgeDialog());
+                },
+                text: TranslationKeys.main_page_knowledge,
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {},
+                text: TranslationKeys.main_page_tutorial,
+              ),
+              const SizedBox(height: 24),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  _frame(List<Widget> children) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            color: ColorNames.cream,
+            border: Border.all(width: 4, color: ColorNames.black),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          padding: const EdgeInsets.all(16.0),
+          margin: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                TranslationKeys.common_title,
+                style: AppTextStyle.base.bold.copyWith(
+                  fontSize: 56,
+                ),
+              ),
+              const SizedBox(height: 24),
+              MenuItem(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
+                  );
+                },
+                text: TranslationKeys.main_page_learning,
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
+                  );
+                },
+                text: TranslationKeys.main_page_chalenge,
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {
+                  showDialog(context: context, builder: (context) => const KnowledgeDialog());
+                },
+                text: TranslationKeys.main_page_knowledge,
+              ),
+              const SizedBox(height: 16),
+              MenuItem(
+                onTap: () {},
+                text: TranslationKeys.main_page_tutorial,
+              ),
+              const SizedBox(height: 24),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

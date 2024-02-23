@@ -1,22 +1,24 @@
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+
+import '../helpers/bg_audio_helper.dart';
 
 class MainPageState {
-  final int counter1;
-  final int counter2;
+  final bool started;
 
-  MainPageState({required this.counter1, required this.counter2});
+  MainPageState({required this.started});
 
   factory MainPageState.i() {
     return MainPageState(
-      counter1: 0,
-      counter2: 0,
+      started: !kIsWeb,
     );
   }
 
-  copyWith({int? counter1, int? counter2}) {
+  copyWith({bool? started}) {
     return MainPageState(
-      counter1: counter1 ?? this.counter1,
-      counter2: counter2 ?? this.counter2,
+      started: started ?? this.started,
     );
   }
 }
@@ -24,9 +26,35 @@ class MainPageState {
 class MainPageController extends Cubit<MainPageState> {
   MainPageController() : super(MainPageState.i());
 
-  void setScore1(value) => emit(state.copyWith(counter1: value));
-  void setScore2(value) => emit(state.copyWith(counter2: value));
+  final bgAudioHelper = GetIt.I.get<BgAudioHelper>();
+  final FocusNode focusNode = FocusNode();
 
-  void addScore1() => emit(state.copyWith(counter1: state.counter1 + 1));
-  void addScore2() => emit(state.copyWith(counter2: state.counter2 + 1));
+  bool get started => state.started;
+
+  onReady(context) {
+    setupBgMusic();
+    FocusScope.of(context).requestFocus(focusNode);
+  }
+
+  setupBgMusic() async {
+    await bgAudioHelper.setup();
+
+    if (started) {
+      bgAudioHelper.play();
+    }
+  }
+
+  dispose() {
+    focusNode.dispose();
+  }
+
+  KeyEventResult handleKeyEvent(FocusNode node, KeyEvent event) {
+    start();
+    return KeyEventResult.ignored;
+  }
+
+  start() {
+    emit(state.copyWith(started: true));
+    bgAudioHelper.play();
+  }
 }

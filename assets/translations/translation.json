@@ -49,6 +49,7 @@
         }
     },
     "main_page": {
+        "start": "- Press Anything to Start -",
         "learning": "Learning",
         "chalenge": "Chalenge",
         "knowledge": "Knowledge",

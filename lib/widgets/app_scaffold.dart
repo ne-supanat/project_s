@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_s/helpers/asset_path_helper.dart';
 import 'package:project_s/resources/resources.dart';
 
+import '../constants/color_name.dart';
+
 class AppScaffold<STATE> extends StatelessWidget {
   const AppScaffold({super.key, this.controller, required this.body});
 
@@ -27,6 +29,7 @@ class AppScaffold<STATE> extends StatelessWidget {
 
   _layout(context) {
     return Scaffold(
+      backgroundColor: ColorNames.pastelgreen,
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(

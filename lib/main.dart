@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:project_s/helpers/sharedpref.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'helpers/bg_audio_helper.dart';
 import 'helpers/translations.dart';
 import 'pages/main_page_view.dart';
 
@@ -23,6 +24,7 @@ initDI() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   getIt.registerSingleton<SharedPref>(SharedPref(prefs));
+  getIt.registerSingleton<BgAudioHelper>(BgAudioHelper());
 }
 
 class MyApp extends StatelessWidget {
