@@ -28,13 +28,13 @@ class GamePageView extends StatefulWidget {
   State<GamePageView> createState() => _GamePageViewState();
 }
 
-class _GamePageViewState extends State<GamePageView> {
+class _GamePageViewState extends State<GamePageView> with SingleTickerProviderStateMixin {
   final GamePageController controller = GamePageController();
 
   @override
   void initState() {
     super.initState();
-    controller.init(context, widget.arguments);
+    controller.init(context, widget.arguments, this);
   }
 
   @override
@@ -173,7 +173,7 @@ class _GamePageViewState extends State<GamePageView> {
           SizedBox(
             width: 500,
             child: LinearProgressIndicator(
-              value: controller.timeRemainPercentage.toDouble(),
+              value: controller.timeRemainPercentageAnimation.value.toDouble(),
               minHeight: 12,
               borderRadius: BorderRadius.circular(16),
               color: Colors.red.shade400,

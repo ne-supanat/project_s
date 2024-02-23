@@ -83,272 +83,272 @@ class WasteResource {
   }
 
   final Map<String, WasteModel> wastes = {
-    WasteNames.tissue: WasteModel(
+    WasteNames.tissue: const WasteModel(
       imagePath: Images.imgTissue,
       name: 'Tissues',
       type: WasteType.general,
     ),
-    WasteNames.styrofoamPackaging: WasteModel(
+    WasteNames.styrofoamPackaging: const WasteModel(
       imagePath: Images.imgStyrofoam,
       name: 'Styrofoam Packaging',
       type: WasteType.general,
     ),
-    WasteNames.plasticCutlery: WasteModel(
+    WasteNames.plasticCutlery: const WasteModel(
       imagePath: Images.imgCutlery,
       name: 'Plastic Cutlery',
       type: WasteType.general,
     ),
-    WasteNames.chipsBag: WasteModel(
+    WasteNames.chipsBag: const WasteModel(
       imagePath: Images.imgChipsBag,
       name: 'Chips Bag',
       type: WasteType.general,
     ),
-    WasteNames.toothpasteTubes: WasteModel(
+    WasteNames.toothpasteTubes: const WasteModel(
       imagePath: Images.imgToothPaste,
       name: 'Toothpaste Tube',
       type: WasteType.general,
     ),
-    WasteNames.brokenToy: WasteModel(
+    WasteNames.brokenToy: const WasteModel(
       imagePath: Images.imgBrokenToy,
       name: 'Broken Toy',
       type: WasteType.general,
     ),
-    WasteNames.wornOutShoes: WasteModel(
+    WasteNames.wornOutShoes: const WasteModel(
       imagePath: Images.imgWornOutShoes,
       name: 'Worn-Out Shoes',
       type: WasteType.general,
     ),
-    WasteNames.brokenGlass: WasteModel(
+    WasteNames.brokenGlass: const WasteModel(
       imagePath: Images.imgBrokenGlass,
       name: 'Broken Glass',
       type: WasteType.general,
     ),
-    WasteNames.appleCore: WasteModel(
+    WasteNames.appleCore: const WasteModel(
       imagePath: Images.imgAppleCore,
       name: 'Apple Core',
       type: WasteType.organic,
     ),
-    WasteNames.bananaPeel: WasteModel(
+    WasteNames.bananaPeel: const WasteModel(
       imagePath: Images.imgBananaPeel,
       name: 'Banana Peel',
       type: WasteType.organic,
     ),
-    WasteNames.orangePeels: WasteModel(
+    WasteNames.orangePeels: const WasteModel(
       imagePath: Images.imgOrangePeel,
       name: 'Orange Peels',
       type: WasteType.organic,
     ),
-    WasteNames.potatoPeels: WasteModel(
+    WasteNames.potatoPeels: const WasteModel(
       imagePath: Images.imgPotatoPeel,
       name: 'Potato Peels',
       type: WasteType.organic,
     ),
-    WasteNames.eggShells: WasteModel(
+    WasteNames.eggShells: const WasteModel(
       imagePath: Images.imgEggShell,
       name: 'Egg Shells',
       type: WasteType.organic,
     ),
-    WasteNames.leaves: WasteModel(
+    WasteNames.leaves: const WasteModel(
       imagePath: Images.imgLeaves,
       name: 'Leaves',
       type: WasteType.organic,
     ),
-    WasteNames.teaBag: WasteModel(
+    WasteNames.teaBag: const WasteModel(
       imagePath: Images.imgTeaBag,
       name: 'Tea Bag',
       type: WasteType.organic,
     ),
-    WasteNames.newspapers: WasteModel(
+    WasteNames.newspapers: const WasteModel(
       imagePath: Images.imgNewsPaper,
       name: 'Newspapers',
       type: WasteType.paper,
     ),
-    WasteNames.officePaper: WasteModel(
+    WasteNames.officePaper: const WasteModel(
       imagePath: Images.imgOfficePaper,
       name: 'Office Paper',
       type: WasteType.paper,
     ),
-    WasteNames.letter: WasteModel(
+    WasteNames.letter: const WasteModel(
       imagePath: Images.imgLetter,
       name: 'Letter',
       type: WasteType.paper,
     ),
-    WasteNames.shreddedPaper: WasteModel(
+    WasteNames.shreddedPaper: const WasteModel(
       imagePath: Images.imgShreddedPaper,
       name: 'Shredded Paper',
       type: WasteType.paper,
     ),
-    WasteNames.book: WasteModel(
+    WasteNames.book: const WasteModel(
       imagePath: Images.imgBook,
       name: 'Book',
       type: WasteType.paper,
     ),
-    WasteNames.cerealBox: WasteModel(
+    WasteNames.cerealBox: const WasteModel(
       imagePath: Images.imgCerealBox,
       name: 'Cereal Box',
       type: WasteType.paper,
     ),
-    WasteNames.tissueBox: WasteModel(
+    WasteNames.tissueBox: const WasteModel(
       imagePath: Images.imgTissueBox,
       name: 'Tissue Box',
       type: WasteType.paper,
     ),
-    WasteNames.waterBottle: WasteModel(
+    WasteNames.waterBottle: const WasteModel(
       imagePath: Images.imgPlasticBottle,
       name: 'Water Bottle',
       type: WasteType.plastic,
     ),
-    WasteNames.milkJug: WasteModel(
+    WasteNames.milkJug: const WasteModel(
       imagePath: Images.imgMilkJug,
       name: 'Milk Jug',
       type: WasteType.plastic,
     ),
-    WasteNames.shampooBottle: WasteModel(
+    WasteNames.shampooBottle: const WasteModel(
       imagePath: Images.imgShampoo,
       name: 'Shampoo Bottle',
       type: WasteType.plastic,
     ),
-    WasteNames.sodaBottle: WasteModel(
+    WasteNames.sodaBottle: const WasteModel(
       imagePath: Images.imgSodaBottle,
       name: 'Soda Bottle',
       type: WasteType.plastic,
     ),
-    WasteNames.juiceCarton: WasteModel(
+    WasteNames.juiceCarton: const WasteModel(
       imagePath: Images.imgJuiceCarton,
       name: 'Juice Carton',
       type: WasteType.plastic,
     ),
-    WasteNames.foodCan: WasteModel(
+    WasteNames.foodCan: const WasteModel(
       imagePath: Images.imgFoodCan,
       name: 'Food Can',
       type: WasteType.aluminium,
     ),
-    WasteNames.sodaCan: WasteModel(
+    WasteNames.sodaCan: const WasteModel(
       imagePath: Images.imgSodaCan,
       name: 'Soda Can',
       type: WasteType.aluminium,
     ),
-    WasteNames.foil: WasteModel(
+    WasteNames.foil: const WasteModel(
       imagePath: Images.imgFoil,
       name: 'Foil',
       type: WasteType.aluminium,
     ),
-    WasteNames.aluminiumPlate: WasteModel(
+    WasteNames.aluminiumPlate: const WasteModel(
       imagePath: Images.imgAluminumPlate,
       name: 'Aluminum Plate',
       type: WasteType.aluminium,
     ),
-    WasteNames.aluminiumTrays: WasteModel(
+    WasteNames.aluminiumTrays: const WasteModel(
       imagePath: Images.imgAluminumTray,
       name: 'Aluminum Tray',
       type: WasteType.aluminium,
     ),
-    WasteNames.beerCan: WasteModel(
+    WasteNames.beerCan: const WasteModel(
       imagePath: Images.imgBeerCan,
       name: 'Beer Can',
       type: WasteType.aluminium,
     ),
-    WasteNames.glassBottleClear: WasteModel(
+    WasteNames.glassBottleClear: const WasteModel(
       imagePath: Images.imgGlassBottleClear,
       name: 'Glass Bottle(clear)',
       type: WasteType.glass,
     ),
-    WasteNames.glassBottleGreen: WasteModel(
+    WasteNames.glassBottleGreen: const WasteModel(
       imagePath: Images.imgGlassBottleGreen,
       name: 'Glass Bottle(green)',
       type: WasteType.glass,
     ),
-    WasteNames.glassBottleBrown: WasteModel(
+    WasteNames.glassBottleBrown: const WasteModel(
       imagePath: Images.imgGlassBottleBrown,
       name: 'Glass Bottle(brown)',
       type: WasteType.glass,
     ),
-    WasteNames.glassJarClear: WasteModel(
+    WasteNames.glassJarClear: const WasteModel(
       imagePath: Images.imgGlassJarClear,
       name: 'Glass Jar(clear)',
       type: WasteType.glass,
     ),
-    WasteNames.glassJarGreen: WasteModel(
+    WasteNames.glassJarGreen: const WasteModel(
       imagePath: Images.imgGlassJarGreen,
       name: 'Glass Jar(green)',
       type: WasteType.glass,
     ),
-    WasteNames.glassJarBrown: WasteModel(
+    WasteNames.glassJarBrown: const WasteModel(
       imagePath: Images.imgGlassJarBrown,
       name: 'Glass Jar(brown)',
       type: WasteType.glass,
     ),
-    WasteNames.wineBottle: WasteModel(
+    WasteNames.wineBottle: const WasteModel(
       imagePath: Images.imgWine,
       name: 'Wine Bottle',
       type: WasteType.glass,
     ),
-    WasteNames.jamJar: WasteModel(
+    WasteNames.jamJar: const WasteModel(
       imagePath: Images.imgJamJar,
       name: 'Jam Jar',
       type: WasteType.glass,
     ),
-    WasteNames.pickleJar: WasteModel(
+    WasteNames.pickleJar: const WasteModel(
       imagePath: Images.imgPickleJar,
       name: 'Pickle Jar',
       type: WasteType.glass,
     ),
-    WasteNames.battery: WasteModel(
+    WasteNames.battery: const WasteModel(
       imagePath: Images.imgBattery,
       name: 'Battery',
       type: WasteType.hazardous,
     ),
-    WasteNames.lightBulb: WasteModel(
+    WasteNames.lightBulb: const WasteModel(
       imagePath: Images.imgLightBulb,
       name: 'Light Bulb',
       type: WasteType.hazardous,
     ),
-    WasteNames.paintCan: WasteModel(
+    WasteNames.paintCan: const WasteModel(
       imagePath: Images.imgPaintCan,
       name: 'Paint Can',
       type: WasteType.hazardous,
     ),
-    WasteNames.pesticide: WasteModel(
+    WasteNames.pesticide: const WasteModel(
       imagePath: Images.imgPesticide,
       name: 'Pesticide',
       type: WasteType.hazardous,
     ),
-    WasteNames.motorOil: WasteModel(
+    WasteNames.motorOil: const WasteModel(
       imagePath: Images.imgMotorOil,
       name: 'Motor Oil',
       type: WasteType.hazardous,
     ),
-    WasteNames.sprayCan: WasteModel(
+    WasteNames.sprayCan: const WasteModel(
       imagePath: Images.imgSpayCan,
       name: 'Spray Can',
       type: WasteType.hazardous,
     ),
-    WasteNames.mobilePhone: WasteModel(
+    WasteNames.mobilePhone: const WasteModel(
       imagePath: Images.imgMobilePhone,
       name: 'Mobile Phone',
       type: WasteType.electronic,
     ),
-    WasteNames.tablet: WasteModel(
+    WasteNames.tablet: const WasteModel(
       imagePath: Images.imgTablet,
       name: 'Tablet',
       type: WasteType.electronic,
     ),
-    WasteNames.laptop: WasteModel(
+    WasteNames.laptop: const WasteModel(
       imagePath: Images.imgLaptop,
       name: 'Laptop',
       type: WasteType.electronic,
     ),
-    WasteNames.monitor: WasteModel(
+    WasteNames.monitor: const WasteModel(
       imagePath: Images.imgMonitor,
       name: 'Monitor',
       type: WasteType.electronic,
     ),
-    WasteNames.keyboard: WasteModel(
+    WasteNames.keyboard: const WasteModel(
       imagePath: Images.imgKeyboard,
       name: 'Keyboard',
       type: WasteType.electronic,
     ),
-    WasteNames.mouse: WasteModel(
+    WasteNames.mouse: const WasteModel(
       imagePath: Images.imgMouse,
       name: 'Mouse',
       type: WasteType.electronic,

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_s/helpers/sharedpref.dart';
-import 'package:project_s/resources/resources.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'helpers/translations.dart';

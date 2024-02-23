@@ -7,7 +7,6 @@ import 'package:project_s/widgets/menu_item.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
-import '../resources/resources.dart';
 import '../widgets/knowledge_dialog.dart';
 import 'chalenge_select_page_view.dart';
 

@@ -102,27 +102,28 @@ class GamePageController extends Cubit<GamePageState> {
   num get score => state.score;
   num oldHighScore = 0;
 
-  num timeMax = double.infinity;
-  num timeRemain = double.infinity;
-
   num get timeRemainPercentage => state.timeRemainPercentage;
+  late Animation<num> timeRemainPercentageAnimation;
+  late AnimationController animationController;
 
   Timer? timer;
 
   int lastIndex = -1;
 
-  init(context, GamePageViewArguments arguments) {
+  init(context, GamePageViewArguments arguments, TickerProvider vsync) {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
 
     if (level != null) {
       _startLearningMode(context);
     } else {
+      _setupTimerUI(vsync);
       _startChalengeMode(context);
     }
   }
 
   dipose() {
+    animationController.dispose();
     timer?.cancel();
   }
 
@@ -178,6 +179,20 @@ class GamePageController extends Cubit<GamePageState> {
     );
   }
 
+  _setupTimerUI(TickerProvider vsync) {
+    animationController = AnimationController(
+      vsync: vsync,
+      duration: Duration(seconds: chalengeLevel!.time.toInt()),
+    );
+    timeRemainPercentageAnimation = Tween<double>(begin: 1, end: 0).animate(animationController);
+
+    timeRemainPercentageAnimation.addListener(() {
+      emit(state.copyWith(timeRemainPercentage: timeRemainPercentageAnimation.value));
+    });
+
+    animationController.forward();
+  }
+
   _startChalengeMode(BuildContext context) {
     oldHighScore = _sharedPref.getChalengeHighScore(chalengeLevel!);
 
@@ -185,27 +200,20 @@ class GamePageController extends Cubit<GamePageState> {
     clearQueue();
     addCardToQueue();
 
-    timeMax = chalengeLevel?.time ?? double.infinity;
-    timeRemain = timeMax;
-    emit(state.copyWith(timeRemainPercentage: 1));
     emit(state.copyWith(score: 0));
 
-    runTimer(context);
+    renewTimer(context);
   }
 
-  runTimer(BuildContext context) {
+  renewTimer(BuildContext context) {
     timer?.cancel();
 
-    timer = Timer(const Duration(milliseconds: 10), () async {
-      timeRemain -= 0.01;
+    animationController
+      ..reset()
+      ..forward();
 
-      emit(state.copyWith(timeRemainPercentage: timeRemain / timeMax));
-
-      if (timeRemain > 0) {
-        runTimer(context);
-      } else {
-        await _onEndChalengeMode(context);
-      }
+    timer = Timer(Duration(seconds: chalengeLevel!.time.toInt()), () async {
+      await _onEndChalengeMode(context);
     });
   }
 
@@ -229,9 +237,7 @@ class GamePageController extends Cubit<GamePageState> {
 
   onCorrectPlace(context) async {
     emit(state.copyWith(score: score + 1));
-    timeRemain = timeMax;
 
-    emit(state.copyWith(timeRemainPercentage: timeRemain / timeMax));
     emit(state.copyWith(queue: queue..removeFirst()));
 
     if (wastes.isEmpty) {
@@ -241,6 +247,7 @@ class GamePageController extends Cubit<GamePageState> {
     }
 
     if (chalengeLevel != null) {
+      renewTimer(context);
       if (score > oldHighScore) {
         await _sharedPref.writeChalengeHighScore(chalengeLevel!, score.toInt());
       }
