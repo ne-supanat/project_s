@@ -170,11 +170,14 @@ class _GamePageViewState extends State<GamePageView> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         if (controller.chalengeLevel != null)
-          LinearProgressIndicator(
-            value: controller.timeRemainPercentage.toDouble(),
-            minHeight: 12,
-            borderRadius: BorderRadius.circular(16),
-            color: Colors.red.shade400,
+          SizedBox(
+            width: 500,
+            child: LinearProgressIndicator(
+              value: controller.timeRemainPercentage.toDouble(),
+              minHeight: 12,
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.red.shade400,
+            ),
           ),
         const SizedBox(height: 16),
         SizedBox(
