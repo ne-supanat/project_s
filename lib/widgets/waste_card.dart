@@ -71,6 +71,7 @@ class WasteCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Container(
+                    height: 30,
                     color: ColorNames.black333335,
                     padding: const EdgeInsets.all(4.0),
                     child: FittedBox(
@@ -83,10 +84,22 @@ class WasteCard extends StatelessWidget {
                   ),
                   Expanded(
                     child: Container(
-                      color: Colors.grey.shade100,
-                      child: Image.network(
-                        value.imagePath,
-                        fit: BoxFit.cover,
+                      color: Colors.white,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            height: 100,
+                            width: 100,
+                            decoration: const BoxDecoration(
+                                shape: BoxShape.circle, color: ColorNames.cream),
+                          ),
+                          Image.network(
+                            value.imagePath,
+                            fit: BoxFit.contain,
+                          ),
+                        ],
                       ),
                     ),
                   ),

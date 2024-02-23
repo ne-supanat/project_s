@@ -59,6 +59,7 @@
     },
     "knowledge_dialog": {
         "warning": "- sorting methods might be different between countries -",
+        "recommend": "- always try to fix and reuse before thow anything away -",
         "category": "Category: "
     },
     "game_page": {

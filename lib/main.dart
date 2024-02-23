@@ -2,12 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_s/helpers/sharedpref.dart';
-import 'package:project_s/pages/chalenge_select_page_view.dart';
-import 'package:project_s/pages/game_page_view.dart';
-import 'package:project_s/pages/level_select_page_view.dart';
+import 'package:project_s/resources/resources.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'constants/chalenge_level.dart';
 import 'helpers/translations.dart';
 import 'pages/main_page_view.dart';
 
@@ -40,17 +37,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
         textTheme: GoogleFonts.quicksandTextTheme(),
-        // GoogleFonts.comicNeueTextTheme(),
-        // GoogleFonts.concertOneTextTheme(),
       ),
-      home:
-          //
-          const MainPageView(),
-      // const ChalengeSelectPageView(),
-      // const LevelSelectPageView(),
-      // GamePageView(arguments: GamePageViewArguments(level: 4)),
-      // GamePageView(
-      //     arguments: GamePageViewArguments(chalengeLevel: ChalengeLevel.expert)),
+      home: const MainPageView(),
     );
   }
 }
