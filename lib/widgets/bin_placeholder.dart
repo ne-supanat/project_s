@@ -55,12 +55,12 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
       },
       onAccept: (value) {
         if (value.type == widget.targetValue) {
-          _audioPlayer.setAsset(Audios.sfxTwinkle.platformAsset);
+          _audioPlayer.setAsset(Audios.sfxCongratulations.platformAsset);
           _audioPlayer.play();
           widget.onCorrectPlace(value);
           shake();
         } else {
-          _audioPlayer.setAsset(Audios.sfxError.platformAsset);
+          _audioPlayer.setAsset(Audios.sfxBoing.platformAsset);
           _audioPlayer.play();
           widget.onWrongPlace(value);
         }

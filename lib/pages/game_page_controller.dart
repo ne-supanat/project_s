@@ -5,15 +5,18 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
+import 'package:project_s/helpers/asset_path_helper.dart';
 import 'package:project_s/helpers/sharedpref.dart';
 import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/models/level_model.dart';
 import 'package:project_s/widgets/chalenge_end_dialog.dart';
 
 import '../../../../models/waste_model.dart';
+import '../resources/resources.dart';
 import '../widgets/learning_end_dialog.dart';
 import 'game_page_view.dart';
 
@@ -78,6 +81,8 @@ class GamePageController extends Cubit<GamePageState> {
   late int? level;
   late ChalengeLevel? chalengeLevel;
 
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
   Queue<WasteModel> get queue => state.queue;
   List<WasteModel> wastes = WasteResource().all;
 
@@ -113,6 +118,9 @@ class GamePageController extends Cubit<GamePageState> {
   init(context, GamePageViewArguments arguments, TickerProvider vsync) {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
+
+    _audioPlayer.setAsset(Audios.sfxTwinkle.platformAsset);
+    _audioPlayer.setVolume(0.75);
 
     if (level != null) {
       _startLearningMode(context);
@@ -162,6 +170,8 @@ class GamePageController extends Cubit<GamePageState> {
     if (starScore > oldScore) {
       await _sharedPref.writeLearningLevelScore(level!, starScore.toInt());
     }
+
+    _audioPlayer.play();
 
     await showDialog(
       context: context,
@@ -218,6 +228,7 @@ class GamePageController extends Cubit<GamePageState> {
   }
 
   _onEndChalengeMode(context) async {
+    _audioPlayer.play();
     await showDialog(
       context: context,
       barrierDismissible: false,

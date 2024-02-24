@@ -9,12 +9,16 @@ class BgAudioHelper {
   bool get playing => _audioPlayer.playing;
 
   Future setup() async {
-    await _audioPlayer.setAsset(Audios.musicHothamMorningBliss.platformAsset);
-    await _audioPlayer.setLoopMode(LoopMode.all);
-    await _audioPlayer.setVolume(0.2);
+    _audioPlayer.setAsset(Audios.musicHothamMorningBliss.platformAsset);
   }
 
   play() {
     _audioPlayer.play();
+    _audioPlayer.setLoopMode(LoopMode.one);
+    _audioPlayer.setVolume(0.5);
+  }
+
+  dispose() {
+    _audioPlayer.dispose();
   }
 }

@@ -46,6 +46,7 @@ class MainPageController extends Cubit<MainPageState> {
 
   dispose() {
     focusNode.dispose();
+    bgAudioHelper.dispose();
   }
 
   KeyEventResult handleKeyEvent(FocusNode node, KeyEvent event) {
@@ -55,6 +56,8 @@ class MainPageController extends Cubit<MainPageState> {
 
   start() {
     emit(state.copyWith(started: true));
-    bgAudioHelper.play();
+    if (!bgAudioHelper.playing) {
+      bgAudioHelper.play();
+    }
   }
 }
