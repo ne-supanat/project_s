@@ -35,4 +35,4 @@ groups:
     types: [ .png, .jpg, .jpeg, .webp, .webm, .bmp, .gif ]
   - path: assets/audios
     class_name: Audios
-    types: [ .wav ]
+    types: [ .wav, .mp3 ]

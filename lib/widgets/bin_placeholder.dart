@@ -2,12 +2,14 @@ import 'dart:math';
 
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:project_s/constants/app_text_style.dart';
-import 'package:project_s/helpers/asset_path_helper.dart';
+import 'package:just_audio/just_audio.dart';
 
+import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
+import '../helpers/asset_path_helper.dart';
 import '../models/waste_model.dart';
+import '../resources/resources.dart';
 import 'waste_card.dart';
 
 class BinPlaceHolder extends StatefulWidget {
@@ -29,6 +31,8 @@ class BinPlaceHolder extends StatefulWidget {
 }
 
 class _BinPlaceHolderState extends State<BinPlaceHolder> {
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
   Offset starOffset = const Offset(0, 1);
   double starSize = 0;
 
@@ -40,6 +44,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
   void initState() {
     super.initState();
     rotate = randomRotate;
+    _audioPlayer.setVolume(0.5);
   }
 
   @override
@@ -50,9 +55,13 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
       },
       onAccept: (value) {
         if (value.type == widget.targetValue) {
+          _audioPlayer.setAsset(Audios.sfxTwinkle.platformAsset);
+          _audioPlayer.play();
           widget.onCorrectPlace(value);
           shake();
         } else {
+          _audioPlayer.setAsset(Audios.sfxError.platformAsset);
+          _audioPlayer.play();
           widget.onWrongPlace(value);
         }
         setState(() {
