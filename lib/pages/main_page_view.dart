@@ -88,13 +88,23 @@ class _MainPageViewState extends State<MainPageView> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(
-                TranslationKeys.common_title,
-                style: AppTextStyle.base.bold.copyWith(
-                  fontSize: 56,
-                ),
+              const SizedBox(height: 16),
+              Row(
+                children: [
+                  Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        TranslationKeys.common_title,
+                        style: AppTextStyle.base.bold.copyWith(
+                          fontSize: 56,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
               MenuItem(
                 onTap: () {
                   Navigator.push(

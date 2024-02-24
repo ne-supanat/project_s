@@ -1,6 +1,6 @@
-# Project_S
+# Waste Wise
 
-Global Gamers Challenge
+Global Gamers Challenge's game project using flutter
 
 ## Music
 
