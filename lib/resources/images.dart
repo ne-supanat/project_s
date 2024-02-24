@@ -27,18 +27,12 @@ class Images {
   static const String imgEggShell = 'assets/images/img_egg_shell.png';
   static const String imgFoil = 'assets/images/img_foil.png';
   static const String imgFoodCan = 'assets/images/img_food_can.png';
-  static const String imgGlassBottleBrown =
-      'assets/images/img_glass_bottle_brown.png';
-  static const String imgGlassBottleClear =
-      'assets/images/img_glass_bottle_clear.png';
-  static const String imgGlassBottleGreen =
-      'assets/images/img_glass_bottle_green.png';
-  static const String imgGlassJarBrown =
-      'assets/images/img_glass_jar_brown.png';
-  static const String imgGlassJarClear =
-      'assets/images/img_glass_jar_clear.png';
-  static const String imgGlassJarGreen =
-      'assets/images/img_glass_jar_green.png';
+  static const String imgGlassBottleBrown = 'assets/images/img_glass_bottle_brown.png';
+  static const String imgGlassBottleClear = 'assets/images/img_glass_bottle_clear.png';
+  static const String imgGlassBottleGreen = 'assets/images/img_glass_bottle_green.png';
+  static const String imgGlassJarBrown = 'assets/images/img_glass_jar_brown.png';
+  static const String imgGlassJarClear = 'assets/images/img_glass_jar_clear.png';
+  static const String imgGlassJarGreen = 'assets/images/img_glass_jar_green.png';
   static const String imgJamJar = 'assets/images/img_jam_jar.png';
   static const String imgJuiceCarton = 'assets/images/img_juice_carton.png';
   static const String imgKeyboard = 'assets/images/img_keyboard.png';
@@ -71,17 +65,12 @@ class Images {
   static const String imgTissueBox = 'assets/images/img_tissue_box.png';
   static const String imgToothPaste = 'assets/images/img_tooth_paste.png';
   static const String imgTutorialBoard = 'assets/images/img_tutorial_board.png';
-  static const String imgTutorialBoardHover =
-      'assets/images/img_tutorial_board_hover.png';
+  static const String imgTutorialBoardHover = 'assets/images/img_tutorial_board_hover.png';
   static const String imgTutorialCard = 'assets/images/img_tutorial_card.jpg';
-  static const String imgTutorialChalengeMode =
-      'assets/images/img_tutorial_chalenge_mode.jpg';
-  static const String imgTutorialHintFalse =
-      'assets/images/img_tutorial_hint_false.jpg';
-  static const String imgTutorialHintTrue =
-      'assets/images/img_tutorial_hint_true.jpg';
-  static const String imgTutorialKnowledge =
-      'assets/images/img_tutorial_knowledge.png';
+  static const String imgTutorialChalengeMode = 'assets/images/img_tutorial_chalenge_mode.jpg';
+  static const String imgTutorialHintFalse = 'assets/images/img_tutorial_hint_false.jpg';
+  static const String imgTutorialHintTrue = 'assets/images/img_tutorial_hint_true.jpg';
+  static const String imgTutorialKnowledge = 'assets/images/img_tutorial_knowledge.jpg';
   static const String imgWine = 'assets/images/img_wine.png';
   static const String imgWornOutShoes = 'assets/images/img_worn_out_shoes.png';
 }

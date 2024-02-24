@@ -63,6 +63,41 @@
         "recommend": "- always try to fix and reuse before thow anything away -",
         "category": "Category: "
     },
+    "tutorial_dialog": {
+        "mode": {
+            "title": "Mode",
+            "learning": {
+                "title": "1. Learning",
+                "desc": "Learning mode allow you to practice with several levels, each level has its own set of items and no time limit to play. Remember practice make perfect."
+            },
+            "chalenge": {
+                "title": "2. Chalenge",
+                "desc": "Chalenge mode or in another word an Endless mode, you can play it forever and get a higher score. Your only enemy is time, you will have a few seconds (depends on difficulty level) to make a correct move and reset the timer. If the time hit zero, that's the end of the chalenge."
+            }
+        },
+        "card": {
+            "title": "Card",
+            "line1": "1. name of the item",
+            "line2": "2. image of the item",
+            "line3": "3. hint (item's category)"
+        },
+        "board": {
+            "title": "Board",
+            "line1": "This game separates items to 8 types (you can learn more in \"Knowledge\")",
+            "line2": "Drag and drop card into its type to gain a point"
+        },
+        "helper": {
+            "title": "Helper",
+            "knowledge": {
+                "title": "Knowledge",
+                "decs": "Show data of types, categories and items."
+            },
+            "hint": {
+                "title": "Hint",
+                "decs": "Switch the visibility of hint on card"
+            }
+        }
+    },
     "game_page": {
         "level_not_found": "Level not found",
         "score": "Score: "

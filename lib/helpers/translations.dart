@@ -64,6 +64,36 @@ class TranslationKeys {
   static String get knowledge_dialog_recommend => translations['knowledge_dialog']['recommend'];
   static String get knowledge_dialog_category => translations['knowledge_dialog']['category'];
 
+  static String get tutorial_dialog_mode_title => translations['tutorial_dialog']['mode']['title'];
+  static String get tutorial_dialog_mode_learning_title =>
+      translations['tutorial_dialog']['mode']['learning']['title'];
+  static String get tutorial_dialog_mode_learning_desc =>
+      translations['tutorial_dialog']['mode']['learning']['desc'];
+  static String get tutorial_dialog_mode_chalenge_title =>
+      translations['tutorial_dialog']['mode']['chalenge']['title'];
+  static String get tutorial_dialog_mode_chalenge_desc =>
+      translations['tutorial_dialog']['mode']['chalenge']['desc'];
+  static String get tutorial_dialog_card_title => translations['tutorial_dialog']['card']['title'];
+  static String get tutorial_dialog_card_line1 => translations['tutorial_dialog']['card']['line1'];
+  static String get tutorial_dialog_card_line2 => translations['tutorial_dialog']['card']['line2'];
+  static String get tutorial_dialog_card_line3 => translations['tutorial_dialog']['card']['line3'];
+  static String get tutorial_dialog_board_title =>
+      translations['tutorial_dialog']['board']['title'];
+  static String get tutorial_dialog_board_line1 =>
+      translations['tutorial_dialog']['board']['line1'];
+  static String get tutorial_dialog_board_line2 =>
+      translations['tutorial_dialog']['board']['line2'];
+  static String get tutorial_dialog_helper_title =>
+      translations['tutorial_dialog']['helper']['title'];
+  static String get tutorial_dialog_helper_knowledge_title =>
+      translations['tutorial_dialog']['helper']['knowledge']['title'];
+  static String get tutorial_dialog_helper_knowledge_decs =>
+      translations['tutorial_dialog']['helper']['knowledge']['decs'];
+  static String get tutorial_dialog_helper_hint_title =>
+      translations['tutorial_dialog']['helper']['hint']['title'];
+  static String get tutorial_dialog_helper_hint_decs =>
+      translations['tutorial_dialog']['helper']['hint']['decs'];
+
   static String get game_page_level_not_found => translations['game_page']['level_not_found'];
   static String get game_page_score => translations['game_page']['score'];
 
