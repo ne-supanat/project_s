@@ -70,6 +70,18 @@ class Images {
   static const String imgTissue = 'assets/images/img_tissue.png';
   static const String imgTissueBox = 'assets/images/img_tissue_box.png';
   static const String imgToothPaste = 'assets/images/img_tooth_paste.png';
+  static const String imgTutorialBoard = 'assets/images/img_tutorial_board.png';
+  static const String imgTutorialBoardHover =
+      'assets/images/img_tutorial_board_hover.png';
+  static const String imgTutorialCard = 'assets/images/img_tutorial_card.jpg';
+  static const String imgTutorialChalengeMode =
+      'assets/images/img_tutorial_chalenge_mode.jpg';
+  static const String imgTutorialHintFalse =
+      'assets/images/img_tutorial_hint_false.jpg';
+  static const String imgTutorialHintTrue =
+      'assets/images/img_tutorial_hint_true.jpg';
+  static const String imgTutorialKnowledge =
+      'assets/images/img_tutorial_knowledge.png';
   static const String imgWine = 'assets/images/img_wine.png';
   static const String imgWornOutShoes = 'assets/images/img_worn_out_shoes.png';
 }

@@ -66,6 +66,13 @@ void main() {
     expect(File(Images.imgTissue).existsSync(), isTrue);
     expect(File(Images.imgTissueBox).existsSync(), isTrue);
     expect(File(Images.imgToothPaste).existsSync(), isTrue);
+    expect(File(Images.imgTutorialBoard).existsSync(), isTrue);
+    expect(File(Images.imgTutorialBoardHover).existsSync(), isTrue);
+    expect(File(Images.imgTutorialCard).existsSync(), isTrue);
+    expect(File(Images.imgTutorialChalengeMode).existsSync(), isTrue);
+    expect(File(Images.imgTutorialHintFalse).existsSync(), isTrue);
+    expect(File(Images.imgTutorialHintTrue).existsSync(), isTrue);
+    expect(File(Images.imgTutorialKnowledge).existsSync(), isTrue);
     expect(File(Images.imgWine).existsSync(), isTrue);
     expect(File(Images.imgWornOutShoes).existsSync(), isTrue);
   });
