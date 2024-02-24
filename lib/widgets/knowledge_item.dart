@@ -7,28 +7,29 @@ import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 
 class KnowledgeItem extends StatefulWidget {
-  const KnowledgeItem({super.key, required this.waste, required this.isFocus, required this.onTap});
+  const KnowledgeItem({
+    super.key,
+    required this.waste,
+    required this.isFocus,
+    required this.onTap,
+    required this.onHover,
+  });
 
   final WasteModel waste;
   final bool isFocus;
   final Function() onTap;
+  final Function(bool) onHover;
 
   @override
   State<KnowledgeItem> createState() => _KnowledgeItemState();
 }
 
 class _KnowledgeItemState extends State<KnowledgeItem> {
-  bool isHover = false;
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: widget.onTap,
-      onHover: (value) {
-        setState(() {
-          isHover = value;
-        });
-      },
+      onHover: widget.onHover,
       child: Stack(
         alignment: Alignment.center,
         clipBehavior: Clip.none,
@@ -79,7 +80,7 @@ class _KnowledgeItemState extends State<KnowledgeItem> {
               top: -0,
               left: 0,
               child: Visibility(
-                visible: kIsWeb ? isHover : widget.isFocus,
+                visible: widget.isFocus,
                 child: SizedBox(
                     width: 100,
                     child: FittedBox(child: WasteCard(value: widget.waste, showHint: false))),

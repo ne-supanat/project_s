@@ -155,6 +155,11 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                             focusedWaste = e;
                           });
                         },
+                        onHover: (bool value) {
+                          setState(() {
+                            focusedWaste = value ? e : null;
+                          });
+                        },
                       ))
                   .toList(),
             ),
