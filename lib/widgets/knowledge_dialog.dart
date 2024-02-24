@@ -146,22 +146,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
               runAlignment: WrapAlignment.center,
               alignment: WrapAlignment.start,
               spacing: 8,
-              children: items
-                  .map((e) => KnowledgeItem(
-                        waste: e,
-                        isFocus: e == focusedWaste,
-                        onTap: () {
-                          setState(() {
-                            focusedWaste = e;
-                          });
-                        },
-                        onHover: (bool value) {
-                          setState(() {
-                            focusedWaste = value ? e : null;
-                          });
-                        },
-                      ))
-                  .toList(),
+              children: items.map((e) => KnowledgeItem(waste: e)).toList(),
             ),
           ),
         ],
