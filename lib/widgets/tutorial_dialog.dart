@@ -118,14 +118,16 @@ class _TutorialDialogState extends State<TutorialDialog> {
                     children: [
                       _helperButton(Icons.menu_book_rounded),
                       const SizedBox(width: 8),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(TranslationKeys.tutorial_dialog_helper_knowledge_title,
-                              style: AppTextStyle.base.size16.bold),
-                          Text(TranslationKeys.tutorial_dialog_helper_knowledge_decs,
-                              style: AppTextStyle.base.size16),
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(TranslationKeys.tutorial_dialog_helper_knowledge_title,
+                                style: AppTextStyle.base.size16.bold),
+                            Text(TranslationKeys.tutorial_dialog_helper_knowledge_decs,
+                                style: AppTextStyle.base.size16),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -142,14 +144,16 @@ class _TutorialDialogState extends State<TutorialDialog> {
                       const SizedBox(width: 8),
                       _helperButton(Icons.visibility_outlined),
                       const SizedBox(width: 8),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(TranslationKeys.tutorial_dialog_helper_hint_title,
-                              style: AppTextStyle.base.size16.bold),
-                          Text(TranslationKeys.tutorial_dialog_helper_hint_decs,
-                              style: AppTextStyle.base.size16),
-                        ],
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(TranslationKeys.tutorial_dialog_helper_hint_title,
+                                style: AppTextStyle.base.size16.bold),
+                            Text(TranslationKeys.tutorial_dialog_helper_hint_decs,
+                                style: AppTextStyle.base.size16),
+                          ],
+                        ),
                       ),
                     ],
                   ),

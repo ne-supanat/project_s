@@ -131,7 +131,9 @@ class GamePageController extends Cubit<GamePageState> {
   }
 
   dipose() {
-    animationController.dispose();
+    if (chalengeLevel != null) {
+      animationController.dispose();
+    }
     timer?.cancel();
   }
 

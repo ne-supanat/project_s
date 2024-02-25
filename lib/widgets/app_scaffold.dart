@@ -37,15 +37,17 @@ class AppScaffold<STATE> extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            constraints: const BoxConstraints(
-              maxWidth: 500,
-            ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-              child: body(context),
+        child: SafeArea(
+          child: Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              constraints: const BoxConstraints(
+                maxWidth: 500,
+              ),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                child: body(context),
+              ),
             ),
           ),
         ),
