@@ -51,7 +51,7 @@
     "main_page": {
         "start": "- Press Anything to Start -",
         "learning": "Learning",
-        "chalenge": "Chalenge",
+        "chalenge": "Challenge",
         "knowledge": "Knowledge",
         "tutorial": "Tutorial"
     },
@@ -71,8 +71,8 @@
                 "desc": "Learning mode allow you to practice with several levels, each level has its own set of items and no time limit to play. Remember practice make perfect."
             },
             "chalenge": {
-                "title": "2. Chalenge",
-                "desc": "Chalenge mode or in another word an Endless mode, you can play it forever and get a higher score. Your only enemy is time, you will have a few seconds (depends on difficulty level) to make a correct move and reset the timer. If the time hit zero, that's the end of the chalenge."
+                "title": "2. Challenge",
+                "desc": "Challenge mode or in another word an Endless mode, you can play it forever and get a higher score. Your only enemy is time, you will have a few seconds (depends on difficulty level) to make a correct move and reset the timer. If the time hit zero, that's the end of the challenge."
             }
         },
         "card": {
