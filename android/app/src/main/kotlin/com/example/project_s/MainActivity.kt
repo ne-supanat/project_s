@@ -1,4 +1,4 @@
-package com.example.project_s
+package com.nespn.wastewise
 
 import io.flutter.embedding.android.FlutterActivity
 
