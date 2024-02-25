@@ -7,7 +7,6 @@ import 'package:just_audio/just_audio.dart';
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
-import '../helpers/asset_path_helper.dart';
 import '../models/waste_model.dart';
 import '../resources/resources.dart';
 import 'waste_card.dart';
@@ -55,12 +54,12 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
       },
       onAccept: (value) {
         if (value.type == widget.targetValue) {
-          _audioPlayer.setAsset(Audios.sfxCongratulations.platformAsset);
+          _audioPlayer.setAsset(Audios.sfxCongratulations);
           _audioPlayer.play();
           widget.onCorrectPlace(value);
           shake();
         } else {
-          _audioPlayer.setAsset(Audios.sfxBoing.platformAsset);
+          _audioPlayer.setAsset(Audios.sfxBoing);
           _audioPlayer.play();
           widget.onWrongPlace(value);
         }
@@ -102,7 +101,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ImageIcon(
-                        AssetImage(widget.targetValue.icon.platformAsset),
+                        AssetImage(widget.targetValue.icon),
                         color: ColorNames.white.withOpacity(0.8),
                       ),
                       Text(

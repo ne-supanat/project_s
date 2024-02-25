@@ -1,7 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 
 import '../resources/resources.dart';
-import 'asset_path_helper.dart';
 
 class BgAudioHelper {
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -9,7 +8,7 @@ class BgAudioHelper {
   bool get playing => _audioPlayer.playing;
 
   Future setup() async {
-    _audioPlayer.setAsset(Audios.musicHothamMorningBliss.platformAsset);
+    _audioPlayer.setAsset(Audios.musicHothamMorningBliss);
   }
 
   play() {

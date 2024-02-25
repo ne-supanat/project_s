@@ -1,7 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:project_s/models/waste_model.dart';
-import 'package:project_s/widgets/waste_card.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
@@ -35,7 +34,7 @@ class _KnowledgeItemState extends State<KnowledgeItem> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(13),
               clipBehavior: Clip.antiAlias,
-              child: Image.network(
+              child: Image.asset(
                 widget.waste.imagePath,
                 fit: BoxFit.cover,
                 width: 100,

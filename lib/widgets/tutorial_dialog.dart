@@ -3,7 +3,6 @@ import 'package:project_s/helpers/translations.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
-import '../helpers/asset_path_helper.dart';
 import '../models/waste_model.dart';
 import '../resources/resources.dart';
 
@@ -75,11 +74,11 @@ class _TutorialDialogState extends State<TutorialDialog> {
             ],
           ),
           const SizedBox(height: 16),
-          _imageFrame(Images.imgTutorialChalengeMode.platformAsset),
+          _imageFrame(Images.imgTutorialChalengeMode),
           const SizedBox(height: 16),
           Text(TranslationKeys.tutorial_dialog_card_title, style: AppTextStyle.base.size24.bold),
           const SizedBox(height: 8),
-          _imageFrame(Images.imgTutorialCard.platformAsset),
+          _imageFrame(Images.imgTutorialCard),
           const SizedBox(height: 8),
           Column(
             children: [
@@ -100,8 +99,8 @@ class _TutorialDialogState extends State<TutorialDialog> {
             spacing: 8,
             runSpacing: 8,
             children: [
-              _imageFrame(Images.imgTutorialBoard.platformAsset),
-              _imageFrame(Images.imgTutorialBoardHover.platformAsset),
+              _imageFrame(Images.imgTutorialBoard),
+              _imageFrame(Images.imgTutorialBoardHover),
             ],
           ),
           const SizedBox(height: 8),
@@ -131,7 +130,7 @@ class _TutorialDialogState extends State<TutorialDialog> {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  _imageFrame(Images.imgTutorialKnowledge.platformAsset),
+                  _imageFrame(Images.imgTutorialKnowledge),
                 ],
               ),
               Column(
@@ -160,8 +159,8 @@ class _TutorialDialogState extends State<TutorialDialog> {
                     spacing: 8,
                     runSpacing: 8,
                     children: [
-                      _imageFrame(Images.imgTutorialHintTrue.platformAsset),
-                      _imageFrame(Images.imgTutorialHintFalse.platformAsset),
+                      _imageFrame(Images.imgTutorialHintTrue),
+                      _imageFrame(Images.imgTutorialHintFalse),
                     ],
                   ),
                 ],

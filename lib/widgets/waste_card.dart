@@ -95,7 +95,7 @@ class WasteCard extends StatelessWidget {
                             decoration: const BoxDecoration(
                                 shape: BoxShape.circle, color: ColorNames.cream),
                           ),
-                          Image.network(
+                          Image.asset(
                             value.imagePath,
                             fit: BoxFit.contain,
                           ),

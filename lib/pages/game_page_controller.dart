@@ -9,7 +9,7 @@ import 'package:just_audio/just_audio.dart';
 import 'package:project_s/constants/chalenge_level.dart';
 import 'package:project_s/constants/level_resource.dart';
 import 'package:project_s/constants/waste_resource.dart';
-import 'package:project_s/helpers/asset_path_helper.dart';
+
 import 'package:project_s/helpers/sharedpref.dart';
 import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/models/level_model.dart';
@@ -119,7 +119,7 @@ class GamePageController extends Cubit<GamePageState> {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
 
-    _audioPlayer.setAsset(Audios.sfxTwinkle.platformAsset);
+    _audioPlayer.setAsset(Audios.sfxTwinkle);
     _audioPlayer.setVolume(0.75);
 
     if (level != null) {

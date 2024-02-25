@@ -4,7 +4,6 @@ import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_resource.dart';
 import '../constants/waste_type.dart';
-import '../helpers/asset_path_helper.dart';
 import '../helpers/translations.dart';
 import '../models/waste_model.dart';
 import 'knowledge_item.dart';
@@ -97,7 +96,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                       tilePadding: const EdgeInsets.only(left: 16, right: 8),
                       title: Text(e.string, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
                       leading: ImageIcon(
-                        AssetImage(e.icon.platformAsset),
+                        AssetImage(e.icon),
                         color: e.category.color,
                       ),
                       children: [

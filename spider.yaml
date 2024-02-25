@@ -36,3 +36,6 @@ groups:
   - path: assets/audios
     class_name: Audios
     types: [ .wav, .mp3 ]
+  - path: assets/translations
+    class_name: Translations
+    types: [ .json ]
