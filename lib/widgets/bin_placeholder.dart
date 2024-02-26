@@ -63,9 +63,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
           _audioPlayer.play();
           widget.onWrongPlace(value);
         }
-        setState(() {
-          tempWaste = null;
-        });
+        resetWasteInPlace();
       },
       onMove: (d) {
         if (tempWaste != d.data) {
@@ -75,9 +73,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
         }
       },
       onLeave: (_) {
-        setState(() {
-          tempWaste = null;
-        });
+        resetWasteInPlace();
       },
       builder: (context, candidates, rejects) {
         return DottedBorder(
@@ -164,6 +160,13 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
     await Future.delayed(const Duration(milliseconds: 500));
     setState(() {
       starOffset = const Offset(0, 1);
+    });
+  }
+
+  resetWasteInPlace() {
+    setState(() {
+      tempWaste = null;
+      rotate = randomRotate;
     });
   }
 
