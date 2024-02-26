@@ -3,6 +3,8 @@ part of 'resources.dart';
 class Images {
   Images._();
 
+  static const String appIcon = 'assets/images/app_icon.png';
+  static const String appIconSqaure = 'assets/images/app_icon_sqaure.jpg';
   static const String bgAnimation = 'assets/images/bg_animation.gif';
   static const String icAluminum = 'assets/images/ic_aluminum.png';
   static const String icElectronic = 'assets/images/ic_electronic.png';
