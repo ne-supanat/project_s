@@ -118,7 +118,7 @@ class _TutorialDialogState extends State<TutorialDialog> {
                     children: [
                       _helperButton(Icons.menu_book_rounded),
                       const SizedBox(width: 8),
-                      Expanded(
+                      Flexible(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -144,7 +144,7 @@ class _TutorialDialogState extends State<TutorialDialog> {
                       const SizedBox(width: 8),
                       _helperButton(Icons.visibility_outlined),
                       const SizedBox(width: 8),
-                      Expanded(
+                      Flexible(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -186,9 +186,10 @@ class _TutorialDialogState extends State<TutorialDialog> {
   _helperButton(IconData icon) {
     return Container(
       padding: const EdgeInsets.all(8),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: ColorNames.white,
+        color: ColorNames.cream,
+        border: Border.all(width: 2),
       ),
       child: Icon(icon),
     );
