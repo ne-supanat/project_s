@@ -17,6 +17,14 @@ class BgAudioHelper {
     _audioPlayer.setVolume(0.7);
   }
 
+  pause() {
+    _audioPlayer.pause();
+  }
+
+  resume() {
+    _audioPlayer.play();
+  }
+
   dispose() {
     _audioPlayer.dispose();
   }

@@ -27,6 +27,14 @@ class _MainPageViewState extends State<MainPageView> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       controller.onReady(context);
     });
+    WidgetsBinding.instance.addObserver(AppLifecycleListener(
+      onPause: () async {
+        controller.bgAudioHelper.pause();
+      },
+      onResume: () async {
+        controller.bgAudioHelper.resume();
+      },
+    ));
   }
 
   @override
