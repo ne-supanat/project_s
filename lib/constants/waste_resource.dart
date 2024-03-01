@@ -3,7 +3,7 @@ import 'package:project_s/models/waste_model.dart';
 import 'package:project_s/resources/resources.dart';
 
 class WasteNames {
-  // GENERAL 8
+  // GENERAL
   static const tissue = 'tissue';
   static const styrofoamPackaging = 'styrofoam_packaging';
   static const plasticCutlery = 'plastic_cutlery';
@@ -12,7 +12,7 @@ class WasteNames {
   static const brokenToy = 'broken_toy';
   static const wornOutShoes = 'worn_out_shoes';
   static const brokenGlass = 'broken_glass';
-  // ORGANIC 7
+  // ORGANIC
   static const appleCore = 'apple_core';
   static const bananaPeel = 'banana_peel';
   static const orangePeels = 'orange_peels';
@@ -20,7 +20,7 @@ class WasteNames {
   static const eggShells = 'egg_shells';
   static const leaves = 'leaves';
   static const teaBag = 'tea_bag';
-  // PAPER 7
+  // PAPER
   static const newspapers = 'newspaper';
   static const officePaper = 'office_paper';
   static const letter = 'letter';
@@ -28,20 +28,20 @@ class WasteNames {
   static const book = 'book';
   static const cerealBox = 'cereal_box';
   static const tissueBox = 'tissue_box';
-  // PLASTIC 37-5
+  // PLASTIC
   static const waterBottle = 'water_bottle';
   static const milkJug = 'milk_jug';
   static const shampooBottle = 'shampoo_bottle';
   static const sodaBottle = 'soda_bottle';
   static const juiceCarton = 'juice_carton';
-  // ALUMINIUM 32-6
+  // ALUMINIUM
   static const foodCan = 'foodCan';
   static const sodaCan = 'soda_can';
   static const foil = 'foil';
   static const aluminiumPlate = 'aluminum_plate';
   static const aluminiumTrays = 'aluminum_trays';
   static const beerCan = 'beer_can';
-  // GLASS 26-9
+  // GLASS
   static const glassBottleClear = 'glass_bottle_clear';
   static const glassBottleGreen = 'glass_bottle_green';
   static const glassBottleBrown = 'glass_bottle_brown';
@@ -51,14 +51,14 @@ class WasteNames {
   static const wineBottle = 'wine_bottle';
   static const jamJar = 'jam_jar';
   static const pickleJar = 'pickle_jar';
-  // HAZARDOUS 17-6
+  // HAZARDOUS
   static const battery = 'battery';
   static const lightBulb = 'light_bulb';
   static const paintCan = 'paint_can';
   static const pesticide = 'pesticide';
   static const motorOil = 'motor_oil';
   static const sprayCan = 'spray_can';
-  // ELECTRONIC-6
+  // ELECTRONIC
   static const mobilePhone = 'mobile_phone';
   static const tablet = 'tablet';
   static const laptop = 'laptop';
@@ -200,7 +200,7 @@ class WasteResource {
     ),
     WasteNames.milkJug: const WasteModel(
       imagePath: Images.imgMilkJug,
-      name: 'Milk Jug',
+      name: 'Milk Gallon',
       type: WasteType.plastic,
     ),
     WasteNames.shampooBottle: const WasteModel(
