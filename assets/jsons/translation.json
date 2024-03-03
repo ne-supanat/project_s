@@ -1,0 +1,125 @@
+{
+    "test": "test",
+    "common": {
+        "title": "Waste Wise",
+        "back": "Back"
+    },
+    "chalenge_level": {
+        "beginner": "Beginner",
+        "normal": "Normal",
+        "expert": "Expert"
+    },
+    "waste_category": {
+        "common": "General",
+        "organic": "Organic",
+        "recyclable": "Recyclable",
+        "hazardous": "Hazardous"
+    },
+    "waste_type": {
+        "general": {
+            "name": "General",
+            "description": "Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag."
+        },
+        "food": {
+            "name": "Organic",
+            "description": "Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings."
+        },
+        "paper": {
+            "name": "Paper",
+            "description": "Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper."
+        },
+        "plastic": {
+            "name": "Plastic",
+            "description": "There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride)."
+        },
+        "aluminium": {
+            "name": "Aluminium",
+            "description": "Aluminum objects like cans, foil, and other aluminum packaging."
+        },
+        "glass": {
+            "name": "Glass",
+            "description": "Glass containers and bottles that can be recycled, including clear, green, and brown glass."
+        },
+        "biohazard": {
+            "name": "Hazardous",
+            "description": "Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals."
+        },
+        "electronic": {
+            "name": "Electronic",
+            "description": "Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly."
+        }
+    },
+    "main_page": {
+        "start": "- Press Anything to Start -",
+        "learning": "Learning",
+        "chalenge": "Challenge",
+        "knowledge": "Knowledge",
+        "tutorial": "Tutorial"
+    },
+    "chalenge_level_select_page": {
+        "title": "- Difficulty -"
+    },
+    "knowledge_dialog": {
+        "warning": "- sorting methods might be different between countries -",
+        "recommend": "- always try to fix and reuse before thow anything away -",
+        "category": "Category: "
+    },
+    "tutorial_dialog": {
+        "mode": {
+            "title": "Mode",
+            "learning": {
+                "title": "1. Learning",
+                "desc": "Learning mode allow you to practice with several levels, each level has its own set of items and no time limit to play. Remember practice make perfect."
+            },
+            "chalenge": {
+                "title": "2. Challenge",
+                "desc": "Challenge mode or in another word an Endless mode, you can play it forever and get a higher score. Your only enemy is time, you will have a few seconds (depends on difficulty level) to make a correct move and reset the timer. If the time hit zero, that's the end of the challenge."
+            }
+        },
+        "card": {
+            "title": "Card",
+            "line1": "1. name of the item",
+            "line2": "2. image of the item",
+            "line3": "3. hint (item's category)"
+        },
+        "board": {
+            "title": "Board",
+            "line1": "This game separates items to 8 types (you can learn more in \"Knowledge\")",
+            "line2": "Drag and drop card into its type to gain a point"
+        },
+        "helper": {
+            "title": "Helper",
+            "knowledge": {
+                "title": "Knowledge",
+                "decs": "Show data of types, categories and items."
+            },
+            "hint": {
+                "title": "Hint",
+                "decs": "Switch the visibility of hint on card"
+            }
+        }
+    },
+    "game_page": {
+        "level_not_found": "Level not found",
+        "score": "Score: "
+    },
+    "chalenge_end_dialog": {
+        "score": "Score",
+        "new_high_score": "New High Score",
+        "high_score_is": "Your High Score is ",
+        "play_again": "Play Again",
+        "back": "Back"
+    },
+    "learning_end_dialog": {
+        "star3": "Ace!",
+        "star3_sub": "you did it, perfectly",
+        "star2": "Bravo!",
+        "star2_sub": "only a few mistakes",
+        "star1": "Hmm...",
+        "star1_sub": "there's still room to grow",
+        "star0": "Oops!",
+        "star0_sub": "Let's learn and try again",
+        "play_again": "Play Again",
+        "back": "Back"
+    }
+}

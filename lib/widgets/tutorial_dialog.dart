@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/helpers/translations.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../models/waste_model.dart';
 import '../resources/resources.dart';
+import '../resources/translation_keys.dart';
 
 class TutorialDialog extends StatefulWidget {
   const TutorialDialog({super.key});

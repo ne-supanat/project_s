@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project_s/helpers/sharedpref.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'constants/waste_resource.dart';
 import 'helpers/bg_audio_helper.dart';
-import 'helpers/translations.dart';
+import 'helpers/sharedpref.dart';
+import 'helpers/translation_helper.dart';
+import 'helpers/waste_helper.dart';
 import 'pages/main_page_view.dart';
+import 'resources/translation_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await initDI();
 
-  await TranslationKeys.init();
-  await WasteResource.init();
+  await TranslationHelper.init();
+  await WasteHelper.init();
 
   runApp(const MyApp());
 }

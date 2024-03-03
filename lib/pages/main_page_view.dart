@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/helpers/translations.dart';
 import 'package:project_s/pages/level_select_page_view.dart';
 import 'package:project_s/pages/main_page_controller.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
@@ -7,6 +6,7 @@ import 'package:project_s/widgets/menu_item.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
+import '../resources/translation_keys.dart';
 import '../widgets/knowledge_dialog.dart';
 import '../widgets/tutorial_dialog.dart';
 import 'chalenge_select_page_view.dart';

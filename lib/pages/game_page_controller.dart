@@ -6,17 +6,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:just_audio/just_audio.dart';
-import 'package:project_s/constants/chalenge_level.dart';
-import 'package:project_s/constants/level_resource.dart';
-import 'package:project_s/constants/waste_resource.dart';
+import '../constants/chalenge_level.dart';
+import '../constants/level_resource.dart';
+import '../helpers/waste_helper.dart';
 
-import 'package:project_s/helpers/sharedpref.dart';
-import 'package:project_s/helpers/translations.dart';
-import 'package:project_s/models/level_model.dart';
-import 'package:project_s/widgets/chalenge_end_dialog.dart';
+import '../helpers/sharedpref.dart';
+import '../models/level_model.dart';
+import '../widgets/chalenge_end_dialog.dart';
 
 import '../../../../models/waste_model.dart';
 import '../resources/resources.dart';
+import '../resources/translation_keys.dart';
 import '../widgets/learning_end_dialog.dart';
 import 'game_page_view.dart';
 
@@ -84,7 +84,7 @@ class GamePageController extends Cubit<GamePageState> {
   final AudioPlayer _audioPlayer = AudioPlayer();
 
   Queue<WasteModel> get queue => state.queue;
-  List<WasteModel> wastes = WasteResource().all;
+  List<WasteModel> wastes = WasteHelper().all;
 
   final shakeOffsets = const [
     Offset(0.05, 0.0),
@@ -147,7 +147,7 @@ class GamePageController extends Cubit<GamePageState> {
     }
 
     mistake = 0;
-    wastes = WasteResource().getWasteFromNames(levelModel?.wasteNames ?? []);
+    wastes = WasteHelper().getWasteFromNames(levelModel?.wasteNames ?? []);
     wastes.shuffle();
     addCardToQueue();
   }
@@ -208,7 +208,7 @@ class GamePageController extends Cubit<GamePageState> {
   _startChalengeMode(BuildContext context) {
     oldHighScore = _sharedPref.getChalengeHighScore(chalengeLevel!);
 
-    wastes = WasteResource().all;
+    wastes = WasteHelper().all;
     clearQueue();
     addCardToQueue();
 

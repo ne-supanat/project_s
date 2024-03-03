@@ -31,7 +31,7 @@ class AppScaffold<STATE> extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorNames.pastelgreen,
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage(Images.bgAnimation),
             fit: BoxFit.cover,

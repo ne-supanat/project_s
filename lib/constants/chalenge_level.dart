@@ -1,4 +1,4 @@
-import 'package:project_s/helpers/translations.dart';
+import '../resources/translation_keys.dart';
 
 enum ChalengeLevel { beginner, normal, expert }
 

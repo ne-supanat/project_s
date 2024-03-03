@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:project_s/models/waste_model.dart';
 import 'package:project_s/resources/resources.dart';
 
-class WasteResource {
+class WasteHelper {
   static Map<String, WasteModel> wastes = {};
 
   static Future<void> init() async {

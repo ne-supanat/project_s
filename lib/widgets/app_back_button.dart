@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import '../constants/app_text_style.dart';
-import '../helpers/translations.dart';
 
+import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
+import '../resources/translation_keys.dart';
 
 class AppBackButton extends StatelessWidget {
   const AppBackButton({super.key});

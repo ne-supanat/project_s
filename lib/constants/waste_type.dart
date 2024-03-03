@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../helpers/translations.dart';
 import '../resources/resources.dart';
+import '../resources/translation_keys.dart';
 
 enum WasteType { general, organic, paper, plastic, aluminium, glass, hazardous, electronic }
 

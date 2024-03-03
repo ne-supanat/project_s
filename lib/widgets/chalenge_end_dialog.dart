@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_text_style.dart';
-import '../helpers/translations.dart';
+import '../resources/translation_keys.dart';
 import 'menu_item.dart';
 
 class ChalengeEndDialog extends StatelessWidget {

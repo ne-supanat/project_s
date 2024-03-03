@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
-import '../constants/waste_resource.dart';
 import '../constants/waste_type.dart';
-import '../helpers/translations.dart';
+import '../helpers/waste_helper.dart';
 import '../models/waste_model.dart';
+import '../resources/translation_keys.dart';
 import 'knowledge_item.dart';
 
 class KnowledgeDialog extends StatefulWidget {
@@ -111,7 +111,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
   }
 
   _contentByType(WasteType type) {
-    final items = WasteResource().all.where((element) => element.type == type).toList();
+    final items = WasteHelper().all.where((element) => element.type == type).toList();
 
     return Container(
       padding: const EdgeInsets.all(16),
