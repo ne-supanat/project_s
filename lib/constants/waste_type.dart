@@ -7,6 +7,10 @@ enum WasteType { general, organic, paper, plastic, aluminium, glass, hazardous, 
 
 enum WasteCategory { general, organic, recycle, danger }
 
+WasteType getWasteType(string) {
+  return WasteType.values.firstWhere((element) => element.name == string);
+}
+
 extension WasteTypeExtension on WasteType {
   WasteCategory get category {
     switch (this) {

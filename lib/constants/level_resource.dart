@@ -1,6 +1,6 @@
-import 'package:project_s/constants/waste_resource.dart';
-import 'package:project_s/constants/waste_type.dart';
-import 'package:project_s/models/level_model.dart';
+import '../models/level_model.dart';
+import '../resources/wastes.dart';
+import 'waste_type.dart';
 
 class LevelResource {
   final levels = {

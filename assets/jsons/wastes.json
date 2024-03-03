@@ -1,0 +1,272 @@
+{
+    "tissue": {
+        "image": "assets/images/img_tissue.png",
+        "name": "Tissues",
+        "type": "general"
+    },
+    "styrofoamPackaging": {
+        "image": "assets/images/img_styrofoam.png",
+        "name": "Styrofoam Packaging",
+        "type": "general"
+    },
+    "plasticCutlery": {
+        "image": "assets/images/img_cutlery.png",
+        "name": "Plastic Cutlery",
+        "type": "general"
+    },
+    "chipsBag": {
+        "image": "assets/images/img_chips_bag.png",
+        "name": "Chips Bag",
+        "type": "general"
+    },
+    "toothpasteTubes": {
+        "image": "assets/images/img_tooth_paste.png",
+        "name": "Toothpaste Tube",
+        "type": "general"
+    },
+    "brokenToy": {
+        "image": "assets/images/img_broken_toy.png",
+        "name": "Broken Toy",
+        "type": "general"
+    },
+    "wornOutShoes": {
+        "image": "assets/images/img_worn_out_shoes.png",
+        "name": "Worn-Out Shoes",
+        "type": "general"
+    },
+    "brokenGlass": {
+        "image": "assets/images/img_broken_glass.png",
+        "name": "Broken Glass",
+        "type": "general"
+    },
+    "appleCore": {
+        "image": "assets/images/img_apple_core.png",
+        "name": "Apple Core",
+        "type": "organic"
+    },
+    "bananaPeel": {
+        "image": "assets/images/img_banana_peel.png",
+        "name": "Banana Peel",
+        "type": "organic"
+    },
+    "orangePeels": {
+        "image": "assets/images/img_orange_peel.png",
+        "name": "Orange Peels",
+        "type": "organic"
+    },
+    "potatoPeels": {
+        "image": "assets/images/img_potato_peel.png",
+        "name": "Potato Peels",
+        "type": "organic"
+    },
+    "eggShells": {
+        "image": "assets/images/img_egg_shell.png",
+        "name": "Egg Shells",
+        "type": "organic"
+    },
+    "leaves": {
+        "image": "assets/images/img_leaves.png",
+        "name": "Leaves",
+        "type": "organic"
+    },
+    "teaBag": {
+        "image": "assets/images/img_tea_bag.png",
+        "name": "Tea Bag",
+        "type": "organic"
+    },
+    "newspapers": {
+        "image": "assets/images/img_news_paper.png",
+        "name": "Newspapers",
+        "type": "paper"
+    },
+    "officePaper": {
+        "image": "assets/images/img_office_paper.png",
+        "name": "Office Paper",
+        "type": "paper"
+    },
+    "letter": {
+        "image": "assets/images/img_letter.png",
+        "name": "Letter",
+        "type": "paper"
+    },
+    "shreddedPaper": {
+        "image": "assets/images/img_shredded_paper.png",
+        "name": "Shredded Paper",
+        "type": "paper"
+    },
+    "book": {
+        "image": "assets/images/img_book.png",
+        "name": "Book",
+        "type": "paper"
+    },
+    "cerealBox": {
+        "image": "assets/images/img_cereal_box.png",
+        "name": "Cereal Box",
+        "type": "paper"
+    },
+    "tissueBox": {
+        "image": "assets/images/img_tissue_box.png",
+        "name": "Tissue Box",
+        "type": "paper"
+    },
+    "waterBottle": {
+        "image": "assets/images/img_plastic_bottle.png",
+        "name": "Water Bottle",
+        "type": "plastic"
+    },
+    "milkJug": {
+        "image": "assets/images/img_milk_jug.png",
+        "name": "Milk Gallon",
+        "type": "plastic"
+    },
+    "shampooBottle": {
+        "image": "assets/images/img_shampoo.png",
+        "name": "Shampoo Bottle",
+        "type": "plastic"
+    },
+    "sodaBottle": {
+        "image": "assets/images/img_soda_bottle.png",
+        "name": "Soda Bottle",
+        "type": "plastic"
+    },
+    "juiceCarton": {
+        "image": "assets/images/img_juice_carton.png",
+        "name": "Juice Carton",
+        "type": "plastic"
+    },
+    "foodCan": {
+        "image": "assets/images/img_food_can.png",
+        "name": "Food Can",
+        "type": "aluminium"
+    },
+    "sodaCan": {
+        "image": "assets/images/img_soda_can.png",
+        "name": "Soda Can",
+        "type": "aluminium"
+    },
+    "foil": {
+        "image": "assets/images/img_foil.png",
+        "name": "Foil",
+        "type": "aluminium"
+    },
+    "aluminiumPlate": {
+        "image": "assets/images/img_aluminum_plate.png",
+        "name": "Aluminum Plate",
+        "type": "aluminium"
+    },
+    "aluminiumTrays": {
+        "image": "assets/images/img_aluminum_tray.png",
+        "name": "Aluminum Tray",
+        "type": "aluminium"
+    },
+    "beerCan": {
+        "image": "assets/images/img_beer_can.png",
+        "name": "Beer Can",
+        "type": "aluminium"
+    },
+    "glassBottleClear": {
+        "image": "assets/images/img_glass_bottle_clear.png",
+        "name": "Glass Bottle(clear)",
+        "type": "glass"
+    },
+    "glassBottleGreen": {
+        "image": "assets/images/img_glass_bottle_green.png",
+        "name": "Glass Bottle(green)",
+        "type": "glass"
+    },
+    "glassBottleBrown": {
+        "image": "assets/images/img_glass_bottle_brown.png",
+        "name": "Glass Bottle(brown)",
+        "type": "glass"
+    },
+    "glassJarClear": {
+        "image": "assets/images/img_glass_jar_clear.png",
+        "name": "Glass Jar(clear)",
+        "type": "glass"
+    },
+    "glassJarGreen": {
+        "image": "assets/images/img_glass_jar_green.png",
+        "name": "Glass Jar(green)",
+        "type": "glass"
+    },
+    "glassJarBrown": {
+        "image": "assets/images/img_glass_jar_brown.png",
+        "name": "Glass Jar(brown)",
+        "type": "glass"
+    },
+    "wineBottle": {
+        "image": "assets/images/img_wine.png",
+        "name": "Wine Bottle",
+        "type": "glass"
+    },
+    "jamJar": {
+        "image": "assets/images/img_jam_jar.png",
+        "name": "Jam Jar",
+        "type": "glass"
+    },
+    "pickleJar": {
+        "image": "assets/images/img_pickle_jar.png",
+        "name": "Pickle Jar",
+        "type": "glass"
+    },
+    "battery": {
+        "image": "assets/images/img_battery.png",
+        "name": "Battery",
+        "type": "hazardous"
+    },
+    "lightBulb": {
+        "image": "assets/images/img_light_bulb.png",
+        "name": "Light Bulb",
+        "type": "hazardous"
+    },
+    "paintCan": {
+        "image": "assets/images/img_paint_can.png",
+        "name": "Paint Can",
+        "type": "hazardous"
+    },
+    "pesticide": {
+        "image": "assets/images/img_pesticide.png",
+        "name": "Pesticide",
+        "type": "hazardous"
+    },
+    "motorOil": {
+        "image": "assets/images/img_motor_oil.png",
+        "name": "Motor Oil",
+        "type": "hazardous"
+    },
+    "sprayCan": {
+        "image": "assets/images/img_spay_can.png",
+        "name": "Spray Can",
+        "type": "hazardous"
+    },
+    "mobilePhone": {
+        "image": "assets/images/img_mobile_phone.png",
+        "name": "Mobile Phone",
+        "type": "electronic"
+    },
+    "tablet": {
+        "image": "assets/images/img_tablet.png",
+        "name": "Tablet",
+        "type": "electronic"
+    },
+    "laptop": {
+        "image": "assets/images/img_laptop.png",
+        "name": "Laptop",
+        "type": "electronic"
+    },
+    "monitor": {
+        "image": "assets/images/img_monitor.png",
+        "name": "Monitor",
+        "type": "electronic"
+    },
+    "keyboard": {
+        "image": "assets/images/img_keyboard.png",
+        "name": "Keyboard",
+        "type": "electronic"
+    },
+    "mouse": {
+        "image": "assets/images/img_mouse.png",
+        "name": "Mouse",
+        "type": "electronic"
+    }
+}

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:project_s/constants/waste_type.dart';
+
+import '../constants/waste_type.dart';
 
 class WasteModel extends Equatable {
   final String imagePath;
@@ -13,6 +14,14 @@ class WasteModel extends Equatable {
   });
 
   WasteCategory get category => type.category;
+
+  factory WasteModel.fromJson(Map<String, dynamic> json) {
+    return WasteModel(
+      imagePath: json['image'],
+      name: json['name'],
+      type: getWasteType(json['type']),
+    );
+  }
 
   @override
   List<Object?> get props => [

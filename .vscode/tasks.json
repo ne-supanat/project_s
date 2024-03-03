@@ -9,6 +9,13 @@
       "args": ["build"]
     },
     {
+      "label": "Flutter gen resources",
+      "group": "build",
+      "type": "shell",
+      "command": "flutter",
+      "args": ["packages", "pub", "run", "tool/custom_builder.dart"]
+    },
+    {
       "label": "Flutter: flutter clean",
       "group": "build",
       "type": "flutter",
@@ -31,7 +38,7 @@
         "pub",
         "run",
         "build_runner",
-        "watch",
+        "build",
         "--delete-conflicting-outputs"
       ]
     }

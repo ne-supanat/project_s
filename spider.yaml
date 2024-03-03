@@ -39,3 +39,6 @@ groups:
   - path: assets/translations
     class_name: Translations
     types: [ .json ]
+  - path: assets/jsons
+    class_name: Jsons
+    types: [ .json ]
