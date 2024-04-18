@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_s/widgets/app_scaffold2.dart';
 import '../../constants/app_text_style.dart';
 import '../../widgets/app_scaffold.dart';
 
@@ -45,8 +47,12 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold<GameplayState>(
-      controller: controller,
+    return AppScaffold2(
+      providers: [
+        BlocProvider<GameplayBloc>(
+          create: (BuildContext context) => controller,
+        ),
+      ],
       body: layout,
     );
   }
@@ -100,16 +106,20 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: ColorNames.cream,
-                        ),
-                        child: Text(
-                          '${S.of(context).game_page_score}${controller.score}',
-                          style: AppTextStyle.base.semibold,
-                        ),
-                      ),
+                          padding: const EdgeInsets.all(8.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            color: ColorNames.cream,
+                          ),
+                          child: _blocBuilder(
+                            buildWhen: (previous, current) => previous.score != current.score,
+                            builder: (context, state) {
+                              return Text(
+                                '${S.of(context).game_page_score}${state.score}',
+                                style: AppTextStyle.base.semibold,
+                              );
+                            },
+                          )),
                     ],
                   )
               ],
@@ -145,11 +155,16 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
   }
 
   _hint() {
-    return _helperButton(
-      onPressed: () {
-        controller.updateShowHint(!controller.showHint);
+    return _blocBuilder(
+      buildWhen: (previous, current) => previous.showHint != current.showHint,
+      builder: (context, state) {
+        return _helperButton(
+          onPressed: () {
+            controller.updateShowHint(!state.showHint);
+          },
+          icon: state.showHint ? Icons.visibility_outlined : Icons.visibility_off_outlined,
+        );
       },
-      icon: controller.showHint ? Icons.visibility_outlined : Icons.visibility_off_outlined,
     );
   }
 
@@ -173,14 +188,19 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
       children: [
         if (controller.chalengeLevel != null)
           SizedBox(
-            width: 500,
-            child: LinearProgressIndicator(
-              value: controller.timeRemainPercentageAnimation.value.toDouble(),
-              minHeight: 12,
-              borderRadius: BorderRadius.circular(16),
-              color: Colors.red.shade400,
-            ),
-          ),
+              width: 500,
+              child: _blocBuilder(
+                buildWhen: (previous, current) =>
+                    previous.timeRemainPercentage != current.timeRemainPercentage,
+                builder: (context, state) {
+                  return LinearProgressIndicator(
+                    value: controller.timeRemainPercentageAnimation.value.toDouble(),
+                    minHeight: 12,
+                    borderRadius: BorderRadius.circular(16),
+                    color: Colors.red.shade400,
+                  );
+                },
+              )),
         const SizedBox(height: 16),
         SizedBox(
           width: 500,
@@ -200,26 +220,36 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
   }
 
   _cardHeap() {
-    return AnimatedScale(
-      scale: controller.cardScale,
-      duration: const Duration(milliseconds: 100),
-      curve: Curves.ease,
-      child: AnimatedSlide(
-        offset: controller.cardSlide,
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.ease,
-        child: AnimatedSlide(
-          offset: controller.shakeOffset,
-          duration: const Duration(milliseconds: 50),
+    return _blocBuilder(
+      buildWhen: (previous, current) => previous.cardChanged(current),
+      builder: (context, state) {
+        return AnimatedScale(
+          scale: state.cardScale,
+          duration: const Duration(milliseconds: 100),
           curve: Curves.ease,
-          child: controller.queue.isNotEmpty
-              ? WasteCard(
-                  value: controller.queue.first,
-                  showHint: controller.showHint,
-                )
-              : const SizedBox(),
-        ),
-      ),
+          child: AnimatedSlide(
+            offset: state.cardSlide,
+            duration: const Duration(milliseconds: 100),
+            curve: Curves.ease,
+            child: AnimatedSlide(
+              offset: state.shakeOffset,
+              duration: const Duration(milliseconds: 50),
+              curve: Curves.ease,
+              child: state.queue.isNotEmpty
+                  ? _blocBuilder(
+                      buildWhen: (previous, current) => previous.showHint != current.showHint,
+                      builder: (context, state) {
+                        return WasteCard(
+                          value: state.queue.first,
+                          showHint: state.showHint,
+                        );
+                      },
+                    )
+                  : const SizedBox(),
+            ),
+          ),
+        );
+      },
     );
   }
 
@@ -288,15 +318,30 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
   }
 
   _binPlaceHolder(WasteType type) {
-    return BinPlaceHolder(
-      targetValue: type,
-      onCorrectPlace: (value) {
-        controller.onCorrectPlace(context);
+    return _blocBuilder(
+      buildWhen: (previous, current) => previous.showHint != current.showHint,
+      builder: (context, state) {
+        return BinPlaceHolder(
+          targetValue: type,
+          onCorrectPlace: (value) {
+            controller.onCorrectPlace(context);
+          },
+          onWrongPlace: (value) {
+            controller.onWrongPlace();
+          },
+          showHint: state.showHint,
+        );
       },
-      onWrongPlace: (value) {
-        controller.onWrongPlace();
-      },
-      showHint: controller.showHint,
+    );
+  }
+
+  _blocBuilder({
+    bool Function(GameplayState previous, GameplayState current)? buildWhen,
+    required Widget Function(BuildContext context, GameplayState state) builder,
+  }) {
+    return BlocBuilder<GameplayBloc, GameplayState>(
+      buildWhen: buildWhen,
+      builder: builder,
     );
   }
 }

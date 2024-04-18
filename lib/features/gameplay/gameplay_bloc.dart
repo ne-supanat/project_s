@@ -70,6 +70,13 @@ class GameplayState {
       cardSlide: cardSlide ?? this.cardSlide,
     );
   }
+
+  cardChanged(GameplayState otherState) {
+    return cardScale != otherState.cardScale ||
+        cardSlide != otherState.cardSlide ||
+        shakeOffset != otherState.shakeOffset ||
+        queue != otherState.queue;
+  }
 }
 
 class GameplayBloc extends Cubit<GameplayState> {
@@ -83,7 +90,7 @@ class GameplayBloc extends Cubit<GameplayState> {
 
   final AudioPlayer _audioPlayer = AudioPlayer();
 
-  Queue<WasteModel> get queue => state.queue;
+  Queue<WasteModel> get _queue => state.queue;
   List<WasteModel> wastes = WasteHelper().all;
 
   final shakeOffsets = const [
@@ -93,11 +100,6 @@ class GameplayBloc extends Cubit<GameplayState> {
     Offset(-0.05, 0.0)
   ];
 
-  Offset get shakeOffset => state.shakeOffset;
-  double get cardScale => state.cardScale;
-  Offset get cardSlide => state.cardSlide;
-
-  bool get showHint => state.showHint;
   bool showKnowledge = false;
 
   //LEARNING
@@ -105,10 +107,9 @@ class GameplayBloc extends Cubit<GameplayState> {
   num mistake = 0;
 
   //CHALENGE
-  num get score => state.score;
+  num get _score => state.score;
   num oldHighScore = 0;
 
-  num get timeRemainPercentage => state.timeRemainPercentage;
   late Animation<num> timeRemainPercentageAnimation;
   late AnimationController animationController;
 
@@ -236,7 +237,7 @@ class GameplayBloc extends Cubit<GameplayState> {
       context: context,
       barrierDismissible: false,
       builder: (c) => ChalengeEndDialog(
-          score: score,
+          score: _score,
           highScore: oldHighScore,
           onPlayAgain: () {
             if (showKnowledge) {
@@ -256,9 +257,9 @@ class GameplayBloc extends Cubit<GameplayState> {
   }
 
   onCorrectPlace(context) async {
-    emit(state.copyWith(score: score + 1));
+    emit(state.copyWith(score: _score + 1));
 
-    emit(state.copyWith(queue: queue..removeFirst()));
+    emit(state.copyWith(queue: _queue..removeFirst()));
 
     if (wastes.isEmpty) {
       _onEndLearningMode(context);
@@ -268,8 +269,8 @@ class GameplayBloc extends Cubit<GameplayState> {
 
     if (chalengeLevel != null) {
       renewTimer(context);
-      if (score > oldHighScore) {
-        await _sharedPref.writeChalengeHighScore(chalengeLevel!, score.toInt());
+      if (_score > oldHighScore) {
+        await _sharedPref.writeChalengeHighScore(chalengeLevel!, _score.toInt());
       }
     }
   }
@@ -290,7 +291,7 @@ class GameplayBloc extends Cubit<GameplayState> {
 
   addCardToQueue() {
     if (level != null) {
-      emit(state.copyWith(queue: queue..add(wastes[0])));
+      emit(state.copyWith(queue: _queue..add(wastes[0])));
       wastes.removeAt(0);
     } else {
       int newIndex = lastIndex;
@@ -298,7 +299,7 @@ class GameplayBloc extends Cubit<GameplayState> {
         newIndex = Random().nextInt(wastes.length);
       } while (newIndex == lastIndex);
       lastIndex = newIndex;
-      emit(state.copyWith(queue: queue..add(wastes[newIndex])));
+      emit(state.copyWith(queue: _queue..add(wastes[newIndex])));
     }
 
     spawnCardEffect();
