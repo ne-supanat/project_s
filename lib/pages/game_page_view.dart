@@ -135,8 +135,10 @@ class _GamePageViewState extends State<GamePageView> with SingleTickerProviderSt
 
   _knowledge() {
     return _helperButton(
-      onPressed: () {
-        showDialog(context: context, builder: (c) => const KnowledgeDialog());
+      onPressed: () async {
+        controller.updateShowKnowledge(true);
+        await showDialog(context: context, builder: (c) => const KnowledgeDialog());
+        controller.updateShowKnowledge(false);
       },
       icon: Icons.menu_book_rounded,
     );

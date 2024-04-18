@@ -98,6 +98,7 @@ class GamePageController extends Cubit<GamePageState> {
   Offset get cardSlide => state.cardSlide;
 
   bool get showHint => state.showHint;
+  bool showKnowledge = false;
 
   //LEARNING
   LevelModel? levelModel;
@@ -238,10 +239,16 @@ class GamePageController extends Cubit<GamePageState> {
           score: score,
           highScore: oldHighScore,
           onPlayAgain: () {
+            if (showKnowledge) {
+              Navigator.pop(c);
+            }
             Navigator.pop(c);
             _startChalengeMode(context);
           },
           onBack: () {
+            if (showKnowledge) {
+              Navigator.pop(c);
+            }
             Navigator.pop(context);
             Navigator.pop(context);
           }),
@@ -307,6 +314,10 @@ class GamePageController extends Cubit<GamePageState> {
 
   clearQueue() {
     emit(state.copyWith(queue: Queue()));
+  }
+
+  updateShowKnowledge(bool value) {
+    showKnowledge = value;
   }
 
   updateShowHint(bool value) {
