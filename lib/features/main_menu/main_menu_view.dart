@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../constants/app_text_style.dart';
 import '../../constants/color_name.dart';
 import '../../generated/l10n.dart';
-import '../../widgets/app_scaffold2.dart';
+import '../../widgets/app_scaffold.dart';
 import '../../widgets/knowledge_dialog.dart';
 import '../../widgets/menu_item.dart';
 import '../../widgets/tutorial_dialog.dart';
@@ -48,7 +48,7 @@ class _MainMenuViewState extends State<MainMenuView> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: controller.start,
-      child: AppScaffold2(
+      child: AppScaffold(
         providers: [
           BlocProvider<MainMenuBloc>(
             create: (BuildContext context) => controller,

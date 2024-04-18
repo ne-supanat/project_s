@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../widgets/app_back_button.dart';
-import '../../widgets/app_scaffold2.dart';
+import '../../widgets/app_scaffold.dart';
 import '../../widgets/level_item.dart';
 import '../gameplay/gameplay_view.dart';
 import 'level_selection_bloc.dart';
@@ -25,7 +25,7 @@ class _LevelSelectionViewState extends State<LevelSelectionView> {
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold2(
+    return AppScaffold(
       providers: [
         BlocProvider<LevelSelectionBloc>(
           create: (BuildContext context) => controller,

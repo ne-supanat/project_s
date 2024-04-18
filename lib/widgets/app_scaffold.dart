@@ -6,23 +6,20 @@ import 'package:project_s/generated/assets.gen.dart';
 
 import '../constants/color_name.dart';
 
-class AppScaffold<STATE> extends StatelessWidget {
-  const AppScaffold({super.key, this.controller, required this.body});
+class AppScaffold extends StatelessWidget {
+  const AppScaffold({super.key, this.providers, required this.body});
 
-  final Cubit<STATE>? controller;
+  final List<BlocProvider>? providers;
   final Widget Function(BuildContext) body;
 
   @override
   Widget build(BuildContext context) {
-    return controller != null
-        ? BlocProvider(
-            create: (context) => controller!,
-            child: BlocBuilder<Cubit<STATE>, STATE>(
-                bloc: controller,
-                builder: (context, state) {
-                  return _layout(context);
-                }),
-          )
+    return providers?.isNotEmpty == true
+        ? MultiBlocProvider(
+            providers: providers ?? [],
+            child: Builder(builder: (context) {
+              return _layout(context);
+            }))
         : _layout(context);
   }
 

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:project_s/widgets/app_scaffold2.dart';
+import 'package:project_s/widgets/app_scaffold.dart';
 import '../../constants/app_text_style.dart';
-import '../../widgets/app_scaffold.dart';
 
 import '../../constants/chalenge_level.dart';
 import '../../constants/color_name.dart';
@@ -47,7 +46,7 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold2(
+    return AppScaffold(
       providers: [
         BlocProvider<GameplayBloc>(
           create: (BuildContext context) => controller,
