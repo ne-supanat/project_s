@@ -166,32 +166,32 @@
     },
     "glassBottleClear": {
         "image": "assets/images/img_glass_bottle_clear.png",
-        "name": "Glass Bottle(clear)",
+        "name": "Glass Bottle (clear)",
         "type": "glass"
     },
     "glassBottleGreen": {
         "image": "assets/images/img_glass_bottle_green.png",
-        "name": "Glass Bottle(green)",
+        "name": "Glass Bottle (green)",
         "type": "glass"
     },
     "glassBottleBrown": {
         "image": "assets/images/img_glass_bottle_brown.png",
-        "name": "Glass Bottle(brown)",
+        "name": "Glass Bottle (brown)",
         "type": "glass"
     },
     "glassJarClear": {
         "image": "assets/images/img_glass_jar_clear.png",
-        "name": "Glass Jar(clear)",
+        "name": "Glass Jar (clear)",
         "type": "glass"
     },
     "glassJarGreen": {
         "image": "assets/images/img_glass_jar_green.png",
-        "name": "Glass Jar(green)",
+        "name": "Glass Jar (green)",
         "type": "glass"
     },
     "glassJarBrown": {
         "image": "assets/images/img_glass_jar_brown.png",
-        "name": "Glass Jar(brown)",
+        "name": "Glass Jar (brown)",
         "type": "glass"
     },
     "wineBottle": {

@@ -48,13 +48,10 @@ class _KnowledgeItemState extends State<KnowledgeItem> {
           Row(
             children: [
               Expanded(
-                child: FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: Text(
-                    widget.waste.name,
-                    style: AppTextStyle.base.size18.bold,
-                    textAlign: TextAlign.center,
-                  ),
+                child: Text(
+                  widget.waste.name,
+                  style: AppTextStyle.base.size16.bold,
+                  textAlign: TextAlign.center,
                 ),
               ),
             ],
