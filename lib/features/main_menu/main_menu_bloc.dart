@@ -5,31 +5,31 @@ import 'package:get_it/get_it.dart';
 
 import '../../helpers/bg_audio_helper.dart';
 
-class MainPageState {
+class MainMenuState {
   final bool started;
 
-  MainPageState({required this.started});
+  MainMenuState({required this.started});
 
-  factory MainPageState.i() {
-    return MainPageState(
+  factory MainMenuState.i() {
+    return MainMenuState(
       started: !kIsWeb,
     );
   }
 
   copyWith({bool? started}) {
-    return MainPageState(
+    return MainMenuState(
       started: started ?? this.started,
     );
   }
 }
 
-class MainPageController extends Cubit<MainPageState> {
-  MainPageController() : super(MainPageState.i());
+class MainMenuBloc extends Cubit<MainMenuState> {
+  MainMenuBloc() : super(MainMenuState.i());
 
   final bgAudioHelper = GetIt.I.get<BgAudioHelper>();
   final FocusNode focusNode = FocusNode();
 
-  bool get started => state.started;
+  bool get _started => state.started;
 
   onReady(context) {
     setupBgMusic();
@@ -39,7 +39,7 @@ class MainPageController extends Cubit<MainPageState> {
   setupBgMusic() async {
     await bgAudioHelper.setup();
 
-    if (started) {
+    if (_started) {
       bgAudioHelper.play();
     }
   }

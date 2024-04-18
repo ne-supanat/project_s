@@ -4,15 +4,15 @@ import 'package:project_s/constants/level_resource.dart';
 
 import '../../helpers/sharedpref.dart';
 
-class LevelSelectPageState {
+class LevelSelectionState {
   final Map<int, int> levels;
 
-  LevelSelectPageState({
+  LevelSelectionState({
     required this.levels,
   });
 
-  factory LevelSelectPageState.i() {
-    return LevelSelectPageState(
+  factory LevelSelectionState.i() {
+    return LevelSelectionState(
       levels: {},
     );
   }
@@ -20,14 +20,14 @@ class LevelSelectPageState {
   copyWith({
     Map<int, int>? levels,
   }) {
-    return LevelSelectPageState(
+    return LevelSelectionState(
       levels: levels ?? this.levels,
     );
   }
 }
 
-class LevelSelectPageController extends Cubit<LevelSelectPageState> {
-  LevelSelectPageController() : super(LevelSelectPageState.i());
+class LevelSelectionBloc extends Cubit<LevelSelectionState> {
+  LevelSelectionBloc() : super(LevelSelectionState.i());
 
   final SharedPref _sharedPref = GetIt.I.get<SharedPref>();
 

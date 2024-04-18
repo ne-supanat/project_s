@@ -9,8 +9,8 @@ import '../../widgets/app_scaffold.dart';
 import '../../widgets/chalenge_item.dart';
 import '../gameplay/gameplay_view.dart';
 
-class ChalengeSelectPageView extends StatelessWidget {
-  const ChalengeSelectPageView({super.key});
+class ChalengeSelectionView extends StatelessWidget {
+  const ChalengeSelectionView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +63,8 @@ class ChalengeSelectPageView extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => GamePageView(
-                arguments: GamePageViewArguments(chalengeLevel: level),
+              builder: (context) => GameplayView(
+                arguments: GameplayViewArguments(chalengeLevel: level),
               ),
             ),
           );

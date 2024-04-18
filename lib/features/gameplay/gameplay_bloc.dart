@@ -20,7 +20,7 @@ import '../../generated/l10n.dart';
 import '../../widgets/learning_end_dialog.dart';
 import 'gameplay_view.dart';
 
-class GamePageState {
+class GameplayState {
   final Queue<WasteModel> queue;
   final Offset shakeOffset;
   final bool showHint;
@@ -29,7 +29,7 @@ class GamePageState {
   final double cardScale;
   final Offset cardSlide;
 
-  GamePageState({
+  GameplayState({
     required this.queue,
     required this.shakeOffset,
     required this.showHint,
@@ -39,8 +39,8 @@ class GamePageState {
     required this.cardSlide,
   });
 
-  factory GamePageState.i() {
-    return GamePageState(
+  factory GameplayState.i() {
+    return GameplayState(
       queue: Queue(),
       shakeOffset: Offset.zero,
       showHint: false,
@@ -60,7 +60,7 @@ class GamePageState {
     double? cardScale,
     Offset? cardSlide,
   }) {
-    return GamePageState(
+    return GameplayState(
       queue: queue ?? this.queue,
       shakeOffset: shakeOffset ?? this.shakeOffset,
       showHint: showHint ?? this.showHint,
@@ -72,12 +72,12 @@ class GamePageState {
   }
 }
 
-class GamePageController extends Cubit<GamePageState> {
-  GamePageController() : super(GamePageState.i());
+class GameplayBloc extends Cubit<GameplayState> {
+  GameplayBloc() : super(GameplayState.i());
 
   final SharedPref _sharedPref = GetIt.I.get<SharedPref>();
 
-  late GamePageViewArguments arguments;
+  late GameplayViewArguments arguments;
   late int? level;
   late ChalengeLevel? chalengeLevel;
 
@@ -116,7 +116,7 @@ class GamePageController extends Cubit<GamePageState> {
 
   int lastIndex = -1;
 
-  init(context, GamePageViewArguments arguments, TickerProvider vsync) {
+  init(context, GameplayViewArguments arguments, TickerProvider vsync) {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
 

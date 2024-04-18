@@ -12,24 +12,24 @@ import '../../widgets/knowledge_dialog.dart';
 import '../../widgets/waste_card.dart';
 import 'gameplay_bloc.dart';
 
-class GamePageViewArguments {
+class GameplayViewArguments {
   final int? level;
   final ChalengeLevel? chalengeLevel;
 
-  GamePageViewArguments({this.level, this.chalengeLevel});
+  GameplayViewArguments({this.level, this.chalengeLevel});
 }
 
-class GamePageView extends StatefulWidget {
-  const GamePageView({super.key, required this.arguments});
+class GameplayView extends StatefulWidget {
+  const GameplayView({super.key, required this.arguments});
 
-  final GamePageViewArguments arguments;
+  final GameplayViewArguments arguments;
 
   @override
-  State<GamePageView> createState() => _GamePageViewState();
+  State<GameplayView> createState() => _GameplayViewState();
 }
 
-class _GamePageViewState extends State<GamePageView> with SingleTickerProviderStateMixin {
-  final GamePageController controller = GamePageController();
+class _GameplayViewState extends State<GameplayView> with SingleTickerProviderStateMixin {
+  final GameplayBloc controller = GameplayBloc();
 
   @override
   void initState() {
@@ -45,7 +45,7 @@ class _GamePageViewState extends State<GamePageView> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-    return AppScaffold<GamePageState>(
+    return AppScaffold<GameplayState>(
       controller: controller,
       body: layout,
     );

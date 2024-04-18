@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/features/level_selection/level_selection_view.dart';
-import 'package:project_s/features/main_menu/main_menu_bloc.dart';
-import 'package:project_s/widgets/app_scaffold.dart';
-import 'package:project_s/widgets/menu_item.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../constants/app_text_style.dart';
 import '../../constants/color_name.dart';
 import '../../generated/l10n.dart';
+import '../../widgets/app_scaffold2.dart';
 import '../../widgets/knowledge_dialog.dart';
+import '../../widgets/menu_item.dart';
 import '../../widgets/tutorial_dialog.dart';
 import '../chalenge_selection/chalenge_selection_view.dart';
+import '../level_selection/level_selection_view.dart';
+import 'main_menu_bloc.dart';
 
-class MainPageView extends StatefulWidget {
-  const MainPageView({super.key});
+class MainMenuView extends StatefulWidget {
+  const MainMenuView({super.key});
 
   @override
-  State<MainPageView> createState() => _MainPageViewState();
+  State<MainMenuView> createState() => _MainMenuViewState();
 }
 
-class _MainPageViewState extends State<MainPageView> {
-  final MainPageController controller = MainPageController();
+class _MainMenuViewState extends State<MainMenuView> {
+  final MainMenuBloc controller = MainMenuBloc();
 
   @override
   void initState() {
@@ -47,8 +48,12 @@ class _MainPageViewState extends State<MainPageView> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: controller.start,
-      child: AppScaffold<MainPageState>(
-        controller: controller,
+      child: AppScaffold2(
+        providers: [
+          BlocProvider<MainMenuBloc>(
+            create: (BuildContext context) => controller,
+          ),
+        ],
         body: layout,
       ),
     );
@@ -58,7 +63,12 @@ class _MainPageViewState extends State<MainPageView> {
     return ListenableBuilder(
         listenable: controller.focusNode,
         builder: (BuildContext context, Widget? child) {
-          return SingleChildScrollView(child: controller.started ? _menuLayout() : _startLayout());
+          return BlocBuilder<MainMenuBloc, MainMenuState>(
+            buildWhen: (previous, current) => previous.started != current.started,
+            builder: (context, state) {
+              return SingleChildScrollView(child: state.started ? _menuLayout() : _startLayout());
+            },
+          );
         });
   }
 
@@ -117,7 +127,7 @@ class _MainPageViewState extends State<MainPageView> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
+                    MaterialPageRoute(builder: (context) => const LevelSelectionView()),
                   );
                 },
                 text: S.of(context).main_page_learning,
@@ -127,7 +137,7 @@ class _MainPageViewState extends State<MainPageView> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
+                    MaterialPageRoute(builder: (context) => const ChalengeSelectionView()),
                   );
                 },
                 text: S.of(context).main_page_chalenge,
