@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_text_style.dart';
-import '../constants/chalenge_level.dart';
-import '../constants/color_name.dart';
-import '../generated/l10n.dart';
-import '../widgets/app_back_button.dart';
-import '../widgets/app_scaffold.dart';
-import '../widgets/chalenge_item.dart';
-import 'game_page_view.dart';
+import '../../constants/app_text_style.dart';
+import '../../constants/chalenge_level.dart';
+import '../../constants/color_name.dart';
+import '../../generated/l10n.dart';
+import '../../widgets/app_back_button.dart';
+import '../../widgets/app_scaffold.dart';
+import '../../widgets/chalenge_item.dart';
+import '../gameplay/gameplay_view.dart';
 
 class ChalengeSelectPageView extends StatelessWidget {
   const ChalengeSelectPageView({super.key});

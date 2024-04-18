@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:project_s/pages/level_select_page_view.dart';
-import 'package:project_s/pages/main_page_controller.dart';
+import 'package:project_s/features/level_selection/level_selection_view.dart';
+import 'package:project_s/features/main_menu/main_menu_bloc.dart';
 import 'package:project_s/widgets/app_scaffold.dart';
 import 'package:project_s/widgets/menu_item.dart';
 
-import '../constants/app_text_style.dart';
-import '../constants/color_name.dart';
-import '../generated/l10n.dart';
-import '../widgets/knowledge_dialog.dart';
-import '../widgets/tutorial_dialog.dart';
-import 'chalenge_select_page_view.dart';
+import '../../constants/app_text_style.dart';
+import '../../constants/color_name.dart';
+import '../../generated/l10n.dart';
+import '../../widgets/knowledge_dialog.dart';
+import '../../widgets/tutorial_dialog.dart';
+import '../chalenge_selection/chalenge_selection_view.dart';
 
 class MainPageView extends StatefulWidget {
   const MainPageView({super.key});

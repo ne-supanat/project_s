@@ -8,7 +8,7 @@ import 'generated/l10n.dart';
 import 'helpers/bg_audio_helper.dart';
 import 'helpers/sharedpref.dart';
 import 'helpers/waste_helper.dart';
-import 'pages/main_page_view.dart';
+import 'features/main_menu/main_menu_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

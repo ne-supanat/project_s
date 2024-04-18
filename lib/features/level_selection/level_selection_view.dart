@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/app_back_button.dart';
-import '../widgets/app_scaffold.dart';
-import '../widgets/level_item.dart';
-import 'game_page_view.dart';
-import 'level_select_page_controller.dart';
+import '../../widgets/app_back_button.dart';
+import '../../widgets/app_scaffold.dart';
+import '../../widgets/level_item.dart';
+import '../gameplay/gameplay_view.dart';
+import 'level_selection_bloc.dart';
 
 class LevelSelectPageView extends StatefulWidget {
   const LevelSelectPageView({super.key});

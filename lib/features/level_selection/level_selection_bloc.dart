@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:project_s/constants/level_resource.dart';
 
-import '../helpers/sharedpref.dart';
+import '../../helpers/sharedpref.dart';
 
 class LevelSelectPageState {
   final Map<int, int> levels;

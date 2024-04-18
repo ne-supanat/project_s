@@ -6,19 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:just_audio/just_audio.dart';
-import '../constants/chalenge_level.dart';
-import '../constants/level_resource.dart';
-import '../generated/assets.gen.dart';
-import '../helpers/waste_helper.dart';
+import '../../constants/chalenge_level.dart';
+import '../../constants/level_resource.dart';
+import '../../generated/assets.gen.dart';
+import '../../helpers/waste_helper.dart';
 
-import '../helpers/sharedpref.dart';
-import '../models/level_model.dart';
-import '../widgets/chalenge_end_dialog.dart';
+import '../../helpers/sharedpref.dart';
+import '../../models/level_model.dart';
+import '../../widgets/chalenge_end_dialog.dart';
 
-import '../../../../models/waste_model.dart';
-import '../generated/l10n.dart';
-import '../widgets/learning_end_dialog.dart';
-import 'game_page_view.dart';
+import '../../../../../models/waste_model.dart';
+import '../../generated/l10n.dart';
+import '../../widgets/learning_end_dialog.dart';
+import 'gameplay_view.dart';
 
 class GamePageState {
   final Queue<WasteModel> queue;

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import '../constants/app_text_style.dart';
-import '../widgets/app_scaffold.dart';
+import '../../constants/app_text_style.dart';
+import '../../widgets/app_scaffold.dart';
 
-import '../constants/chalenge_level.dart';
-import '../constants/color_name.dart';
-import '../constants/waste_type.dart';
-import '../generated/l10n.dart';
-import '../widgets/app_back_icon_button.dart';
-import '../widgets/bin_placeholder.dart';
-import '../widgets/knowledge_dialog.dart';
-import '../widgets/waste_card.dart';
-import 'game_page_controller.dart';
+import '../../constants/chalenge_level.dart';
+import '../../constants/color_name.dart';
+import '../../constants/waste_type.dart';
+import '../../generated/l10n.dart';
+import '../../widgets/app_back_icon_button.dart';
+import '../../widgets/bin_placeholder.dart';
+import '../../widgets/knowledge_dialog.dart';
+import '../../widgets/waste_card.dart';
+import 'gameplay_bloc.dart';
 
 class GamePageViewArguments {
   final int? level;
