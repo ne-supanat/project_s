@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'color_name.dart';
 
 class AppTextStyle {
-  static TextStyle get base => GoogleFonts.quicksand().size16.regular.black;
+  static TextStyle get base => const TextStyle(fontFamily: 'Quicksand').size16.regular.black;
 }
 
 extension TextStyleHelpers on TextStyle {

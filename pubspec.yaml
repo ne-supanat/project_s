@@ -40,6 +40,16 @@ flutter:
     - assets/translations/
     - assets/jsons/
 
+  fonts:
+    - family: Quicksand
+      fonts:
+        - asset: assets/fonts/Quicksand-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Quicksand-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/Quicksand-Bold.ttf
+          weight: 700
+
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'features/main_menu/main_menu_view.dart';
 import 'generated/l10n.dart';
 import 'helpers/bg_audio_helper.dart';
 import 'helpers/sharedpref.dart';
 import 'helpers/waste_helper.dart';
-import 'features/main_menu/main_menu_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,7 +38,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         useMaterial3: true,
-        textTheme: GoogleFonts.quicksandTextTheme(),
+        fontFamily: 'Quicksand',
       ),
       localizationsDelegates: const [
         S.delegate,
