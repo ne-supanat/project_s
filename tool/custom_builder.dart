@@ -1,11 +1,8 @@
-import 'package:project_s/resources/resources.dart';
+import 'package:project_s/gen/assets.gen.dart';
 
 import 'translation_keys_generator.dart';
-import 'waste_keys_generator.dart';
 
 Future<void> main() async {
-  WasteKeysGenerator()
-      .generate(sourcePath: Jsons.wastes, exportPath: 'lib/resources/waste_keys.dart');
-  TranslationKeysGenerator()
-      .generate(sourcePath: Jsons.translation, exportPath: 'lib/resources/translation_keys.dart');
+  TranslationKeysGenerator().generate(
+      sourcePath: Assets.jsons.translation, exportPath: 'lib/resources/translation_keys.dart');
 }

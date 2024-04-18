@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
+import '../gen/assets.gen.dart';
 import '../models/waste_model.dart';
-import '../resources/resources.dart';
 import '../resources/translation_keys.dart';
 
 class TutorialDialog extends StatefulWidget {
@@ -74,11 +74,11 @@ class _TutorialDialogState extends State<TutorialDialog> {
             ],
           ),
           const SizedBox(height: 16),
-          _imageFrame(Images.imgTutorialChalengeMode),
+          _imageFrame(Assets.images.imgTutorialChalengeMode.path),
           const SizedBox(height: 16),
           Text(TranslationKeys.tutorial_dialog_card_title, style: AppTextStyle.base.size24.bold),
           const SizedBox(height: 8),
-          _imageFrame(Images.imgTutorialCard),
+          _imageFrame(Assets.images.imgTutorialCard.path),
           const SizedBox(height: 8),
           Column(
             children: [
@@ -99,8 +99,8 @@ class _TutorialDialogState extends State<TutorialDialog> {
             spacing: 8,
             runSpacing: 8,
             children: [
-              _imageFrame(Images.imgTutorialBoard),
-              _imageFrame(Images.imgTutorialBoardHover),
+              _imageFrame(Assets.images.imgTutorialBoard.path),
+              _imageFrame(Assets.images.imgTutorialBoardHover.path),
             ],
           ),
           const SizedBox(height: 8),
@@ -132,7 +132,7 @@ class _TutorialDialogState extends State<TutorialDialog> {
                     ],
                   ),
                   const SizedBox(height: 8),
-                  _imageFrame(Images.imgTutorialKnowledge),
+                  _imageFrame(Assets.images.imgTutorialKnowledge.path),
                 ],
               ),
               Column(
@@ -163,8 +163,8 @@ class _TutorialDialogState extends State<TutorialDialog> {
                     spacing: 8,
                     runSpacing: 8,
                     children: [
-                      _imageFrame(Images.imgTutorialHintTrue),
-                      _imageFrame(Images.imgTutorialHintFalse),
+                      _imageFrame(Assets.images.imgTutorialHintTrue.path),
+                      _imageFrame(Assets.images.imgTutorialHintFalse.path),
                     ],
                   ),
                 ],

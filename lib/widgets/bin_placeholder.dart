@@ -7,8 +7,8 @@ import 'package:just_audio/just_audio.dart';
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
+import '../gen/assets.gen.dart';
 import '../models/waste_model.dart';
-import '../resources/resources.dart';
 import 'waste_card.dart';
 
 class BinPlaceHolder extends StatefulWidget {
@@ -54,12 +54,12 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
       },
       onAccept: (value) {
         if (value.type == widget.targetValue) {
-          _audioPlayer.setAsset(Audios.sfxCongratulations);
+          _audioPlayer.setAsset(Assets.audios.sfxCongratulations);
           _audioPlayer.play();
           widget.onCorrectPlace(value);
           shake();
         } else {
-          _audioPlayer.setAsset(Audios.sfxBoing);
+          _audioPlayer.setAsset(Assets.audios.sfxBoing);
           _audioPlayer.play();
           widget.onWrongPlace(value);
         }

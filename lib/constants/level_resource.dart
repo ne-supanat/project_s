@@ -1,5 +1,5 @@
 import '../models/level_model.dart';
-import '../resources/wastes.dart';
+import '../resources/waste_keys.dart';
 import 'waste_type.dart';
 
 class LevelResource {

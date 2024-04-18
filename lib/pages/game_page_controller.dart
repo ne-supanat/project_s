@@ -8,6 +8,7 @@ import 'package:get_it/get_it.dart';
 import 'package:just_audio/just_audio.dart';
 import '../constants/chalenge_level.dart';
 import '../constants/level_resource.dart';
+import '../gen/assets.gen.dart';
 import '../helpers/waste_helper.dart';
 
 import '../helpers/sharedpref.dart';
@@ -15,7 +16,6 @@ import '../models/level_model.dart';
 import '../widgets/chalenge_end_dialog.dart';
 
 import '../../../../models/waste_model.dart';
-import '../resources/resources.dart';
 import '../resources/translation_keys.dart';
 import '../widgets/learning_end_dialog.dart';
 import 'game_page_view.dart';
@@ -119,7 +119,7 @@ class GamePageController extends Cubit<GamePageState> {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
 
-    _audioPlayer.setAsset(Audios.sfxTwinkle);
+    _audioPlayer.setAsset(Assets.audios.sfxTwinkle);
     _audioPlayer.setVolume(0.75);
 
     if (level != null) {

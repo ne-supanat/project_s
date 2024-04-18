@@ -2,8 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:project_s/resources/resources.dart';
+import 'package:project_s/gen/assets.gen.dart';
 
 import '../constants/color_name.dart';
 
@@ -31,9 +30,9 @@ class AppScaffold<STATE> extends StatelessWidget {
     return Scaffold(
       backgroundColor: ColorNames.pastelgreen,
       body: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(Images.bgAnimation),
+            image: AssetImage(Assets.images.bgAnimation.path),
             fit: BoxFit.cover,
           ),
         ),

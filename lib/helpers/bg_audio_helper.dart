@@ -1,6 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 
-import '../resources/resources.dart';
+import '../gen/assets.gen.dart';
 
 class BgAudioHelper {
   final AudioPlayer _audioPlayer = AudioPlayer();
@@ -8,7 +8,7 @@ class BgAudioHelper {
   bool get playing => _audioPlayer.playing;
 
   Future setup() async {
-    _audioPlayer.setAsset(Audios.musicTakeYourTimeDanLebowitz);
+    _audioPlayer.setAsset(Assets.audios.musicTakeYourTimeDanLebowitz);
   }
 
   play() {
