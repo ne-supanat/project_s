@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
+import 'package:project_s/generated/assets.gen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'features/main_menu/main_menu_view.dart';
@@ -33,6 +34,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage(Assets.images.bgAnimation.path), context);
+
     return MaterialApp(
       onGenerateTitle: (context) => S.of(context).common_title,
       theme: ThemeData(
