@@ -7,7 +7,7 @@ import 'package:just_audio/just_audio.dart';
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
-import '../gen/assets.gen.dart';
+import '../generated/assets.gen.dart';
 import '../models/waste_model.dart';
 import 'waste_card.dart';
 

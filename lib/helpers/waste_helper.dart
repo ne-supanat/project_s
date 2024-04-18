@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/services.dart';
-import 'package:project_s/gen/assets.gen.dart';
+import 'package:project_s/generated/assets.gen.dart';
 import 'package:project_s/models/waste_model.dart';
 
 class WasteHelper {

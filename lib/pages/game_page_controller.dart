@@ -8,7 +8,7 @@ import 'package:get_it/get_it.dart';
 import 'package:just_audio/just_audio.dart';
 import '../constants/chalenge_level.dart';
 import '../constants/level_resource.dart';
-import '../gen/assets.gen.dart';
+import '../generated/assets.gen.dart';
 import '../helpers/waste_helper.dart';
 
 import '../helpers/sharedpref.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../gen/assets.gen.dart';
+import '../generated/assets.gen.dart';
 import '../generated/l10n.dart';
 
 enum WasteType { general, organic, paper, plastic, aluminium, glass, hazardous, electronic }

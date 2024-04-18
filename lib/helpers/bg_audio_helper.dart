@@ -1,6 +1,6 @@
 import 'package:just_audio/just_audio.dart';
 
-import '../gen/assets.gen.dart';
+import '../generated/assets.gen.dart';
 
 class BgAudioHelper {
   final AudioPlayer _audioPlayer = AudioPlayer();

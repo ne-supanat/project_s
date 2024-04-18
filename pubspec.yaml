@@ -49,3 +49,6 @@ flutter_launcher_icons:
 
 flutter_intl:
   enabled: true
+
+flutter_gen:
+  output: lib/generated/

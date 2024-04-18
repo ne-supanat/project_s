@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
-import '../gen/assets.gen.dart';
+import '../generated/assets.gen.dart';
 import '../models/waste_model.dart';
 import '../generated/l10n.dart';
 
