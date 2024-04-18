@@ -16,7 +16,7 @@ import '../models/level_model.dart';
 import '../widgets/chalenge_end_dialog.dart';
 
 import '../../../../models/waste_model.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 import '../widgets/learning_end_dialog.dart';
 import 'game_page_view.dart';
 
@@ -142,7 +142,7 @@ class GamePageController extends Cubit<GamePageState> {
 
     if (levelModel == null) {
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text(TranslationKeys.game_page_level_not_found)));
+          .showSnackBar(SnackBar(content: Text(S.of(context).game_page_level_not_found)));
       Navigator.pop(context);
     }
 

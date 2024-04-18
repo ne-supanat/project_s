@@ -24,7 +24,7 @@ class _ChalengeItemState extends State<ChalengeItem> {
         minimumSize: const Size(double.infinity, 50),
       ),
       child: Text(
-        widget.level.string,
+        widget.level.string(context),
         style: AppTextStyle.base.size24.bold,
       ),
     );

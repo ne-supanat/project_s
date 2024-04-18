@@ -6,7 +6,7 @@ import 'package:project_s/widgets/menu_item.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 import '../widgets/knowledge_dialog.dart';
 import '../widgets/tutorial_dialog.dart';
 import 'chalenge_select_page_view.dart';
@@ -70,7 +70,7 @@ class _MainPageViewState extends State<MainPageView> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            TranslationKeys.main_page_start,
+            S.of(context).main_page_start,
             style: AppTextStyle.base.semibold.white.copyWith(
               fontSize: 28,
               shadows: const [Shadow(color: ColorNames.black, blurRadius: 10)],
@@ -103,7 +103,7 @@ class _MainPageViewState extends State<MainPageView> {
                     child: FittedBox(
                       fit: BoxFit.scaleDown,
                       child: Text(
-                        TranslationKeys.common_title,
+                        S.of(context).common_title,
                         style: AppTextStyle.base.bold.copyWith(
                           fontSize: 56,
                         ),
@@ -120,7 +120,7 @@ class _MainPageViewState extends State<MainPageView> {
                     MaterialPageRoute(builder: (context) => const LevelSelectPageView()),
                   );
                 },
-                text: TranslationKeys.main_page_learning,
+                text: S.of(context).main_page_learning,
               ),
               const SizedBox(height: 16),
               MenuItem(
@@ -130,21 +130,21 @@ class _MainPageViewState extends State<MainPageView> {
                     MaterialPageRoute(builder: (context) => const ChalengeSelectPageView()),
                   );
                 },
-                text: TranslationKeys.main_page_chalenge,
+                text: S.of(context).main_page_chalenge,
               ),
               const SizedBox(height: 16),
               MenuItem(
                 onTap: () {
                   showDialog(context: context, builder: (context) => const KnowledgeDialog());
                 },
-                text: TranslationKeys.main_page_knowledge,
+                text: S.of(context).main_page_knowledge,
               ),
               const SizedBox(height: 16),
               MenuItem(
                 onTap: () {
                   showDialog(context: context, builder: (context) => const TutorialDialog());
                 },
-                text: TranslationKeys.main_page_tutorial,
+                text: S.of(context).main_page_tutorial,
               ),
               const SizedBox(height: 24),
             ],

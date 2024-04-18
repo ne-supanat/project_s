@@ -4,7 +4,7 @@ import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
 import '../gen/assets.gen.dart';
 import '../models/waste_model.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 
 class TutorialDialog extends StatefulWidget {
   const TutorialDialog({super.key});
@@ -58,39 +58,39 @@ class _TutorialDialogState extends State<TutorialDialog> {
         padding: const EdgeInsets.all(16),
         child: Column(children: [
           const SizedBox(height: 16),
-          Text(TranslationKeys.tutorial_dialog_mode_title, style: AppTextStyle.base.size24.bold),
+          Text(S.of(context).tutorial_dialog_mode_title, style: AppTextStyle.base.size24.bold),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(TranslationKeys.tutorial_dialog_mode_learning_title,
+              Text(S.of(context).tutorial_dialog_mode_learning_title,
                   style: AppTextStyle.base.size16.bold),
-              Text(TranslationKeys.tutorial_dialog_mode_learning_desc,
+              Text(S.of(context).tutorial_dialog_mode_learning_desc,
                   style: AppTextStyle.base.size16),
               const SizedBox(height: 8),
-              Text(TranslationKeys.tutorial_dialog_mode_chalenge_title,
+              Text(S.of(context).tutorial_dialog_mode_chalenge_title,
                   style: AppTextStyle.base.size16.bold),
-              Text(TranslationKeys.tutorial_dialog_mode_chalenge_desc,
+              Text(S.of(context).tutorial_dialog_mode_chalenge_desc,
                   style: AppTextStyle.base.size16),
             ],
           ),
           const SizedBox(height: 16),
           _imageFrame(Assets.images.imgTutorialChalengeMode.path),
           const SizedBox(height: 16),
-          Text(TranslationKeys.tutorial_dialog_card_title, style: AppTextStyle.base.size24.bold),
+          Text(S.of(context).tutorial_dialog_card_title, style: AppTextStyle.base.size24.bold),
           const SizedBox(height: 8),
           _imageFrame(Assets.images.imgTutorialCard.path),
           const SizedBox(height: 8),
           Column(
             children: [
-              Text(TranslationKeys.tutorial_dialog_card_line1, style: AppTextStyle.base.size16),
-              Text(TranslationKeys.tutorial_dialog_card_line2, style: AppTextStyle.base.size16),
-              Text(TranslationKeys.tutorial_dialog_card_line3, style: AppTextStyle.base.size16),
+              Text(S.of(context).tutorial_dialog_card_line1, style: AppTextStyle.base.size16),
+              Text(S.of(context).tutorial_dialog_card_line2, style: AppTextStyle.base.size16),
+              Text(S.of(context).tutorial_dialog_card_line3, style: AppTextStyle.base.size16),
             ],
           ),
           const SizedBox(height: 16),
-          Text(TranslationKeys.tutorial_dialog_board_title, style: AppTextStyle.base.size24.bold),
+          Text(S.of(context).tutorial_dialog_board_title, style: AppTextStyle.base.size24.bold),
           Text(
-            TranslationKeys.tutorial_dialog_board_line1,
+            S.of(context).tutorial_dialog_board_line1,
             style: AppTextStyle.base.size16,
           ),
           const SizedBox(height: 16),
@@ -104,9 +104,9 @@ class _TutorialDialogState extends State<TutorialDialog> {
             ],
           ),
           const SizedBox(height: 8),
-          Text(TranslationKeys.tutorial_dialog_board_line2, style: AppTextStyle.base.size16),
+          Text(S.of(context).tutorial_dialog_board_line2, style: AppTextStyle.base.size16),
           const SizedBox(height: 16),
-          Text(TranslationKeys.tutorial_dialog_helper_title, style: AppTextStyle.base.size24.bold),
+          Text(S.of(context).tutorial_dialog_helper_title, style: AppTextStyle.base.size24.bold),
           Wrap(
             alignment: WrapAlignment.center,
             runSpacing: 16,
@@ -122,9 +122,9 @@ class _TutorialDialogState extends State<TutorialDialog> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(TranslationKeys.tutorial_dialog_helper_knowledge_title,
+                            Text(S.of(context).tutorial_dialog_helper_knowledge_title,
                                 style: AppTextStyle.base.size16.bold),
-                            Text(TranslationKeys.tutorial_dialog_helper_knowledge_decs,
+                            Text(S.of(context).tutorial_dialog_helper_knowledge_decs,
                                 style: AppTextStyle.base.size16),
                           ],
                         ),
@@ -148,9 +148,9 @@ class _TutorialDialogState extends State<TutorialDialog> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(TranslationKeys.tutorial_dialog_helper_hint_title,
+                            Text(S.of(context).tutorial_dialog_helper_hint_title,
                                 style: AppTextStyle.base.size16.bold),
-                            Text(TranslationKeys.tutorial_dialog_helper_hint_decs,
+                            Text(S.of(context).tutorial_dialog_helper_hint_decs,
                                 style: AppTextStyle.base.size16),
                           ],
                         ),

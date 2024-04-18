@@ -2,45 +2,17 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Spider: spider build",
+      "label": "Flutter: generate assets",
       "group": "build",
       "type": "shell",
-      "command": "spider",
-      "args": ["build"]
+      "command": "fluttergen"
     },
     {
-      "label": "Flutter gen resources",
+      "label": "Flutter: generate translations",
       "group": "build",
       "type": "shell",
       "command": "flutter",
-      "args": ["packages", "pub", "run", "tool/custom_builder.dart"]
-    },
-    {
-      "label": "Flutter: flutter clean",
-      "group": "build",
-      "type": "flutter",
-      "command": "flutter",
-      "args": ["clean"]
-    },
-    {
-      "label": "Flutter: flutter pub get",
-      "group": "build",
-      "type": "flutter",
-      "command": "flutter",
-      "args": ["pub", "get"]
-    },
-    {
-      "label": "Flutter: flutter pub run build_runner",
-      "group": "build",
-      "type": "flutter",
-      "command": "flutter",
-      "args": [
-        "pub",
-        "run",
-        "build_runner",
-        "build",
-        "--delete-conflicting-outputs"
-      ]
+      "args": ["gen-l10n"]
     }
   ]
 }

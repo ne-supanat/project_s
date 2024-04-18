@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_text_style.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 import 'menu_item.dart';
 import 'start_item.dart';
 
@@ -26,23 +26,23 @@ class LearningEndDialog extends StatelessWidget {
         children: [
           Text(
             score == 3
-                ? TranslationKeys.learning_end_dialog_star3
+                ? S.of(context).learning_end_dialog_star3
                 : score == 2
-                    ? TranslationKeys.learning_end_dialog_star2
+                    ? S.of(context).learning_end_dialog_star2
                     : score == 1
-                        ? TranslationKeys.learning_end_dialog_star1
-                        : TranslationKeys.learning_end_dialog_star0,
+                        ? S.of(context).learning_end_dialog_star1
+                        : S.of(context).learning_end_dialog_star0,
             style: AppTextStyle.base.size24.semibold,
             textAlign: TextAlign.center,
           ),
           Text(
             score == 3
-                ? TranslationKeys.learning_end_dialog_star3_sub
+                ? S.of(context).learning_end_dialog_star3_sub
                 : score == 2
-                    ? TranslationKeys.learning_end_dialog_star2_sub
+                    ? S.of(context).learning_end_dialog_star2_sub
                     : score == 1
-                        ? TranslationKeys.learning_end_dialog_star1_sub
-                        : TranslationKeys.learning_end_dialog_star0_sub,
+                        ? S.of(context).learning_end_dialog_star1_sub
+                        : S.of(context).learning_end_dialog_star0_sub,
             style: AppTextStyle.base.size16.semibold,
             textAlign: TextAlign.center,
           ),
@@ -54,12 +54,12 @@ class LearningEndDialog extends StatelessWidget {
           const SizedBox(height: 8),
           MenuItem(
             onTap: onPlayAgain,
-            text: TranslationKeys.learning_end_dialog_play_again,
+            text: S.of(context).learning_end_dialog_play_again,
           ),
           const SizedBox(height: 8),
           MenuItem(
             onTap: onBack,
-            text: TranslationKeys.learning_end_dialog_back,
+            text: S.of(context).learning_end_dialog_back,
           ),
         ],
       ),

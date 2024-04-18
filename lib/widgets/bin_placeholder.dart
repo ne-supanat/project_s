@@ -49,10 +49,11 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
   @override
   Widget build(BuildContext context) {
     return DragTarget<WasteModel>(
-      onWillAccept: (value) {
+      onWillAcceptWithDetails: (details) {
         return true;
       },
-      onAccept: (value) {
+      onAcceptWithDetails: (details) {
+        final value = details.data;
         if (value.type == widget.targetValue) {
           _audioPlayer.setAsset(Assets.audios.sfxCongratulations);
           _audioPlayer.play();
@@ -101,7 +102,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
                         color: ColorNames.white.withOpacity(0.8),
                       ),
                       Text(
-                        widget.targetValue.string,
+                        widget.targetValue.string(context),
                         style: AppTextStyle.base.bold
                             .copyWith(color: ColorNames.white.withOpacity(0.8)),
                       ),

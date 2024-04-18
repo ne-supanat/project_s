@@ -5,7 +5,7 @@ import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
 import '../helpers/waste_helper.dart';
 import '../models/waste_model.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 import 'knowledge_item.dart';
 
 class KnowledgeDialog extends StatefulWidget {
@@ -68,13 +68,13 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                   child: Column(
                     children: [
                       Text(
-                        TranslationKeys.knowledge_dialog_warning,
+                        S.of(context).knowledge_dialog_warning,
                         style: AppTextStyle.base.copyWith(fontSize: 14),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 4),
                       Text(
-                        TranslationKeys.knowledge_dialog_recommend,
+                        S.of(context).knowledge_dialog_recommend,
                         style: AppTextStyle.base.copyWith(fontSize: 14),
                         textAlign: TextAlign.center,
                       ),
@@ -94,7 +94,8 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                       backgroundColor:
                           isHover ? ColorNames.white.withOpacity(0.5) : Colors.transparent,
                       tilePadding: const EdgeInsets.only(left: 16, right: 8),
-                      title: Text(e.string, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
+                      title: Text(e.string(context),
+                          style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
                       leading: ImageIcon(
                         AssetImage(e.icon),
                         color: e.category.color,
@@ -124,10 +125,10 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
         children: [
           Text.rich(
             TextSpan(
-              text: TranslationKeys.knowledge_dialog_category,
+              text: S.of(context).knowledge_dialog_category,
               children: [
                 TextSpan(
-                  text: type.category.string,
+                  text: type.category.string(context),
                   style: AppTextStyle.base.bold.copyWith(color: type.category.color),
                 ),
               ],
@@ -136,7 +137,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
           ),
           const SizedBox(height: 8),
           Text(
-            type.description,
+            type.description(context),
             style: AppTextStyle.base,
           ),
           const SizedBox(height: 16),

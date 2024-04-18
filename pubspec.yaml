@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   cupertino_icons: ^1.0.2
   get_it: ^7.6.7
   flutter_bloc: ^8.1.4
@@ -20,15 +22,16 @@ dependencies:
   equatable: ^2.0.5
   just_audio: ^0.9.36
   flutter_launcher_icons: ^0.13.1
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
   flutter_gen: ^5.4.0
+  intl_utils: ^2.8.7
 
 flutter:
-
   uses-material-design: true
 
   assets:
@@ -43,3 +46,6 @@ flutter_launcher_icons:
   image_path: "assets/images/app_icon.png"
   image_path_ios: "assets/images/app_icon_sqaure.jpg"
   min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter_intl:
+  enabled: true

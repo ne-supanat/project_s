@@ -1,4 +1,4 @@
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 
 enum ChalengeLevel { beginner, normal, expert }
 
@@ -14,14 +14,14 @@ extension ChalengeLevelExtension on ChalengeLevel {
     }
   }
 
-  String get string {
+  String string(context) {
     switch (this) {
       case ChalengeLevel.beginner:
-        return TranslationKeys.chalenge_level_beginner;
+        return S.of(context).chalenge_level_beginner;
       case ChalengeLevel.normal:
-        return TranslationKeys.chalenge_level_normal;
+        return S.of(context).chalenge_level_normal;
       case ChalengeLevel.expert:
-        return TranslationKeys.chalenge_level_expert;
+        return S.of(context).chalenge_level_expert;
     }
   }
 }

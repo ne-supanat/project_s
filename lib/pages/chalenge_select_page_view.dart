@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../constants/app_text_style.dart';
 import '../constants/chalenge_level.dart';
 import '../constants/color_name.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 import '../widgets/app_back_button.dart';
 import '../widgets/app_scaffold.dart';
 import '../widgets/chalenge_item.dart';
@@ -36,7 +36,7 @@ class ChalengeSelectPageView extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  TranslationKeys.chalenge_level_select_page_title,
+                  S.of(context).chalenge_level_select_page_title,
                   style: AppTextStyle.base.size28.bold,
                 ),
                 const SizedBox(height: 24),

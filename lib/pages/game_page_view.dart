@@ -5,7 +5,7 @@ import '../widgets/app_scaffold.dart';
 import '../constants/chalenge_level.dart';
 import '../constants/color_name.dart';
 import '../constants/waste_type.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 import '../widgets/app_back_icon_button.dart';
 import '../widgets/bin_placeholder.dart';
 import '../widgets/knowledge_dialog.dart';
@@ -106,7 +106,7 @@ class _GamePageViewState extends State<GamePageView> with SingleTickerProviderSt
                           color: ColorNames.cream,
                         ),
                         child: Text(
-                          '${TranslationKeys.game_page_score}${controller.score}',
+                          '${S.of(context).game_page_score}${controller.score}',
                           style: AppTextStyle.base.semibold,
                         ),
                       ),

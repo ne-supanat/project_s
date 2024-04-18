@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/app_text_style.dart';
 import '../constants/color_name.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 
 class AppBackButton extends StatelessWidget {
   const AppBackButton({super.key});
@@ -21,7 +21,7 @@ class AppBackButton extends StatelessWidget {
           ),
           side: const BorderSide(width: 3, color: ColorNames.black)),
       child: Text(
-        TranslationKeys.common_back,
+        S.of(context).common_back,
         style: AppTextStyle.base.semibold.copyWith(
           fontSize: 20,
         ),

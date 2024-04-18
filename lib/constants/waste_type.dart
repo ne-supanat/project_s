@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../gen/assets.gen.dart';
-import '../resources/translation_keys.dart';
+import '../generated/l10n.dart';
 
 enum WasteType { general, organic, paper, plastic, aluminium, glass, hazardous, electronic }
 
@@ -50,45 +50,45 @@ extension WasteTypeExtension on WasteType {
     }
   }
 
-  String get string {
+  String string(context) {
     switch (this) {
       case WasteType.hazardous:
-        return TranslationKeys.waste_type_biohazard_name;
+        return S.of(context).waste_type_biohazard_name;
       case WasteType.electronic:
-        return TranslationKeys.waste_type_electronic_name;
+        return S.of(context).waste_type_electronic_name;
       case WasteType.paper:
-        return TranslationKeys.waste_type_paper_name;
+        return S.of(context).waste_type_paper_name;
       case WasteType.plastic:
-        return TranslationKeys.waste_type_plastic_name;
+        return S.of(context).waste_type_plastic_name;
       case WasteType.aluminium:
-        return TranslationKeys.waste_type_aluminium_name;
+        return S.of(context).waste_type_aluminium_name;
       case WasteType.glass:
-        return TranslationKeys.waste_type_glass_name;
+        return S.of(context).waste_type_glass_name;
       case WasteType.organic:
-        return TranslationKeys.waste_type_food_name;
+        return S.of(context).waste_type_food_name;
       case WasteType.general:
-        return TranslationKeys.waste_type_general_name;
+        return S.of(context).waste_type_general_name;
     }
   }
 
-  String get description {
+  String description(context) {
     switch (this) {
       case WasteType.hazardous:
-        return TranslationKeys.waste_type_biohazard_description;
+        return S.of(context).waste_type_biohazard_description;
       case WasteType.electronic:
-        return TranslationKeys.waste_type_electronic_description;
+        return S.of(context).waste_type_electronic_description;
       case WasteType.paper:
-        return TranslationKeys.waste_type_paper_description;
+        return S.of(context).waste_type_paper_description;
       case WasteType.plastic:
-        return TranslationKeys.waste_type_plastic_description;
+        return S.of(context).waste_type_plastic_description;
       case WasteType.aluminium:
-        return TranslationKeys.waste_type_aluminium_description;
+        return S.of(context).waste_type_aluminium_description;
       case WasteType.glass:
-        return TranslationKeys.waste_type_glass_description;
+        return S.of(context).waste_type_glass_description;
       case WasteType.organic:
-        return TranslationKeys.waste_type_food_description;
+        return S.of(context).waste_type_food_description;
       case WasteType.general:
-        return TranslationKeys.waste_type_general_description;
+        return S.of(context).waste_type_general_description;
     }
   }
 }
@@ -107,16 +107,16 @@ extension WasteCategoryExtension on WasteCategory {
     }
   }
 
-  String get string {
+  String string(context) {
     switch (this) {
       case WasteCategory.danger:
-        return TranslationKeys.waste_category_hazardous;
+        return S.of(context).waste_category_hazardous;
       case WasteCategory.recycle:
-        return TranslationKeys.waste_category_recyclable;
+        return S.of(context).waste_category_recyclable;
       case WasteCategory.general:
-        return TranslationKeys.waste_category_common;
+        return S.of(context).waste_category_common;
       case WasteCategory.organic:
-        return TranslationKeys.waste_category_organic;
+        return S.of(context).waste_category_organic;
     }
   }
 }
