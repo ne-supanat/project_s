@@ -114,7 +114,7 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
                             buildWhen: (previous, current) => previous.score != current.score,
                             builder: (context, state) {
                               return Text(
-                                '${S.of(context).game_page_score}${state.score}',
+                                S.of(context).game_page_score(state.score),
                                 style: AppTextStyle.base.semibold,
                               );
                             },

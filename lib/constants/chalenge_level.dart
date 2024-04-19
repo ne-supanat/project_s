@@ -14,14 +14,5 @@ extension ChalengeLevelExtension on ChalengeLevel {
     }
   }
 
-  String string(context) {
-    switch (this) {
-      case ChalengeLevel.beginner:
-        return S.of(context).chalenge_level_beginner;
-      case ChalengeLevel.normal:
-        return S.of(context).chalenge_level_normal;
-      case ChalengeLevel.expert:
-        return S.of(context).chalenge_level_expert;
-    }
-  }
+  String get string => S.current.chalenge_level(this);
 }

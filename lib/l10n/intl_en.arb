@@ -2,29 +2,30 @@
     "@@locale": "en",
     "common_title": "Waste Wise",
     "common_back": "Back",
-    "chalenge_level_beginner": "Beginner",
-    "chalenge_level_normal": "Normal",
-    "chalenge_level_expert": "Expert",
-    "waste_category_common": "General",
-    "waste_category_organic": "Organic",
-    "waste_category_recyclable": "Recyclable",
-    "waste_category_hazardous": "Hazardous",
-    "waste_type_general_name": "General",
-    "waste_type_general_description": "Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.",
-    "waste_type_food_name": "Organic",
-    "waste_type_food_description": "Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.",
-    "waste_type_paper_name": "Paper",
-    "waste_type_paper_description": "Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.",
-    "waste_type_plastic_name": "Plastic",
-    "waste_type_plastic_description": "There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).",
-    "waste_type_aluminium_name": "Aluminium",
-    "waste_type_aluminium_description": "Aluminum objects like cans, foil, and other aluminum packaging.",
-    "waste_type_glass_name": "Glass",
-    "waste_type_glass_description": "Glass containers and bottles that can be recycled, including clear, green, and brown glass.",
-    "waste_type_biohazard_name": "Hazardous",
-    "waste_type_biohazard_description": "Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.",
-    "waste_type_electronic_name": "Electronic",
-    "waste_type_electronic_description": "Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.",
+    "chalenge_level": "{level, select, beginner{Beginner} normal{Normal} expert{Expert}}",
+    "@chalenge_level": {
+        "placeholders": {
+            "level": {}
+        }
+    },
+    "waste_category_name": "{category, select, general{General} organic{Organic} recycle{Recyclable} danger{Hazardous}}",
+    "@waste_category_name": {
+        "placeholders": {
+            "category": {}
+        }
+    },
+    "waste_type_name": "{type, select, general{General} organic{Organic} paper{Paper} plastic{Plastic} aluminium{Aluminium} glass{Glass} hazardous{Hazardous} electronic{Electronic}}",
+    "@waste_type_name": {
+        "placeholders": {
+            "type": {}
+        }
+    },
+    "waste_type_description": "{type, select, general{Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.}  organic{Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.}  paper{Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.}  plastic{There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).} aluminium{Aluminum objects like cans, foil, and other aluminum packaging.}  glass{Glass containers and bottles that can be recycled, including clear, green, and brown glass.} hazardous{Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.}  electronic{Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.}}",
+    "@waste_type_description": {
+        "placeholders": {
+            "type": {}
+        }
+    },
     "main_page_start": "- Press Anything to Start -",
     "main_page_learning": "Learning",
     "main_page_chalenge": "Challenge",
@@ -52,7 +53,12 @@
     "tutorial_dialog_helper_hint_title": "Hint",
     "tutorial_dialog_helper_hint_decs": "Switch the visibility of hint on card",
     "game_page_level_not_found": "Level not found",
-    "game_page_score": "Score: ",
+    "game_page_score": "Score: {score}",
+    "@game_page_score": {
+        "placeholders": {
+            "score": {}
+        }
+    },
     "chalenge_end_dialog_score": "Score",
     "chalenge_end_dialog_new_high_score": "New High Score",
     "chalenge_end_dialog_high_score_is": "Your High Score is ",

@@ -102,7 +102,7 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
                         color: ColorNames.white.withOpacity(0.8),
                       ),
                       Text(
-                        widget.targetValue.string(context),
+                        widget.targetValue.string,
                         style: AppTextStyle.base.bold
                             .copyWith(color: ColorNames.white.withOpacity(0.8)),
                       ),

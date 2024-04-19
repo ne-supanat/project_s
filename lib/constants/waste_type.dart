@@ -50,47 +50,8 @@ extension WasteTypeExtension on WasteType {
     }
   }
 
-  String string(context) {
-    switch (this) {
-      case WasteType.hazardous:
-        return S.of(context).waste_type_biohazard_name;
-      case WasteType.electronic:
-        return S.of(context).waste_type_electronic_name;
-      case WasteType.paper:
-        return S.of(context).waste_type_paper_name;
-      case WasteType.plastic:
-        return S.of(context).waste_type_plastic_name;
-      case WasteType.aluminium:
-        return S.of(context).waste_type_aluminium_name;
-      case WasteType.glass:
-        return S.of(context).waste_type_glass_name;
-      case WasteType.organic:
-        return S.of(context).waste_type_food_name;
-      case WasteType.general:
-        return S.of(context).waste_type_general_name;
-    }
-  }
-
-  String description(context) {
-    switch (this) {
-      case WasteType.hazardous:
-        return S.of(context).waste_type_biohazard_description;
-      case WasteType.electronic:
-        return S.of(context).waste_type_electronic_description;
-      case WasteType.paper:
-        return S.of(context).waste_type_paper_description;
-      case WasteType.plastic:
-        return S.of(context).waste_type_plastic_description;
-      case WasteType.aluminium:
-        return S.of(context).waste_type_aluminium_description;
-      case WasteType.glass:
-        return S.of(context).waste_type_glass_description;
-      case WasteType.organic:
-        return S.of(context).waste_type_food_description;
-      case WasteType.general:
-        return S.of(context).waste_type_general_description;
-    }
-  }
+  String get string => S.current.waste_type_name(this);
+  String get description => S.current.waste_type_description(this);
 }
 
 extension WasteCategoryExtension on WasteCategory {
@@ -107,16 +68,5 @@ extension WasteCategoryExtension on WasteCategory {
     }
   }
 
-  String string(context) {
-    switch (this) {
-      case WasteCategory.danger:
-        return S.of(context).waste_category_hazardous;
-      case WasteCategory.recycle:
-        return S.of(context).waste_category_recyclable;
-      case WasteCategory.general:
-        return S.of(context).waste_category_common;
-      case WasteCategory.organic:
-        return S.of(context).waste_category_organic;
-    }
-  }
+  String get string => S.current.waste_category_name(this);
 }

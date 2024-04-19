@@ -20,6 +20,51 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(level) => "${Intl.select(level, {
+            'beginner': 'Beginner',
+            'normal': 'Normal',
+            'expert': 'Expert',
+          })}";
+
+  static String m1(score) => "Score: ${score}";
+
+  static String m2(category) => "${Intl.select(category, {
+            'general': 'General',
+            'organic': 'Organic',
+            'recycle': 'Recyclable',
+            'danger': 'Hazardous',
+          })}";
+
+  static String m3(type) => "${Intl.select(type, {
+            'general':
+                'Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.',
+            'organic':
+                'Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.',
+            'paper':
+                'Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.',
+            'plastic':
+                'There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).',
+            'aluminium':
+                'Aluminum objects like cans, foil, and other aluminum packaging.',
+            'glass':
+                'Glass containers and bottles that can be recycled, including clear, green, and brown glass.',
+            'hazardous':
+                'Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.',
+            'electronic':
+                'Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.',
+          })}";
+
+  static String m4(type) => "${Intl.select(type, {
+            'general': 'General',
+            'organic': 'Organic',
+            'paper': 'Paper',
+            'plastic': 'Plastic',
+            'aluminium': 'Aluminium',
+            'glass': 'Glass',
+            'hazardous': 'Hazardous',
+            'electronic': 'Electronic',
+          })}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "chalenge_end_dialog_back":
@@ -32,17 +77,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Play Again"),
         "chalenge_end_dialog_score":
             MessageLookupByLibrary.simpleMessage("Score"),
-        "chalenge_level_beginner":
-            MessageLookupByLibrary.simpleMessage("Beginner"),
-        "chalenge_level_expert": MessageLookupByLibrary.simpleMessage("Expert"),
-        "chalenge_level_normal": MessageLookupByLibrary.simpleMessage("Normal"),
+        "chalenge_level": m0,
         "chalenge_level_select_page_title":
             MessageLookupByLibrary.simpleMessage("- Difficulty -"),
         "common_back": MessageLookupByLibrary.simpleMessage("Back"),
         "common_title": MessageLookupByLibrary.simpleMessage("Waste Wise"),
         "game_page_level_not_found":
             MessageLookupByLibrary.simpleMessage("Level not found"),
-        "game_page_score": MessageLookupByLibrary.simpleMessage("Score: "),
+        "game_page_score": m1,
         "knowledge_dialog_category":
             MessageLookupByLibrary.simpleMessage("Category: "),
         "knowledge_dialog_recommend": MessageLookupByLibrary.simpleMessage(
@@ -112,42 +154,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("1. Learning"),
         "tutorial_dialog_mode_title":
             MessageLookupByLibrary.simpleMessage("Mode"),
-        "waste_category_common":
-            MessageLookupByLibrary.simpleMessage("General"),
-        "waste_category_hazardous":
-            MessageLookupByLibrary.simpleMessage("Hazardous"),
-        "waste_category_organic":
-            MessageLookupByLibrary.simpleMessage("Organic"),
-        "waste_category_recyclable":
-            MessageLookupByLibrary.simpleMessage("Recyclable"),
-        "waste_type_aluminium_description": MessageLookupByLibrary.simpleMessage(
-            "Aluminum objects like cans, foil, and other aluminum packaging."),
-        "waste_type_aluminium_name":
-            MessageLookupByLibrary.simpleMessage("Aluminium"),
-        "waste_type_biohazard_description": MessageLookupByLibrary.simpleMessage(
-            "Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals."),
-        "waste_type_biohazard_name":
-            MessageLookupByLibrary.simpleMessage("Hazardous"),
-        "waste_type_electronic_description": MessageLookupByLibrary.simpleMessage(
-            "Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly."),
-        "waste_type_electronic_name":
-            MessageLookupByLibrary.simpleMessage("Electronic"),
-        "waste_type_food_description": MessageLookupByLibrary.simpleMessage(
-            "Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings."),
-        "waste_type_food_name": MessageLookupByLibrary.simpleMessage("Organic"),
-        "waste_type_general_description": MessageLookupByLibrary.simpleMessage(
-            "Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag."),
-        "waste_type_general_name":
-            MessageLookupByLibrary.simpleMessage("General"),
-        "waste_type_glass_description": MessageLookupByLibrary.simpleMessage(
-            "Glass containers and bottles that can be recycled, including clear, green, and brown glass."),
-        "waste_type_glass_name": MessageLookupByLibrary.simpleMessage("Glass"),
-        "waste_type_paper_description": MessageLookupByLibrary.simpleMessage(
-            "Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper."),
-        "waste_type_paper_name": MessageLookupByLibrary.simpleMessage("Paper"),
-        "waste_type_plastic_description": MessageLookupByLibrary.simpleMessage(
-            "There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride)."),
-        "waste_type_plastic_name":
-            MessageLookupByLibrary.simpleMessage("Plastic")
+        "waste_category_name": m2,
+        "waste_type_description": m3,
+        "waste_type_name": m4
       };
 }

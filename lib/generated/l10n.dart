@@ -70,233 +70,82 @@ class S {
     );
   }
 
-  /// `Beginner`
-  String get chalenge_level_beginner {
-    return Intl.message(
-      'Beginner',
-      name: 'chalenge_level_beginner',
+  /// `{level, select, beginner{Beginner} normal{Normal} expert{Expert}}`
+  String chalenge_level(Object level) {
+    return Intl.select(
+      level,
+      {
+        'beginner': 'Beginner',
+        'normal': 'Normal',
+        'expert': 'Expert',
+      },
+      name: 'chalenge_level',
       desc: '',
-      args: [],
+      args: [level],
     );
   }
 
-  /// `Normal`
-  String get chalenge_level_normal {
-    return Intl.message(
-      'Normal',
-      name: 'chalenge_level_normal',
+  /// `{category, select, general{General} organic{Organic} recycle{Recyclable} danger{Hazardous}}`
+  String waste_category_name(Object category) {
+    return Intl.select(
+      category,
+      {
+        'general': 'General',
+        'organic': 'Organic',
+        'recycle': 'Recyclable',
+        'danger': 'Hazardous',
+      },
+      name: 'waste_category_name',
       desc: '',
-      args: [],
+      args: [category],
     );
   }
 
-  /// `Expert`
-  String get chalenge_level_expert {
-    return Intl.message(
-      'Expert',
-      name: 'chalenge_level_expert',
+  /// `{type, select, general{General} organic{Organic} paper{Paper} plastic{Plastic} aluminium{Aluminium} glass{Glass} hazardous{Hazardous} electronic{Electronic}}`
+  String waste_type_name(Object type) {
+    return Intl.select(
+      type,
+      {
+        'general': 'General',
+        'organic': 'Organic',
+        'paper': 'Paper',
+        'plastic': 'Plastic',
+        'aluminium': 'Aluminium',
+        'glass': 'Glass',
+        'hazardous': 'Hazardous',
+        'electronic': 'Electronic',
+      },
+      name: 'waste_type_name',
       desc: '',
-      args: [],
+      args: [type],
     );
   }
 
-  /// `General`
-  String get waste_category_common {
-    return Intl.message(
-      'General',
-      name: 'waste_category_common',
+  /// `{type, select, general{Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.}  organic{Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.}  paper{Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.}  plastic{There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).} aluminium{Aluminum objects like cans, foil, and other aluminum packaging.}  glass{Glass containers and bottles that can be recycled, including clear, green, and brown glass.} hazardous{Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.}  electronic{Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.}}`
+  String waste_type_description(Object type) {
+    return Intl.select(
+      type,
+      {
+        'general':
+            'Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.',
+        'organic':
+            'Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.',
+        'paper':
+            'Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.',
+        'plastic':
+            'There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).',
+        'aluminium':
+            'Aluminum objects like cans, foil, and other aluminum packaging.',
+        'glass':
+            'Glass containers and bottles that can be recycled, including clear, green, and brown glass.',
+        'hazardous':
+            'Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.',
+        'electronic':
+            'Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.',
+      },
+      name: 'waste_type_description',
       desc: '',
-      args: [],
-    );
-  }
-
-  /// `Organic`
-  String get waste_category_organic {
-    return Intl.message(
-      'Organic',
-      name: 'waste_category_organic',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Recyclable`
-  String get waste_category_recyclable {
-    return Intl.message(
-      'Recyclable',
-      name: 'waste_category_recyclable',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Hazardous`
-  String get waste_category_hazardous {
-    return Intl.message(
-      'Hazardous',
-      name: 'waste_category_hazardous',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `General`
-  String get waste_type_general_name {
-    return Intl.message(
-      'General',
-      name: 'waste_type_general_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.`
-  String get waste_type_general_description {
-    return Intl.message(
-      'Everyday household waste that cannot be recycled, including items like used tissues, straw, and plastic bag.',
-      name: 'waste_type_general_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Organic`
-  String get waste_type_food_name {
-    return Intl.message(
-      'Organic',
-      name: 'waste_type_food_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.`
-  String get waste_type_food_description {
-    return Intl.message(
-      'Organic waste is biodegradable waste from kitchen scraps and yard trimmings, such as fruit peels, vegetable scraps, and grass clippings.',
-      name: 'waste_type_food_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Paper`
-  String get waste_type_paper_name {
-    return Intl.message(
-      'Paper',
-      name: 'waste_type_paper_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.`
-  String get waste_type_paper_description {
-    return Intl.message(
-      'Paper-based materials that can be recycled, such as newspapers, magazines, cardboard boxes, and office paper.',
-      name: 'waste_type_paper_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Plastic`
-  String get waste_type_plastic_name {
-    return Intl.message(
-      'Plastic',
-      name: 'waste_type_plastic_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).`
-  String get waste_type_plastic_description {
-    return Intl.message(
-      'There are various types of plastic containers, bottles, and packaging that can be recycled, containing a symbol of PET (polyethylene terephthalate), HDPE (high-density polyethylene), and PVC (polyvinyl chloride).',
-      name: 'waste_type_plastic_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Aluminium`
-  String get waste_type_aluminium_name {
-    return Intl.message(
-      'Aluminium',
-      name: 'waste_type_aluminium_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Aluminum objects like cans, foil, and other aluminum packaging.`
-  String get waste_type_aluminium_description {
-    return Intl.message(
-      'Aluminum objects like cans, foil, and other aluminum packaging.',
-      name: 'waste_type_aluminium_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Glass`
-  String get waste_type_glass_name {
-    return Intl.message(
-      'Glass',
-      name: 'waste_type_glass_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Glass containers and bottles that can be recycled, including clear, green, and brown glass.`
-  String get waste_type_glass_description {
-    return Intl.message(
-      'Glass containers and bottles that can be recycled, including clear, green, and brown glass.',
-      name: 'waste_type_glass_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Hazardous`
-  String get waste_type_biohazard_name {
-    return Intl.message(
-      'Hazardous',
-      name: 'waste_type_biohazard_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.`
-  String get waste_type_biohazard_description {
-    return Intl.message(
-      'Materials that might be dangerous to human health or the environment, such as batteries, pesticides, and certain household chemicals.',
-      name: 'waste_type_biohazard_description',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Electronic`
-  String get waste_type_electronic_name {
-    return Intl.message(
-      'Electronic',
-      name: 'waste_type_electronic_name',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.`
-  String get waste_type_electronic_description {
-    return Intl.message(
-      'Discarded electronic devices like computers, cell phones, and televisions, which contain hazardous materials and should be recycled responsibly.',
-      name: 'waste_type_electronic_description',
-      desc: '',
-      args: [],
+      args: [type],
     );
   }
 
@@ -570,13 +419,13 @@ class S {
     );
   }
 
-  /// `Score: `
-  String get game_page_score {
+  /// `Score: {score}`
+  String game_page_score(Object score) {
     return Intl.message(
-      'Score: ',
+      'Score: $score',
       name: 'game_page_score',
       desc: '',
-      args: [],
+      args: [score],
     );
   }
 

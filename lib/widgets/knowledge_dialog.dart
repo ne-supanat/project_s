@@ -94,8 +94,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
                       backgroundColor:
                           isHover ? ColorNames.white.withOpacity(0.5) : Colors.transparent,
                       tilePadding: const EdgeInsets.only(left: 16, right: 8),
-                      title: Text(e.string(context),
-                          style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
+                      title: Text(e.string, style: AppTextStyle.base.bold.copyWith(fontSize: 20)),
                       leading: ImageIcon(
                         AssetImage(e.icon),
                         color: e.category.color,
@@ -128,7 +127,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
               text: S.of(context).knowledge_dialog_category,
               children: [
                 TextSpan(
-                  text: type.category.string(context),
+                  text: type.category.string,
                   style: AppTextStyle.base.bold.copyWith(color: type.category.color),
                 ),
               ],
@@ -137,7 +136,7 @@ class _KnowledgeDialogState extends State<KnowledgeDialog> {
           ),
           const SizedBox(height: 8),
           Text(
-            type.description(context),
+            type.description,
             style: AppTextStyle.base,
           ),
           const SizedBox(height: 16),
