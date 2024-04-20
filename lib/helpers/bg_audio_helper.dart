@@ -14,9 +14,9 @@ class BgAudioHelper {
   }
 
   play() {
-    // _audioPlayer.play();
-    // _audioPlayer.setLoopMode(LoopMode.one);
-    // _audioPlayer.setVolume(0.7);
+    _audioPlayer.play();
+    _audioPlayer.setLoopMode(LoopMode.one);
+    _audioPlayer.setVolume(0.7);
   }
 
   pause() {
