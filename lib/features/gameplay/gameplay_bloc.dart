@@ -133,10 +133,10 @@ class GameplayBloc extends Cubit<GameplayState> {
   }
 
   dipose() {
+    timer?.cancel();
     if (chalengeLevel != null) {
       animationController.dispose();
     }
-    timer?.cancel();
   }
 
   _startLearningMode(context) {
@@ -201,7 +201,9 @@ class GameplayBloc extends Cubit<GameplayState> {
     timeRemainPercentageAnimation = Tween<double>(begin: 1, end: 0).animate(animationController);
 
     timeRemainPercentageAnimation.addListener(() {
-      emit(state.copyWith(timeRemainPercentage: timeRemainPercentageAnimation.value));
+      if (!isClosed) {
+        emit(state.copyWith(timeRemainPercentage: timeRemainPercentageAnimation.value));
+      }
     });
 
     animationController.forward();
@@ -306,11 +308,9 @@ class GameplayBloc extends Cubit<GameplayState> {
   }
 
   spawnCardEffect() async {
-    emit(state.copyWith(cardScale: 1.01));
-    emit(state.copyWith(cardSlide: const Offset(0.0, -0.02)));
+    emit(state.copyWith(cardScale: 1.01, cardSlide: const Offset(0.0, -0.02)));
     await Future.delayed(const Duration(milliseconds: 100));
-    emit(state.copyWith(cardScale: 1));
-    emit(state.copyWith(cardSlide: Offset.zero));
+    emit(state.copyWith(cardScale: 1, cardSlide: Offset.zero));
   }
 
   clearQueue() {

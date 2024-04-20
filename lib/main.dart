@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:project_s/generated/assets.gen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,7 +27,7 @@ initDI() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
 
   getIt.registerSingleton<SharedPref>(SharedPref(prefs));
-  getIt.registerSingleton<BgAudioHelper>(BgAudioHelper());
+  getIt.registerSingleton<BgAudioHelper>(BgAudioHelper(AudioPlayer()));
 }
 
 class MyApp extends StatelessWidget {

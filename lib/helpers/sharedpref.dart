@@ -22,7 +22,7 @@ class SharedPref {
     await prefs.setInt('${chalengeHighScoreKey}_$level', score);
   }
 
-  int getLearningLevelScore(int level) {
+  int getLearningLevelScore(int? level) {
     return prefs.getInt('${chalengeHighScoreKey}_$level') ?? 0;
   }
 }
