@@ -5,7 +5,6 @@ import 'package:project_s/generated/assets.gen.dart';
 
 void main() {
   test('jsons assets test', () {
-    expect(File(Assets.jsons.translation).existsSync(), isTrue);
     expect(File(Assets.jsons.wastes).existsSync(), isTrue);
   });
 }

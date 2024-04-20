@@ -297,9 +297,11 @@ class GameplayBloc extends Cubit<GameplayState> {
       wastes.removeAt(0);
     } else {
       int newIndex = lastIndex;
+
       do {
         newIndex = Random().nextInt(wastes.length);
       } while (newIndex == lastIndex);
+
       lastIndex = newIndex;
       emit(state.copyWith(queue: _queue..add(wastes[newIndex])));
     }

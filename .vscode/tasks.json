@@ -8,11 +8,17 @@
       "command": "fluttergen"
     },
     {
-      "label": "Flutter: generate translations",
+      "label": "Flutter: build runner",
       "group": "build",
       "type": "shell",
       "command": "flutter",
-      "args": ["gen-l10n"]
+      "args": [
+        "pub",
+        "run",
+        "build_runner",
+        "build",
+        "--delete-conflicting-outputs"
+      ]
     }
   ]
 }
