@@ -235,14 +235,9 @@ class _GameplayViewState extends State<GameplayView> with SingleTickerProviderSt
               duration: const Duration(milliseconds: 50),
               curve: Curves.ease,
               child: state.queue.isNotEmpty
-                  ? _blocBuilder(
-                      buildWhen: (previous, current) => previous.showHint != current.showHint,
-                      builder: (context, state) {
-                        return WasteCard(
-                          value: state.queue.first,
-                          showHint: state.showHint,
-                        );
-                      },
+                  ? WasteCard(
+                      value: state.queue.first,
+                      showHint: state.showHint,
                     )
                   : const SizedBox(),
             ),

@@ -71,11 +71,12 @@ class GameplayState {
     );
   }
 
-  cardChanged(GameplayState otherState) {
-    return cardScale != otherState.cardScale ||
-        cardSlide != otherState.cardSlide ||
-        shakeOffset != otherState.shakeOffset ||
-        queue != otherState.queue;
+  cardChanged(GameplayState newState) {
+    return showHint != newState.showHint ||
+        cardScale != newState.cardScale ||
+        cardSlide != newState.cardSlide ||
+        shakeOffset != newState.shakeOffset ||
+        queue != newState.queue;
   }
 }
 
