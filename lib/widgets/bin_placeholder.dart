@@ -47,6 +47,12 @@ class _BinPlaceHolderState extends State<BinPlaceHolder> {
   }
 
   @override
+  void dispose() {
+    super.dispose();
+    _audioPlayer.stop();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return DragTarget<WasteModel>(
       onWillAcceptWithDetails: (details) {

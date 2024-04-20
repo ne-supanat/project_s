@@ -122,9 +122,6 @@ class GameplayBloc extends Cubit<GameplayState> {
     level = arguments.level;
     chalengeLevel = arguments.chalengeLevel;
 
-    _audioPlayer.setAsset(Assets.audios.sfxTwinkle);
-    _audioPlayer.setVolume(0.75);
-
     if (level != null) {
       _startLearningMode(context);
     } else {
@@ -134,6 +131,7 @@ class GameplayBloc extends Cubit<GameplayState> {
   }
 
   dipose() {
+    _audioPlayer.stop();
     timer?.cancel();
     if (chalengeLevel != null) {
       animationController.dispose();
@@ -176,7 +174,7 @@ class GameplayBloc extends Cubit<GameplayState> {
       await _sharedPref.writeLearningLevelScore(level!, starScore.toInt());
     }
 
-    _audioPlayer.play();
+    _playEndDialogSound();
 
     await showDialog(
       context: context,
@@ -235,7 +233,8 @@ class GameplayBloc extends Cubit<GameplayState> {
   }
 
   _onEndChalengeMode(context) async {
-    _audioPlayer.play();
+    _playEndDialogSound();
+
     await showDialog(
       context: context,
       barrierDismissible: false,
@@ -326,5 +325,11 @@ class GameplayBloc extends Cubit<GameplayState> {
 
   updateShowHint(bool value) {
     emit(state.copyWith(showHint: value));
+  }
+
+  _playEndDialogSound() async {
+    _audioPlayer.setVolume(0.75);
+    _audioPlayer.setAsset(Assets.audios.sfxTwinkle);
+    _audioPlayer.play();
   }
 }
