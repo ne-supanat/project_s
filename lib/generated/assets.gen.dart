@@ -12,10 +12,6 @@ import 'package:flutter/widgets.dart';
 class $AssetsAudiosGen {
   const $AssetsAudiosGen();
 
-  /// File path: assets/audios/music_hotham_morning_bliss.mp3
-  String get musicHothamMorningBliss =>
-      'assets/audios/music_hotham_morning_bliss.mp3';
-
   /// File path: assets/audios/music_take_your_time_dan_lebowitz.mp3
   String get musicTakeYourTimeDanLebowitz =>
       'assets/audios/music_take_your_time_dan_lebowitz.mp3';
@@ -30,13 +26,8 @@ class $AssetsAudiosGen {
   String get sfxTwinkle => 'assets/audios/sfx_twinkle.mp3';
 
   /// List of all assets
-  List<String> get values => [
-        musicHothamMorningBliss,
-        musicTakeYourTimeDanLebowitz,
-        sfxBoing,
-        sfxCongratulations,
-        sfxTwinkle
-      ];
+  List<String> get values =>
+      [musicTakeYourTimeDanLebowitz, sfxBoing, sfxCongratulations, sfxTwinkle];
 }
 
 class $AssetsImagesGen {
@@ -410,24 +401,11 @@ class $AssetsImagesGen {
 class $AssetsJsonsGen {
   const $AssetsJsonsGen();
 
-  /// File path: assets/jsons/translation.json
-  String get translation => 'assets/jsons/translation.json';
-
   /// File path: assets/jsons/wastes.json
   String get wastes => 'assets/jsons/wastes.json';
 
   /// List of all assets
-  List<String> get values => [translation, wastes];
-}
-
-class $AssetsTranslationsGen {
-  const $AssetsTranslationsGen();
-
-  /// File path: assets/translations/translation.json
-  String get translation => 'assets/translations/translation.json';
-
-  /// List of all assets
-  List<String> get values => [translation];
+  List<String> get values => [wastes];
 }
 
 class Assets {
@@ -436,7 +414,6 @@ class Assets {
   static const $AssetsAudiosGen audios = $AssetsAudiosGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
   static const $AssetsJsonsGen jsons = $AssetsJsonsGen();
-  static const $AssetsTranslationsGen translations = $AssetsTranslationsGen();
 }
 
 class AssetGenImage {

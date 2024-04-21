@@ -5,7 +5,6 @@ import 'package:project_s/generated/assets.gen.dart';
 
 void main() {
   test('audios assets test', () {
-    expect(File(Assets.audios.musicHothamMorningBliss).existsSync(), isTrue);
     expect(File(Assets.audios.musicTakeYourTimeDanLebowitz).existsSync(), isTrue);
     expect(File(Assets.audios.sfxBoing).existsSync(), isTrue);
     expect(File(Assets.audios.sfxCongratulations).existsSync(), isTrue);
