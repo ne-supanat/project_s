@@ -19,10 +19,10 @@ class SharedPref {
   }
 
   Future<void> writeLearningLevelScore(int level, int score) async {
-    await prefs.setInt('${chalengeHighScoreKey}_$level', score);
+    await prefs.setInt('${learningLevelScoreKey}_$level', score);
   }
 
   int getLearningLevelScore(int? level) {
-    return prefs.getInt('${chalengeHighScoreKey}_$level') ?? 0;
+    return prefs.getInt('${learningLevelScoreKey}_$level') ?? 0;
   }
 }
